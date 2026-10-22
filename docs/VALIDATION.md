@@ -16,13 +16,23 @@ By Jason Stys. Synthetic exercise evidence only. Local Windows verification and 
 - Three-run median search timings: wildfire 34.540 ms; flood 31.706 ms; search 35.134 ms; restoration 37.928 ms. Each fully enumerated 2,789 states. Maximum-size fixture: 1,210.838 ms median, 25,000 states, `truncated=true`, `optimal=false`; three independently revalidated feasible alternatives. Timing is an observation, not an operational SLO.
 - CLI help and non-overwriting initialization were exercised against a separate synthetic database. Browser acceptance launches the same application factory and real SQL store. Starlette emits a known httpx TestClient deprecation warning; it is visible and not counted as a failed test or silently suppressed.
 
-## Final acceptance
+## Hosted acceptance — source baseline `9b03261d0294d9f003be33f80b20bd035da4d4bd`
 
-Final browser, cross-platform Actions, benchmark, source checks and CodeQL evidence will be recorded here after completion. See [Validation workflow](https://github.com/JasonStys/first-response-drone-coordinator/actions/workflows/validate.yml) and [CodeQL workflow](https://github.com/JasonStys/first-response-drone-coordinator/actions/workflows/codeql.yml) for exact commit-linked logs, including retained failed attempts if any.
+[Validation run 39710960594](https://github.com/JasonStys/first-response-drone-coordinator/actions/runs/39710960594) tests the actual source baseline, with no mocked service routes:
+
+- Ubuntu 24.04 / Python 3.12: passed, 68 backend cases and 21 helper cases, lint/format/index contracts, production build, payload budget and deterministic benchmark.
+- Windows / Python 3.14: passed the same full core suite; branch-aware coverage 97.96% (frontend assets are not built yet during core API tests).
+- macOS / Python 3.14: passed the full core suite.
+- Ubuntu 24.04 / Python 3.14: passed the full core suite, benchmark, Python dependency audit and final npm audit. **The overall Validation run completed successfully with all five jobs green.**
+- Actual-service browser job on Ubuntu: **12/12 passed**, Chromium/Firefox/WebKit, zero retries, 24.3 seconds test duration.
+
+[CodeQL run 39710960443](https://github.com/JasonStys/first-response-drone-coordinator/actions/runs/39710960443) passed both Python and JavaScript/TypeScript security-and-quality jobs. Open code-scanning alerts were separately queried after analysis: **zero**. No source change, audit bypass or reduced threshold was required for the observed npm registry delays; completed install steps reported zero vulnerabilities.
+
+The documentation/evidence update repeats the unchanged full gates on its own head commit. Current status remains visible in the [Validation workflow](https://github.com/JasonStys/first-response-drone-coordinator/actions/workflows/validate.yml) and [CodeQL workflow](https://github.com/JasonStys/first-response-drone-coordinator/actions/workflows/codeql.yml); these links expose exact source identity rather than suggesting this dated snapshot proves arbitrary future commits.
 
 ## Actions storage
 
-Before any new workflow was triggered: 97 owned repositories, 62,959,952 bytes of Actions artifacts (~63.0 MB decimal); 8,185,324,614 bytes of separate caches (~8.19 GB). GitHub quota percentage unavailable; private-repository artifact bytes zero. No runs, artifacts or caches were deleted. This repo's workflows intentionally upload neither artifacts nor Actions caches. A fresh account-wide observation is recorded at final handoff.
+Before any new workflow was triggered: 97 owned repositories, 62,959,952 bytes of Actions artifacts (~63.0 MB decimal); 8,185,324,614 bytes of separate caches (~8.19 GB). GitHub quota percentage unavailable; private-repository artifact bytes zero. Fresh check at 2026-10-21 19:24:59 PDT: 98 repositories and those same byte counts. The new repository has zero Actions artifacts. No runs, artifacts or caches were deleted. Workflows intentionally upload neither artifacts nor Actions caches.
 
 ## Limits
 
