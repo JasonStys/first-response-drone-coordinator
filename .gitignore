@@ -1,0 +1,15 @@
+# Jason Stys: exclude private accounts, runtime evidence, dependencies and generated builds.
+.venv/
+.runtime/
+node_modules/
+dist/
+coverage/
+test-results/
+playwright-report/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.coverage*
+*.db*
+.env*
+!.env.example

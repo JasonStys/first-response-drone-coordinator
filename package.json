@@ -1,0 +1,35 @@
+{
+  "name": "first-response-drone-coordinator",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "scripts": {
+    "build": "tsc --noEmit && vite build",
+    "test": "vitest run --coverage",
+    "test:e2e": "playwright test",
+    "format": "prettier --write ui tests/browser package.json tsconfig.json vite.config.ts playwright.config.ts tools/source_index.mjs",
+    "format:check": "prettier --check ui tests/browser package.json tsconfig.json vite.config.ts playwright.config.ts tools/source_index.mjs",
+    "audit": "npm audit --audit-level=high"
+  },
+  "dependencies": {
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "26.6.5",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "typescript": "6.0.3",
+    "vite": "8.3.5",
+    "@vitejs/plugin-react": "6.1.2",
+    "vitest": "5.0.5",
+    "@vitest/coverage-v8": "5.0.5",
+    "@playwright/test": "1.64.1",
+    "@axe-core/playwright": "4.14.0",
+    "prettier": "3.9.10"
+  }
+}
