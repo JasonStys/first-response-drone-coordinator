@@ -41,8 +41,9 @@ jobs:
       - run: python tools/benchmark.py
       - if: matrix.os == 'ubuntu-24.04' && matrix.python == '3.14'
         run: python -m pip_audit --disable-pip --no-deps -r requirements-dev.lock
-      - if: matrix.os == 'windows-latest' && matrix.python == '3.14'
-        run: npm run audit
+      - if: matrix.os == 'ubuntu-24.04' && matrix.python == '3.14'
+        name: Required live OSV audit / complete locked npm inventory / zero findings
+        run: python tools/audit_osv.py
   browser:
     name: Actual API / Chromium + Firefox + WebKit
     runs-on: ubuntu-24.04

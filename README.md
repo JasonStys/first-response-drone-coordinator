@@ -68,7 +68,7 @@ npm run build
 .venv/Scripts/python tools/docs_index.py --check
 .venv/Scripts/python tools/check_repo.py --dist
 .venv/Scripts/python -m pip_audit --disable-pip --no-deps -r requirements-dev.lock
-npm run audit
+.venv/Scripts/python tools/audit_osv.py
 # Install matching browser binaries once:
 npx playwright install chromium firefox webkit
 $env:COORD_PYTHON = (Resolve-Path .venv/Scripts/python.exe).Path
@@ -76,7 +76,9 @@ npm run test:e2e
 .venv/Scripts/python tools/benchmark.py
 ```
 
-On POSIX use `COORD_PYTHON="$PWD/.venv/bin/python" npm run test:e2e`. CI also installs Linux browser system dependencies. `npm run audit` uses a strict full-lockfile audit with bounded retries for transient registry outages; a missing/incomplete audit fails closed. Install-time `--no-audit` avoids redundant incidental requests; the dedicated required audit still runs. CI uses Windows for that platform-independent lockfile gate and Linux for Python dependency auditing. Coverage gates: backend ≥90% branch-aware over `coordinator/` excluding only the interactive CLI; TypeScript pure helper statements/functions/lines ≥95%, branches ≥90%. Browser coverage is behavioral, not a claim that all UI branches have instrumentation coverage. See [measured validation](docs/VALIDATION.md), [test design](docs/TESTING.md) and [Actions](https://github.com/JasonStys/first-response-drone-coordinator/actions).
+On POSIX use `COORD_PYTHON="$PWD/.venv/bin/python" npm run test:e2e`. CI also installs Linux browser system dependencies. The required npm dependency gate runs Google's official **OSV-Scanner v2.7.0**, downloads only a fixed vendor release, verifies its pinned SHA256 before execution, scans live advisories, independently checks coverage of every resolved lockfile identity, and fails on **any finding** or incomplete/unavailable scan. The explicit scanner configuration has no ignores. Install-time `--no-audit` avoids redundant incidental requests; it does not disable this required security scan. Python dependencies are separately audited with pip-audit. The additional `npm run audit` diagnostic remains available with bounded, fail-closed retries; npm's own advisory endpoint may be unavailable even when the independent OSV scan succeeds. See the recorded outage and provider distinction in [validation](docs/VALIDATION.md).
+
+Coverage gates: backend ≥90% branch-aware over `coordinator/` excluding only the interactive CLI; TypeScript pure helper statements/functions/lines ≥95%, branches ≥90%. Browser coverage is behavioral, not a claim that all UI branches have instrumentation coverage. See [test design](docs/TESTING.md) and [Actions](https://github.com/JasonStys/first-response-drone-coordinator/actions).
 
 ## Code and file navigation
 
