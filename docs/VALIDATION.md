@@ -26,13 +26,19 @@ By Jason Stys. Synthetic exercise evidence only. Local Windows verification and 
 - Ubuntu 24.04 / Python 3.14: passed the full core suite, benchmark, Python dependency audit and final npm audit. **The overall Validation run completed successfully with all five jobs green.**
 - Actual-service browser job on Ubuntu: **12/12 passed**, Chromium/Firefox/WebKit, zero retries, 24.3 seconds test duration.
 
-[CodeQL run 39710960443](https://github.com/JasonStys/first-response-drone-coordinator/actions/runs/39710960443) passed both Python and JavaScript/TypeScript security-and-quality jobs. Open code-scanning alerts were separately queried after analysis: **zero**. No source change, audit bypass or reduced threshold was required for the observed npm registry delays; completed install steps reported zero vulnerabilities.
+[CodeQL run 39710960443](https://github.com/JasonStys/first-response-drone-coordinator/actions/runs/39710960443) passed both Python and JavaScript/TypeScript security-and-quality jobs. Open code-scanning alerts were separately queried after analysis: **zero**. Completed install steps reported zero vulnerabilities. The subsequent infrastructure correction below changes audit orchestration, not application runtime behavior or security thresholds.
 
 The documentation/evidence update repeats the unchanged full gates on its own head commit. Current status remains visible in the [Validation workflow](https://github.com/JasonStys/first-response-drone-coordinator/actions/workflows/validate.yml) and [CodeQL workflow](https://github.com/JasonStys/first-response-drone-coordinator/actions/workflows/codeql.yml); these links expose exact source identity rather than suggesting this dated snapshot proves arbitrary future commits.
 
+## Infrastructure correction: registry outage, not application failure
+
+[Run 39712015893](https://github.com/JasonStys/first-response-drone-coordinator/actions/runs/39712015893) on documentation commit `30dc7a4` passed all application, browser, benchmark, style/source and Python dependency checks. The remaining npm audit failed at 2026-10-22 02:38:48 UTC with **HTTP 503 Service Unavailable** from `registry.npmjs.org/-/npm/v1/security/advisories/bulk`. Both [CodeQL jobs](https://github.com/JasonStys/first-response-drone-coordinator/actions/runs/39712015906) passed; open alerts remained zero. This failed run is preserved.
+
+The fix separates incidental install audits from the required full-lockfile audit, routes the latter through the working Windows matrix runner and adds bounded fail-closed retry policy. No application code, dependency version or coverage/security threshold was weakened. Twenty-two additional policy unit cases bring the Python suite to **90 cases**; actual live provider verification remains a distinct required step, not replaced by unit fixtures. The real local helper recovered on attempt two after an actual network timeout and received a complete v2 report with all severity counts zero. Final exact-head Actions repeat the expanded suite and actual audits; current results are linked through the workflows above.
+
 ## Actions storage
 
-Before any new workflow was triggered: 97 owned repositories, 62,959,952 bytes of Actions artifacts (~63.0 MB decimal); 8,185,324,614 bytes of separate caches (~8.19 GB). GitHub quota percentage unavailable; private-repository artifact bytes zero. Fresh check at 2026-10-21 19:24:59 PDT: 98 repositories and those same byte counts. The new repository has zero Actions artifacts. No runs, artifacts or caches were deleted. Workflows intentionally upload neither artifacts nor Actions caches.
+Before any new workflow was triggered: 97 owned repositories, 62,959,952 bytes of Actions artifacts (~63.0 MB decimal); 8,185,324,614 bytes of separate caches (~8.19 GB). GitHub quota percentage unavailable; private-repository artifact bytes zero. Fresh check at 2026-10-21 19:39:16 PDT: 98 repositories and those same byte counts. The new repository has zero Actions artifacts. No runs, artifacts or caches were deleted. Workflows intentionally upload neither artifacts nor Actions caches.
 
 ## Limits
 

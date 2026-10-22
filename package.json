@@ -13,7 +13,7 @@
     "test:e2e": "playwright test",
     "format": "prettier --write ui tests/browser package.json tsconfig.json vite.config.ts playwright.config.ts tools/source_index.mjs",
     "format:check": "prettier --check ui tests/browser package.json tsconfig.json vite.config.ts playwright.config.ts tools/source_index.mjs",
-    "audit": "npm audit --audit-level=high"
+    "audit": "python tools/audit_npm.py"
   },
   "dependencies": {
     "react": "19.3.1",

@@ -11,6 +11,7 @@ By Jason Stys. Checked 2026-10-21. The project is original, generalized and unaf
 - [OWASP drone security](https://cheatsheetseries.owasp.org/cheatsheets/Drone_Security_Cheat_Sheet.html): access control, data protection and communication risks motivate explicitly excluding hardware/radio paths, retaining synthetic data and recording human-reviewed state changes. These design choices are not a drone security certification.
 - [Playwright web-server integration](https://playwright.dev/docs/test-webserver): browser acceptance launches an actual disposable FastAPI service with the compiled UI, refusing to reuse another process. Chromium, Firefox and WebKit exercise real cookie/API flows; no route mocks substitute for service success.
 - [GitHub Actions secure use](https://docs.github.com/en/actions/reference/security/secure-use): minimal token permissions and full Action commit hashes reduce workflow exposure. No deployment secrets, Actions artifacts or cache uploads are needed here; CodeQL security-and-quality results remain on GitHub.
+- [npm audit](https://docs.npmjs.com/cli/v11/commands/npm-audit/) and [network configuration](https://docs.npmjs.com/cli/v11/using-npm/config/): advisory requests use the configured registry; severity controls determine failure thresholds, and default fetch timeouts can be five minutes. The helper preserves the high/critical gate, explicitly includes every dependency type from the lockfile and limits transient-error retries. A provider outage is not a vulnerability result or a clean scan.
 
 ## Code quality choices
 

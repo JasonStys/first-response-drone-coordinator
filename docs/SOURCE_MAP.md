@@ -322,6 +322,22 @@ Function/class docstrings describe responsibility; this is navigation, not dead-
 | `tests/test_api.py` | 307 | `test_invalid_origin(tmp_path, origin)` |
 | `tests/test_api.py` | 313 | `test_uninitialized_service(tmp_path)` |
 | `tests/test_api.py` | 315 | `service` |
+| `tests/test_audit_policy.py` | 15 | `clean()` |
+| `tests/test_audit_policy.py` | 57 | `test_classification(report, code, expected)` |
+| `tests/test_audit_policy.py` | 63 | `test_findings_never_retry(level)` |
+| `tests/test_audit_policy.py` | 65 | `report` |
+| `tests/test_audit_policy.py` | 80 | `test_malformed_complete_report(mutation)` |
+| `tests/test_audit_policy.py` | 82 | `report` |
+| `tests/test_audit_policy.py` | 87 | `test_transient_then_actual_report_contract()` |
+| `tests/test_audit_policy.py` | 89 | `responses` |
+| `tests/test_audit_policy.py` | 93 | `calls` |
+| `tests/test_audit_policy.py` | 93 | `sleeps` |
+| `tests/test_audit_policy.py` | 95 | `run(command)` |
+| `tests/test_audit_policy.py` | 105 | `item` |
+| `tests/test_audit_policy.py` | 110 | `test_unavailable_never_passes(kind, expected_calls)` |
+| `tests/test_audit_policy.py` | 112 | `calls` |
+| `tests/test_audit_policy.py` | 114 | `run(command)` |
+| `tests/test_audit_policy.py` | 127 | `test_missing_npm(monkeypatch)` |
 | `tests/test_planner.py` | 26 | `small_case(seed)` |
 | `tests/test_planner.py` | 28 | `rng` |
 | `tests/test_planner.py` | 29 | `data` |
@@ -386,6 +402,27 @@ Function/class docstrings describe responsibility; this is navigation, not dead-
 | `tests/test_planner.py` | 200 | `one` |
 | `tests/test_planner.py` | 230 | `test_strict_schema(mutate)` |
 | `tests/test_planner.py` | 232 | `data` |
+| `tools/audit_npm.py` | 13 | `LEVELS` |
+| `tools/audit_npm.py` | 14 | `TRANSIENT` |
+| `tools/audit_npm.py` | 17 | `assess(report, returncode)` |
+| `tools/audit_npm.py` | 21 | `counts` |
+| `tools/audit_npm.py` | 27 | `level` |
+| `tools/audit_npm.py` | 30 | `error` |
+| `tools/audit_npm.py` | 34 | `summary` |
+| `tools/audit_npm.py` | 44 | `valid_counts` |
+| `tools/audit_npm.py` | 45 | `level` |
+| `tools/audit_npm.py` | 52 | `level` |
+| `tools/audit_npm.py` | 58 | `audit(runner, sleeper, npm)` |
+| `tools/audit_npm.py` | 64 | `executable` |
+| `tools/audit_npm.py` | 68 | `command` |
+| `tools/audit_npm.py` | 81 | `attempt` |
+| `tools/audit_npm.py` | 82 | `report` |
+| `tools/audit_npm.py` | 84 | `result` |
+| `tools/audit_npm.py` | 94 | `report` |
+| `tools/audit_npm.py` | 95 | `state` |
+| `tools/audit_npm.py` | 97 | `state` |
+| `tools/audit_npm.py` | 99 | `state` |
+| `tools/audit_npm.py` | 101 | `state` |
 | `tools/benchmark.py` | 21 | `dense()` |
 | `tools/benchmark.py` | 23 | `data` |
 | `tools/benchmark.py` | 27 | `index` |

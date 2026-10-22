@@ -31,7 +31,7 @@ Prerequisites: Python 3.12–3.14, Node 24, npm, Git. Dependency downloads requi
 ```powershell
 python -m venv .venv
 .venv/Scripts/python -m pip install --require-hashes -r requirements-dev.lock
-npm ci --ignore-scripts
+npm ci --ignore-scripts --no-audit
 npm run build
 .venv/Scripts/python tools/serve_demo.py
 ```
@@ -76,7 +76,7 @@ npm run test:e2e
 .venv/Scripts/python tools/benchmark.py
 ```
 
-On POSIX use `COORD_PYTHON="$PWD/.venv/bin/python" npm run test:e2e`. CI also installs Linux browser system dependencies. Coverage gates: backend ≥90% branch-aware over `coordinator/` excluding only the interactive CLI; TypeScript pure helper statements/functions/lines ≥95%, branches ≥90%. Browser coverage is behavioral, not a claim that all UI branches have instrumentation coverage. See [measured validation](docs/VALIDATION.md), [test design](docs/TESTING.md) and [Actions](https://github.com/JasonStys/first-response-drone-coordinator/actions).
+On POSIX use `COORD_PYTHON="$PWD/.venv/bin/python" npm run test:e2e`. CI also installs Linux browser system dependencies. `npm run audit` uses a strict full-lockfile audit with bounded retries for transient registry outages; a missing/incomplete audit fails closed. Install-time `--no-audit` avoids redundant incidental requests; the dedicated required audit still runs. CI uses Windows for that platform-independent lockfile gate and Linux for Python dependency auditing. Coverage gates: backend ≥90% branch-aware over `coordinator/` excluding only the interactive CLI; TypeScript pure helper statements/functions/lines ≥95%, branches ≥90%. Browser coverage is behavioral, not a claim that all UI branches have instrumentation coverage. See [measured validation](docs/VALIDATION.md), [test design](docs/TESTING.md) and [Actions](https://github.com/JasonStys/first-response-drone-coordinator/actions).
 
 ## Code and file navigation
 
