@@ -42,3 +42,12 @@ of a planning exercise. A truncated search may appear better after resource loss
 because neither search proves the optimum; the UI explicitly warns about this.
 Local validation is not a claim of remote CI completion; publication checks are
 performed by the parent worker. No Actions were triggered by this worker.
+
+## Accessibility follow-up after initial publication
+
+The resource-loss comparison now exposes a named `region`, allowing its label to
+be used by assistive technology. The populated planner **and** reviewer journeys
+run WCAG 2 A/AA and 2.1 AA Axe scans. All 15 Chromium/Firefox/WebKit journeys passed
+again, including both populated comparisons, and all 21 TypeScript tests, strict
+build, formatting, navigation and output checks passed. No API, authorization,
+solver, data or production security behavior changed in this follow-up.
