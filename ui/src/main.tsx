@@ -360,7 +360,7 @@ function App() {
                     Preview resource loss
                   </button>
                   {contingency && (
-                    <div aria-label="Resource-loss comparison">
+                    <div role="region" aria-label="Resource-loss comparison">
                       <p>{contingency.notice}</p>
                       <p>
                         Saved revision {contingency.revision} ·{" "}

@@ -714,14 +714,14 @@ Function/class docstrings describe responsibility; this is navigation, not dead-
 | `ui/src/main.tsx` | 849 | `updated` |
 | `ui/src/main.tsx` | 866 | `item` |
 | `ui/src/main.tsx` | 882 | `item` |
-| `tests/browser/contingency.spec.ts` | 5 | `signIn` |
-| `tests/browser/contingency.spec.ts` | 5 | `page` |
-| `tests/browser/contingency.spec.ts` | 5 | `role` |
-| `tests/browser/contingency.spec.ts` | 15 | `{ page, }` |
-| `tests/browser/contingency.spec.ts` | 19 | `original` |
-| `tests/browser/contingency.spec.ts` | 32 | `pending` |
-| `tests/browser/contingency.spec.ts` | 36 | `path` |
-| `tests/browser/contingency.spec.ts` | 37 | `saved` |
+| `tests/browser/contingency.spec.ts` | 6 | `signIn` |
+| `tests/browser/contingency.spec.ts` | 6 | `page` |
+| `tests/browser/contingency.spec.ts` | 6 | `role` |
+| `tests/browser/contingency.spec.ts` | 16 | `{ page, }` |
+| `tests/browser/contingency.spec.ts` | 20 | `original` |
+| `tests/browser/contingency.spec.ts` | 40 | `pending` |
+| `tests/browser/contingency.spec.ts` | 44 | `path` |
+| `tests/browser/contingency.spec.ts` | 45 | `saved` |
 | `tests/browser/workspace.spec.ts` | 7 | `login` |
 | `tests/browser/workspace.spec.ts` | 7 | `page` |
 | `tests/browser/workspace.spec.ts` | 7 | `role` |

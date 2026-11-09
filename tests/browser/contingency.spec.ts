@@ -1,6 +1,7 @@
 /** @file Jason Stys: actual three-role exercise previews and unchanged evidence. Map: docs/SOURCE_MAP.md. */
 import { test, expect, type Page } from "@playwright/test";
 import { readFile } from "node:fs/promises";
+import AxeBuilder from "@axe-core/playwright";
 
 async function signIn(page: Page, role: string) {
   await page.goto("/");
@@ -26,6 +27,13 @@ test("planner and reviewer compare saved resource loss without mutating the work
   await expect(page.getByLabel("Resource-loss comparison")).toContainText(
     "No proposal, review or flight authorization created",
   );
+  expect(
+    (
+      await new AxeBuilder({ page })
+        .withTags(["wcag2a", "wcag2aa", "wcag21aa"])
+        .analyze()
+    ).violations,
+  ).toEqual([]);
   expect(await (await page.request.get("/api/workspace")).json()).toEqual(
     original,
   );
@@ -48,6 +56,13 @@ test("planner and reviewer compare saved resource loss without mutating the work
     .getByRole("button", { name: "Preview resource loss", exact: true })
     .click();
   await expect(page.getByLabel("Resource-loss comparison")).toBeVisible();
+  expect(
+    (
+      await new AxeBuilder({ page })
+        .withTags(["wcag2a", "wcag2aa", "wcag21aa"])
+        .analyze()
+    ).violations,
+  ).toEqual([]);
   await page.getByRole("button", { name: "Sign out" }).click();
   await signIn(page, "observer");
   await expect(
