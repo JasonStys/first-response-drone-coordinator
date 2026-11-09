@@ -8,7 +8,7 @@ import {
   reviewState,
   usableMinutes,
 } from "./domain";
-import type { User, Workspace } from "./domain";
+import type { Contingency, User, Workspace } from "./domain";
 import "./style.css";
 
 /** A single-workspace UI; server roles, revision checks and CSRF are authoritative. */
@@ -26,6 +26,8 @@ function App() {
   const [ack, setAck] = useState(false);
   const [connected, setConnected] = useState(navigator.onLine);
   const [needsRefresh, setNeedsRefresh] = useState(false);
+  const [lostResource, setLostResource] = useState("");
+  const [contingency, setContingency] = useState<Contingency | null>(null);
 
   /** Keep session data only in component memory; HttpOnly cookie is unavailable to scripts. */
   async function api(
@@ -58,6 +60,8 @@ function App() {
   async function refresh(session = user) {
     const data: Workspace = await api("workspace", "GET", undefined, session);
     setWorkspace(data);
+    setContingency(null);
+    setLostResource("");
     setEditor(JSON.stringify(data.scenario, null, 2));
     const latest = data.proposals[0];
     setSelected(
@@ -296,6 +300,118 @@ function App() {
                   )}
                 </div>
               </section>
+              {user.role !== "observer" && (
+                <section className="panel" aria-labelledby="contingency-title">
+                  <h2 id="contingency-title">Single-resource-loss exercise</h2>
+                  <p>
+                    Read-only comparison of the saved revision. Unsaved editor
+                    text is excluded. No proposal or review is created.
+                  </p>
+                  <label>
+                    Unavailable exercise resource
+                    <select
+                      value={lostResource}
+                      disabled={disabled}
+                      onChange={(event) => {
+                        setLostResource(event.target.value);
+                        setContingency(null);
+                      }}
+                    >
+                      <option value="">
+                        Choose a currently available resource
+                      </option>
+                      {scenario.aircraft
+                        .filter((item) => item.available)
+                        .map((item) => (
+                          <option
+                            key={`aircraft:${item.id}`}
+                            value={`aircraft:${item.id}`}
+                          >
+                            Aircraft / {item.label}
+                          </option>
+                        ))}
+                      {scenario.operators
+                        .filter((item) => item.available)
+                        .map((item) => (
+                          <option
+                            key={`operator:${item.id}`}
+                            value={`operator:${item.id}`}
+                          >
+                            Operator / {item.label}
+                          </option>
+                        ))}
+                    </select>
+                  </label>
+                  <button
+                    disabled={disabled || !lostResource}
+                    onClick={() =>
+                      void action(async () => {
+                        setContingency(null);
+                        const [kind, resource] = lostResource.split(":");
+                        const result: Contingency = await api(
+                          "contingency-preview",
+                          "POST",
+                          { revision: workspace.revision, kind, resource },
+                        );
+                        setContingency(result);
+                      })
+                    }
+                  >
+                    Preview resource loss
+                  </button>
+                  {contingency && (
+                    <div aria-label="Resource-loss comparison">
+                      <p>{contingency.notice}</p>
+                      <p>
+                        Saved revision {contingency.revision} ·{" "}
+                        {contingency.comparison_complete
+                          ? "Both searches complete"
+                          : "INCOMPLETE SEARCH — provisional alternatives"}
+                      </p>
+                      <p>
+                        Baseline{" "}
+                        {contingency.before.alternatives[0].assignments.length}{" "}
+                        tasks / resource loss{" "}
+                        {contingency.after.alternatives[0].assignments.length}{" "}
+                        tasks · objective delta [
+                        {contingency.score_delta.join(", ")}]
+                      </p>
+                      <p>
+                        Unchanged:{" "}
+                        {contingency.retained_tasks.join(", ") || "none"} ·
+                        Reassigned:{" "}
+                        {contingency.reassigned_tasks.join(", ") || "none"} ·
+                        Removed:{" "}
+                        {contingency.removed_tasks.join(", ") || "none"} ·
+                        Added: {contingency.added_tasks.join(", ") || "none"}
+                      </p>
+                      <ul>
+                        {contingency.after.alternatives[0].gaps.map((gap) => (
+                          <li key={gap.task}>
+                            {gap.task}: {gap.reason}
+                          </li>
+                        ))}
+                      </ul>
+                      <button
+                        onClick={() => {
+                          const url = URL.createObjectURL(
+                            new Blob([JSON.stringify(contingency, null, 2)], {
+                              type: "application/json",
+                            }),
+                          );
+                          const anchor = document.createElement("a");
+                          anchor.href = url;
+                          anchor.download = `resource-loss-revision-${contingency.revision}.json`;
+                          anchor.click();
+                          setTimeout(() => URL.revokeObjectURL(url), 1000);
+                        }}
+                      >
+                        Download resource-loss comparison
+                      </button>
+                    </div>
+                  )}
+                </section>
+              )}
               <section
                 className="conditions panel"
                 aria-labelledby="conditions"

@@ -59,6 +59,22 @@ export interface Result {
   optimal: boolean;
   holds: string[];
 }
+export interface Contingency {
+  revision: number;
+  kind: string;
+  resource: string;
+  baseline_hash: string;
+  outage_hash: string;
+  before: Result;
+  after: Result;
+  retained_tasks: string[];
+  reassigned_tasks: string[];
+  removed_tasks: string[];
+  added_tasks: string[];
+  score_delta: number[];
+  comparison_complete: boolean;
+  notice: string;
+}
 export interface Proposal {
   id: number;
   revision: number;
