@@ -51,6 +51,50 @@ def generate(browser):
     return result.json()
 
 
+def test_read_only_contingency_roles_revision_csrf_and_unknown_resource(app, monkeypatch):
+    """Preview uses the actual authenticated API and never creates a saved proposal/review/event."""
+    planner, reviewer, observer = (
+        client(app, role) for role in ("planner", "reviewer", "observer")
+    )
+    original = planner.get("/api/workspace").json()
+    body = {
+        "revision": original["revision"],
+        "kind": "aircraft",
+        "resource": original["scenario"]["aircraft"][0]["id"],
+    }
+    endpoint = "/api/contingency-preview"
+    assert observer.post(endpoint, json=body).status_code == 403
+    token = planner.headers.pop("X-CSRF-Token")
+    assert planner.post(endpoint, json=body).status_code == 403
+    planner.headers["X-CSRF-Token"] = token
+    for browser in (planner, reviewer):
+        result = browser.post(endpoint, json=body)
+        assert result.status_code == 200, result.text
+        assert result.json()["revision"] == original["revision"]
+        assert result.json()["after"]["alternatives"]
+    assert planner.get("/api/workspace").json() == original
+    assert planner.post(endpoint, json={**body, "revision": 999}).status_code == 409
+    assert planner.post(endpoint, json={**body, "resource": "unknown"}).status_code == 422
+    inactive = original["scenario"]
+    inactive["aircraft"][0]["available"] = False
+    app.state.store.replace(body["revision"], Scenario.model_validate(inactive), "planner")
+    assert planner.post(endpoint, json={**body, "revision": 2}).status_code == 422
+    app.state.store.replace(2, example(), "planner")
+    body["revision"] = 3
+    assert planner.post(endpoint, json={**body, "kind": "sensor"}).status_code == 422
+    assert planner.post(endpoint, json={**body, "secret": "forbidden"}).status_code == 422
+    from coordinator.contingency import preview
+
+    def concurrent_change(*args):
+        """A real new saved revision during calculation must invalidate its response."""
+        result = preview(*args)
+        app.state.store.replace(body["revision"], example("flood"), "planner")
+        return result
+
+    monkeypatch.setattr("coordinator.api.preview", concurrent_change)
+    assert planner.post(endpoint, json=body).status_code == 409
+
+
 def test_workflow_review_invalidation_and_export(app):
     """Exercise authoring, independent human review, persistence, export and stale protection."""
     planner, reviewer = client(app), client(app, "reviewer")

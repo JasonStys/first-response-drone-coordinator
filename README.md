@@ -11,6 +11,18 @@ An incident team may have more observation requests than available qualified ope
 
 ## What it demonstrates
 
+**Single-resource-loss exercise:** planners and reviewers can select a currently
+available saved aircraft or operator and preview its loss. The application solves
+both saved baseline and modified copy, compares covered/reassigned/removed tasks,
+shows objective deltas and gaps, and downloads the revision-bound comparison.
+This creates no proposal, review, resource edit or audit event. Observers cannot
+request it. CSRF, current-revision and concurrent-change checks remain authoritative.
+
+This uses the existing priority/count/start-time objective, **not** minimum-change
+optimization. Both search-completeness flags stay visible; truncated alternatives
+do not establish an optimum or a guaranteed loss bound. Unsaved JSON editor text
+is excluded. Refresh clears the comparison. See [validation and limits](docs/reports/PRACTICAL_WORKFLOWS_20261109.md).
+
 | Feature | What works | Important boundary |
 | --- | --- | --- |
 | Resource allocation | Up to three deterministic alternatives; priority coverage, task count, then earlier starts | Search limit is explicit; incomplete searches never claim optimality |

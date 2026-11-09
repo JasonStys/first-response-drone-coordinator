@@ -116,6 +116,7 @@ test("templates, schema rejection, resource outage and injection-safe rendering"
 });
 test("observer boundaries, WCAG checks, mobile and author links", async ({
   page,
+  baseURL,
 }) => {
   await page.goto("/");
   expect(
@@ -136,7 +137,7 @@ test("observer boundaries, WCAG checks, mobile and author links", async ({
     (
       await page.request.post("/api/proposals", {
         data: { revision: 1 },
-        headers: { Origin: "http://127.0.0.1:8862" },
+        headers: { Origin: baseURL! },
       })
     ).status(),
   ).toBe(403);

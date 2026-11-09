@@ -116,6 +116,13 @@ class Replace(Revision):
     scenario: Scenario
 
 
+class Contingency(Revision):
+    """Read-only exercise preview against the saved revision; no resource is actually changed."""
+
+    kind: Literal["aircraft", "operator"]
+    resource: Identifier
+
+
 class Review(Revision):
     """Named independent human acknowledgement of model limits and coverage gaps."""
 

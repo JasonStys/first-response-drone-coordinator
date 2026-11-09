@@ -12,8 +12,9 @@ from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 
 from coordinator import auth
+from coordinator.contingency import preview
 from coordinator.examples import KINDS, example
-from coordinator.models import Login, Replace, Review, Revision
+from coordinator.models import Contingency, Login, Replace, Review, Revision
 from coordinator.planner import solve
 from coordinator.store import Store
 
@@ -157,6 +158,23 @@ def create_app(database: Path, origin="http://127.0.0.1:8861"):
         result = solve(scenario)
         identifier = app.state.store.save_proposal(revision, scenario, result, user["name"])
         return {"id": identifier, "result": result}
+
+    @app.post("/api/contingency-preview")
+    def contingency(body: Contingency, request: Request):
+        """Planner/reviewer-only, CSRF-protected read-only comparison; reject changed saved revisions."""
+        user = auth.authorize(request)
+        if user["role"] not in {"planner", "reviewer"}:
+            raise HTTPException(403, "Planner or reviewer role required")
+        revision, scenario = app.state.store.snapshot()
+        if revision != body.revision:
+            raise HTTPException(409, "Refresh stale workspace")
+        try:
+            result = preview(scenario, body.kind, body.resource)
+        except ValueError as error:
+            raise HTTPException(422, str(error)) from error
+        if app.state.store.snapshot()[0] != revision:
+            raise HTTPException(409, "Workspace changed during preview; refresh")
+        return {"revision": revision, **result}
 
     @app.post("/api/proposals/{identifier}/review/{selected}")
     def review(identifier: int, selected: str, body: Review, request: Request):
