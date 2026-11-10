@@ -18,7 +18,7 @@ def main():
         assert not re.search(
             r"ghp_[A-Za-z0-9]{30,}|github_pat_[A-Za-z0-9_]{30,}|-----BEGIN [A-Z ]*PRIVATE KEY-----",
             content,
-        ), path
+        ), f"possible credential in tracked source: {path.relative_to(ROOT)}"
         if path.suffix in (".py", ".ts", ".tsx", ".css", ".html", ".mjs", ".sql"):
             header = "\n".join(content.splitlines()[:12])
             assert "Jason Stys:" in header, path

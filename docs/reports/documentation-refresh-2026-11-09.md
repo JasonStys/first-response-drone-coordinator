@@ -46,3 +46,9 @@ The independent publication audit also matched every copied Office file to its a
 
 
 The complete unchanged Python and coverage-gated TypeScript suites, strict compilation and source policy passed. The initial restricted sandbox attempt timed out while denied test-owned loopback access; the unchanged suites completed with narrowly scoped execution access. Only the exact reviewed project-guide.docx path receives Office handling: both navigation and the existing hygiene scan inspect its ZIP XML text rather than broadly excluding binary extensions. Unknown files retain their previous checks. No aircraft, live airspace provider or user account was accessed.
+
+## Publication-reader review
+
+Independent review identified two limits in the first documentation reader: ZIP/XML expansion was not bounded, and relationship parts were not inspected by the original hygiene scan. The exact reviewed Word path now uses a maximum of 256 unique members, 8 MiB total expanded bytes and 2 MiB XML/relationship text. Required Word parts, duplicate members, VBA and embedded objects are rejected; ZIP CRC integrity is checked before text inspection. Both `.xml` and `.rels` content pass through the unchanged original credential patterns. Unknown binary filenames remain strict UTF-8 failures.
+
+Ten independent real-ZIP regression tests verify readable XML and relationships; actual main-checker rejection of a credential in either part; exact-filename handling; and malformed, macro, embedded, oversized and duplicate packages. The complete local Python suite passed 119 tests with the unchanged 90% runtime coverage floor, together with coverage-gated TypeScript tests, strict compilation, both current catalog modes, lint, formatting and the original source hygiene gate. The reader is a source-publication checker, not a general-purpose untrusted document import service. Later hosted checks remain separate required evidence.

@@ -54,18 +54,28 @@ DESCRIPTIONS = {
 }
 
 
-def public_text(path):
-    """Inspect XML text in the one reviewed Word path while retaining all existing public-source scans."""
-    if path.relative_to(ROOT).as_posix() == "docs/reports/project-guide.docx":
-        with ZipFile(path) as package:
-            if package.testzip() is not None or "word/document.xml" not in package.namelist():
-                raise ValueError("Invalid reviewed Word package")
-            return "\n".join(
-                package.read(member).decode("utf-8")
-                for member in package.namelist()
-                if member.endswith(".xml")
-            )
-    return path.read_text(encoding="utf-8")
+def public_text(path: Path) -> str:
+    """Inspect all XML/relationships in the one authored Word path; unknown binary files still fail closed."""
+    if path.relative_to(ROOT).as_posix() != "docs/reports/project-guide.docx":
+        return path.read_text(encoding="utf-8")
+    with ZipFile(path) as package:
+        members = package.infolist()
+        names = [member.filename for member in members]
+        if (
+            len(members) > 256
+            or len(set(names)) != len(names)
+            or sum(member.file_size for member in members) > 8 * 1024 * 1024
+            or "word/document.xml" not in names
+            or "[Content_Types].xml" not in names
+            or any("vbaProject" in item or item.startswith("word/embeddings/") for item in names)
+        ):
+            raise ValueError("Invalid or unsupported reviewed Word package")
+        inspected = [member for member in members if member.filename.endswith((".xml", ".rels"))]
+        if sum(member.file_size for member in inspected) > 2 * 1024 * 1024:
+            raise ValueError("Reviewed Word XML exceeds inspection budget")
+        if package.testzip() is not None:
+            raise ValueError("Reviewed Word package integrity failed")
+        return "\n".join(package.read(member).decode("utf-8") for member in inspected)
 
 
 def files():
