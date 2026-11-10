@@ -117,3 +117,9 @@ The solver supports six indivisible tasks, four aircraft, four operators and twe
 SQLite and one local workspace intentionally replace a PostgreSQL/PostGIS deployment: this version needs neither real coordinates nor distributed operation. No PostgreSQL, cloud failover, tenant isolation, native installer, compliance certification or emergency readiness is claimed.
 
 Original code developed with AI assistance and verified through reproducible automated and manual checks; not independently audited. See [architecture](docs/ARCHITECTURE.md), [operations](docs/OPERATIONS.md), [security](docs/SECURITY.md), [research](docs/RESEARCH.md) and [contributing](CONTRIBUTING.md). MIT license; dependency licenses remain independent.
+
+## Documentation editions
+
+Start with the [organized handbook](docs/handbook.md) for current usage, design, security and test guidance. Reviewed downloadable editions: [project-guide.docx](docs/reports/project-guide.docx).
+
+[Publication identities and source scope](docs/reports/publications.json) · [Documentation validation record](docs/reports/documentation-refresh-2026-11-09.md). Historical results retain their own tested revision and date.

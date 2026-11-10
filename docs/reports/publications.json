@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "project": "first-response-drone-coordinator",
+  "author": "Jason Stys",
+  "editionDate": "2026-11-09",
+  "sourceBaseline": "26aa28b2fe772506d1dfcc0a388a1bea94802897",
+  "sourceUrl": "https://github.com/JasonStys/first-response-drone-coordinator/tree/26aa28b2fe772506d1dfcc0a388a1bea94802897",
+  "functionalEvidenceBaseline": "26aa28b2fe772506d1dfcc0a388a1bea94802897",
+  "evidenceObservedAt": "2026-11-10T05:25:40.628667+00:00",
+  "workflowEvidence": [
+    {
+      "conclusion": "success",
+      "databaseId": 42709719964,
+      "event": "push",
+      "headSha": "26aa28b2fe772506d1dfcc0a388a1bea94802897",
+      "name": "CodeQL",
+      "status": "completed",
+      "url": "https://github.com/JasonStys/first-response-drone-coordinator/actions/runs/42709719964"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 42709719857,
+      "event": "push",
+      "headSha": "26aa28b2fe772506d1dfcc0a388a1bea94802897",
+      "name": "Validation",
+      "status": "completed",
+      "url": "https://github.com/JasonStys/first-response-drone-coordinator/actions/runs/42709719857"
+    }
+  ],
+  "summary": "Run hash-bound aircraft/operator-loss planning comparisons with planner/reviewer roles and stale-input protection.",
+  "rationale": "Adds a practical civilian contingency review while preserving the saved plan and explicit resource constraints.",
+  "limitations": [
+    "Synthetic abstract cells, slots and resources; no actual emergency response or aircraft dispatch.",
+    "Comparisons preserve the original objective rather than guaranteeing minimum changes to the saved plan.",
+    "Truncated comparisons do not prove an optimum or guaranteed loss bound.",
+    "Source-first project with current package/service validation; no public native desktop application release is supplied."
+  ],
+  "documents": [
+    {
+      "filename": "project-guide.docx",
+      "mimeType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "bytes": 46744,
+      "sha256": "f1dc800b8d1270c31aa326911882d67d9d347de1348eb5d38e1ba4c38233d084",
+      "sourceBaseline": "26aa28b2fe772506d1dfcc0a388a1bea94802897",
+      "visualReview": {
+        "approved": true,
+        "method": "Every rendered page individually viewed at readable original resolution",
+        "pageCount": 6,
+        "renderedPageSha256": {
+          "page-1.png": "72ff6e92ca3992e25c20d20878f3cdea3a9337b9f1620ef15628b7f09663c623",
+          "page-2.png": "082efca94807fbd4be0a2436072012813a07c8e00e940e3129586c6232534842",
+          "page-3.png": "bfda325d36d978d642f1536b9dbecb1d37cac7233d775ed4f8e375204d8e11d8",
+          "page-4.png": "1b313b8a5981351c482aa6cf1e69c45e06c99eb891ed3b08ebd9519966cd0c79",
+          "page-5.png": "0e2a725e20ac63018325d5362ac6bbb858d2915939022e0881da4b3b5403588d",
+          "page-6.png": "18581978d3273cfbd669d6f7e1ad281eb87efc802a7e0024c20821f090f1ec16"
+        }
+      }
+    }
+  ],
+  "scope": "Reviewed documentation editions of the cited source. Checksums identify bytes, not authorship. Historical measurements retain their own dates; integration CI must be checked separately."
+}
