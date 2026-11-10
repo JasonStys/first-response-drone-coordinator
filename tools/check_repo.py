@@ -8,13 +8,13 @@ import gzip
 import re
 import sys
 
-from docs_index import ROOT, files
+from docs_index import ROOT, files, public_text
 
 
 def main():
     """Fail missing author/source headers, mutable Action pins, known token patterns or oversize UI."""
     for path in files():
-        content = path.read_text(encoding="utf-8")
+        content = public_text(path)
         assert not re.search(
             r"ghp_[A-Za-z0-9]{30,}|github_pat_[A-Za-z0-9_]{30,}|-----BEGIN [A-Z ]*PRIVATE KEY-----",
             content,

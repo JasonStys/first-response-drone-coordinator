@@ -9,6 +9,7 @@ import shutil
 import subprocess
 import sys
 from pathlib import Path
+from zipfile import ZipFile
 
 ROOT = Path(__file__).resolve().parents[1]
 EXCLUDE = {
@@ -25,6 +26,11 @@ EXCLUDE = {
     "playwright-report",
 }
 DESCRIPTIONS = {
+    ".gitattributes": "Portable text normalization and explicit reviewed Word binary handling.",
+    "docs/handbook.md": "Organized current usage, architecture, security and validation entry point.",
+    "docs/reports/project-guide.docx": "Reviewed Word guide bound to the documented source revision.",
+    "docs/reports/publications.json": "Exact publication digests, approved page identities and immutable source baseline.",
+    "docs/reports/documentation-refresh-2026-11-09.md": "Dated documentation integration validation and interpretation limits.",
     "README.md": "Purpose, feature summary, reproducible setup, use cases, scope and file navigation.",
     "LICENSE": "MIT license for original source; dependencies retain their own licenses.",
     "CONTRIBUTING.md": "Contributor workflow, test gates and review expectations.",
@@ -46,6 +52,20 @@ DESCRIPTIONS = {
     "docs/SOURCE_MAP.md": "Generated exact declaration, parameter and assigned variable physical line index.",
     "docs/FILE_CATALOG.md": "Generated responsibility summary for every tracked deliverable.",
 }
+
+
+def public_text(path):
+    """Inspect XML text in the one reviewed Word path while retaining all existing public-source scans."""
+    if path.relative_to(ROOT).as_posix() == "docs/reports/project-guide.docx":
+        with ZipFile(path) as package:
+            if package.testzip() is not None or "word/document.xml" not in package.namelist():
+                raise ValueError("Invalid reviewed Word package")
+            return "\n".join(
+                package.read(member).decode("utf-8")
+                for member in package.namelist()
+                if member.endswith(".xml")
+            )
+    return path.read_text(encoding="utf-8")
 
 
 def files():
@@ -79,7 +99,7 @@ def render():
     ]
     for path in files():
         relative = path.relative_to(ROOT).as_posix()
-        text = path.read_text(encoding="utf-8")
+        text = public_text(path)
         description = DESCRIPTIONS.get(relative) or next(
             (line.strip(' #/*!-"<>') for line in text.splitlines()[:12] if "Jason Stys:" in line),
             None,
