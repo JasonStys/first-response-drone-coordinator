@@ -17,8 +17,13 @@ HASHER = PasswordHasher(time_cost=3, memory_cost=65536, parallelism=1)
 DUMMY = HASHER.hash("not-a-user-timing-equalizer")
 
 
+def session_cookie_name(request: Request) -> str:
+    """Preserve the source-service default while native profiles choose distinct stable cookie names."""
+    return getattr(request.app.state, "session_cookie_name", "response_session")
+
+
 def add_user(store, username, password, role):
-    """CLI-only provisioning; existing names cannot be silently overwritten."""
+    """Trusted CLI/native-owner provisioning; existing names cannot be silently overwritten."""
     if not re.fullmatch(r"[a-z][a-z0-9-]{2,39}", username) or role not in (
         "planner",
         "reviewer",
@@ -75,7 +80,7 @@ def sign_in(request: Request, username, password):
 
 def identity(request: Request):
     """Resolve current server-side role and absolute session expiry; cookie contents have no roles."""
-    token = request.cookies.get("response_session", "")
+    token = request.cookies.get(session_cookie_name(request), "")
     if not 20 <= len(token) <= 100:
         raise HTTPException(401, "Sign in to the private workspace")
     with request.app.state.store.connect() as db:
@@ -106,5 +111,5 @@ def sign_out(request: Request):
     with request.app.state.store.connect(True) as db:
         db.execute(
             "DELETE FROM sessions WHERE digest = ?",
-            (hashlib.sha256(request.cookies["response_session"].encode()).hexdigest(),),
+            (hashlib.sha256(request.cookies[session_cookie_name(request)].encode()).hexdigest(),),
         )

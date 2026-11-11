@@ -1,6 +1,6 @@
 {
   "name": "first-response-drone-coordinator",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
   "license": "MIT",
@@ -11,8 +11,8 @@
     "build": "tsc --noEmit && vite build",
     "test": "vitest run --coverage",
     "test:e2e": "playwright test",
-    "format": "prettier --write ui tests/browser package.json tsconfig.json vite.config.ts playwright.config.ts tools/source_index.mjs",
-    "format:check": "prettier --check ui tests/browser package.json tsconfig.json vite.config.ts playwright.config.ts tools/source_index.mjs",
+    "format": "prettier --write ui tests/browser package.json tsconfig.json vite.config.ts playwright.config.ts tools/source_index.mjs tools/native_feature_smoke.mjs",
+    "format:check": "prettier --check ui tests/browser package.json tsconfig.json vite.config.ts playwright.config.ts tools/source_index.mjs tools/native_feature_smoke.mjs",
     "audit": "python tools/audit_npm.py"
   },
   "dependencies": {

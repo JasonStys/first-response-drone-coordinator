@@ -26,6 +26,9 @@ EXCLUDE = {
     "playwright-report",
 }
 DESCRIPTIONS = {
+    "licenses/PYTHON.txt": "Official Python3.14.10 runtime license terms retained with the portable application.",
+    "docs/DESKTOP.md": "Complete native profile/staff/Open/Quit workflow, actual JSON features, build steps and privacy/lifecycle limits.",
+    "docs/reports/DESKTOP_CANDIDATE_20261110.md": "Dated candidate validation, original gates, real native roles/exports, observed failures and explicit release limitations.",
     ".gitattributes": "Portable text normalization and explicit reviewed Word binary handling.",
     "docs/handbook.md": "Organized current usage, architecture, security and validation entry point.",
     "docs/reports/project-guide.docx": "Reviewed Word guide bound to the documented source revision.",

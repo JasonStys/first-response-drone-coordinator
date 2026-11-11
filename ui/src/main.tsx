@@ -1,5 +1,5 @@
 /** @file Jason Stys: same-origin responsive planning workspace; function/variable lines: docs/SOURCE_MAP.md. */
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 import {
   coveredCells,
@@ -10,6 +10,7 @@ import {
 } from "./domain";
 import type { Contingency, User, Workspace } from "./domain";
 import "./style.css";
+import { objectFromText, readObjectFile } from "./import_file";
 
 /** A single-workspace UI; server roles, revision checks and CSRF are authoritative. */
 function App() {
@@ -28,6 +29,7 @@ function App() {
   const [needsRefresh, setNeedsRefresh] = useState(false);
   const [lostResource, setLostResource] = useState("");
   const [contingency, setContingency] = useState<Contingency | null>(null);
+  const editorRevision = useRef(0);
 
   /** Keep session data only in component memory; HttpOnly cookie is unavailable to scripts. */
   async function api(
@@ -58,6 +60,7 @@ function App() {
 
   /** Refresh the snapshot only on successful transport; never silently queue offline writes. */
   async function refresh(session = user) {
+    editorRevision.current++;
     const data: Workspace = await api("workspace", "GET", undefined, session);
     setWorkspace(data);
     setContingency(null);
@@ -77,6 +80,7 @@ function App() {
   }
   /** Serialize interactions and surface errors without treating network failures as success. */
   async function action(work: () => Promise<void>) {
+    editorRevision.current++;
     setBusy(true);
     setError("");
     setMessage("");
@@ -86,6 +90,35 @@ function App() {
       setError(cause instanceof Error ? cause.message : "Request failed");
     } finally {
       setBusy(false);
+    }
+  }
+  /** Import edits only; newer typing/files, refresh or account actions invalidate older asynchronous reads. */
+  async function importScenario(file: File) {
+    if (disabled || user?.role !== "planner") return;
+    const requested = ++editorRevision.current;
+    setError("");
+    setMessage("Reading local scenario file…");
+    try {
+      const value = await readObjectFile(file);
+      if (requested !== editorRevision.current) return;
+      const scenario = Object.hasOwn(value, "scenario")
+        ? value.scenario
+        : value;
+      const formatted = JSON.stringify(scenario, null, 2);
+      if (typeof formatted !== "string")
+        throw new Error("Missing scenario object");
+      objectFromText(formatted);
+      setEditor(formatted);
+      setMessage(
+        "Scenario imported into editor only. Review and save a new revision.",
+      );
+    } catch (cause) {
+      if (requested === editorRevision.current) {
+        setMessage("");
+        setError(
+          cause instanceof Error ? cause.message : "Could not read JSON file",
+        );
+      }
     }
   }
   useEffect(() => {
@@ -662,7 +695,12 @@ function App() {
                     </article>
                   ))}
                 </div>
-                <div className="table-wrap">
+                <div
+                  className="table-wrap"
+                  role="region"
+                  aria-label="Planning task allocations"
+                  tabIndex={0}
+                >
                   <table>
                     <caption>
                       Exercise tasks and{" "}
@@ -764,16 +802,15 @@ function App() {
                         });
                       }}
                     >
-                      <label>
-                        Review note
-                        <textarea
-                          minLength={10}
-                          maxLength={500}
-                          required
-                          value={note}
-                          onChange={(event) => setNote(event.target.value)}
-                        />
-                      </label>
+                      <label htmlFor="planning-review-note">Review note</label>
+                      <textarea
+                        id="planning-review-note"
+                        minLength={10}
+                        maxLength={500}
+                        required
+                        value={note}
+                        onChange={(event) => setNote(event.target.value)}
+                      />
                       <label className="check">
                         <input
                           type="checkbox"
@@ -832,14 +869,33 @@ function App() {
                     )}
                   </div>
                   <label>
-                    Scenario JSON
-                    <textarea
-                      className="json-editor"
-                      spellCheck={false}
-                      value={editor}
-                      onChange={(event) => setEditor(event.target.value)}
+                    Open scenario JSON
+                    <input
+                      type="file"
+                      accept=".json,application/json"
+                      disabled={disabled}
+                      onChange={(event) => {
+                        const file = event.currentTarget.files?.[0];
+                        event.currentTarget.value = "";
+                        if (file) void importScenario(file);
+                      }}
                     />
                   </label>
+                  <label htmlFor="scenario-json-editor">Scenario JSON</label>
+                  <textarea
+                    id="scenario-json-editor"
+                    className="json-editor"
+                    spellCheck={false}
+                    value={editor}
+                    onChange={(event) => {
+                      editorRevision.current++;
+                      setEditor(event.target.value);
+                      setError("");
+                      setMessage(
+                        "Draft changed. Review and save a new revision when ready.",
+                      );
+                    }}
+                  />
                   <button
                     disabled={disabled}
                     onClick={() =>
@@ -932,7 +988,10 @@ function App() {
         <a href="https://github.com/JasonStys/first-response-drone-coordinator">
           Source & documentation
         </a>
-        <span>Exercise data only / no telemetry or analytics</span>
+        <span>
+          Application v{__APP_VERSION__} · exercise data only / no telemetry or
+          analytics
+        </span>
       </footer>
     </>
   );

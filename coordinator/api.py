@@ -3,6 +3,9 @@
 Exact declaration/variable locations: docs/SOURCE_MAP.md. No drone/radio/third-party APIs.
 """
 
+import asyncio
+import re
+import sys
 from pathlib import Path
 from urllib.parse import urlsplit
 
@@ -18,7 +21,7 @@ from coordinator.models import Contingency, Login, Replace, Review, Revision
 from coordinator.planner import solve
 from coordinator.store import Store
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(getattr(sys, "_MEIPASS", Path(__file__).resolve().parents[1]))
 MAX_BODY = 65536
 HEADERS = {
     "Content-Security-Policy": "default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'",
@@ -30,9 +33,11 @@ HEADERS = {
 }
 
 
-def create_app(database: Path, origin="http://127.0.0.1:8861"):
+def create_app(database: Path, origin="http://127.0.0.1:8861", *, cookie_name="response_session"):
     """Build one local workspace service; an exact trusted origin is mandatory for mutations."""
     parsed = urlsplit(origin)
+    if not isinstance(cookie_name, str) or not re.fullmatch(r"[a-z][a-z0-9_]{2,63}", cookie_name):
+        raise ValueError("Invalid local session cookie namespace")
     if (
         parsed.scheme not in ("http", "https")
         or not parsed.netloc
@@ -46,6 +51,7 @@ def create_app(database: Path, origin="http://127.0.0.1:8861"):
         title="First Response Drone Coordinator", docs_url=None, redoc_url=None, openapi_url=None
     )
     app.state.store = Store(database)
+    app.state.session_cookie_name = cookie_name
 
     @app.exception_handler(RequestValidationError)
     async def invalid_input(request: Request, error: RequestValidationError):
@@ -73,12 +79,18 @@ def create_app(database: Path, origin="http://127.0.0.1:8861"):
             else:
                 chunks = []
                 size = 0
-                async for chunk in request.stream():
-                    size += len(chunk)
-                    if size > MAX_BODY:
-                        response = JSONResponse({"detail": "Body too large"}, status_code=413)
-                        break
-                    chunks.append(chunk)
+                try:
+                    async with asyncio.timeout(5):
+                        async for chunk in request.stream():
+                            size += len(chunk)
+                            if size > MAX_BODY:
+                                response = JSONResponse(
+                                    {"detail": "Body too large"}, status_code=413
+                                )
+                                break
+                            chunks.append(chunk)
+                except TimeoutError:
+                    response = JSONResponse({"detail": "Body timeout"}, status_code=408)
                 if response is None:
                     # Starlette's cached Request body is forwarded by BaseHTTPMiddleware.
                     request._body = b"".join(chunks)
@@ -92,7 +104,10 @@ def create_app(database: Path, origin="http://127.0.0.1:8861"):
     @app.get("/healthz")
     def health():
         """Anonymous liveness contains no workspace, account or incident data."""
-        return {"status": "ok", "mode": "synthetic-planning-only"}
+        result = {"status": "ok", "mode": "synthetic-planning-only"}
+        if hasattr(app.state, "desktop_identity"):
+            result["desktop"] = app.state.desktop_identity
+        return result
 
     @app.post("/api/login")
     def login(body: Login, request: Request):
@@ -100,7 +115,7 @@ def create_app(database: Path, origin="http://127.0.0.1:8861"):
         token, user = auth.sign_in(request, body.username, body.password)
         response = JSONResponse(user)
         response.set_cookie(
-            "response_session",
+            cookie_name,
             token,
             httponly=True,
             samesite="strict",
@@ -119,7 +134,7 @@ def create_app(database: Path, origin="http://127.0.0.1:8861"):
         """Immediately revoke the authenticated session, not just the browser cookie."""
         auth.sign_out(request)
         response = JSONResponse({"signed_out": True})
-        response.delete_cookie("response_session")
+        response.delete_cookie(cookie_name)
         return response
 
     @app.get("/api/workspace")
