@@ -33,7 +33,7 @@ The owner footer remains visible at the 700×600 minimum; the variable-height fo
 Use final Python 3.14.10 or a later supported 3.14 security patch, Node.js 24, and the exact locks:
 
 ```text
-python -m pip install --require-hashes -r requirements.lock -r requirements-package.lock
+python -m pip install --require-hashes -r requirements-dev.lock -r requirements-package.lock
 npm ci --ignore-scripts --no-audit
 npm run build
 python tools/package_app.py
@@ -54,3 +54,5 @@ See [candidate measurements and corrections](reports/DESKTOP_CANDIDATE_20261110.
 Choose an ordinary physical directory outside the extracted application. Existing ancestors must be real directories: symbolic links and Windows reparse points (including junctions) are refused. The identity, owner lock, SQLite database and any journal/WAL/SHM companions must be regular singly linked files; an unsafe member is refused before opening/writing the workspace. The frozen executable/internal directories and enclosing macOS .app bundle are never data locations. Ordinary existing identified profiles need no migration/reset; their accounts, roles and cookie namespace remain compatible.
 
 These are pre-mutation guards for accidental/trusted-owner path mistakes. The same OS account and administrators remain trusted; SQLite/pathname APIs do not provide an atomic namespace against a concurrent same-OS-user replacing entries after admission. Stop normally and retain the entire external profile. [Dated reproduction and validation](reports/PROFILE_PATH_ADMISSION_20261111.md).
+
+The native builder runs the original thirteen real notice cases before freezing. Its build interpreter therefore needs the complete exact development lock (including pytest), as well as the packaging lock; the runtime-only lock is insufficient for this acceptance step. No pytest installation is required on an end user’s PC.

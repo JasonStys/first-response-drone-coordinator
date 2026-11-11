@@ -605,18 +605,22 @@ Function/class docstrings describe responsibility; this is navigation, not dead-
 | `tests/test_desktop_host.py` | 224 | `database` |
 | `tests/test_desktop_package.py` | 24 | `test_freeze_refuses_old_cached_or_prerelease_runtime(version, level, allowed)` |
 | `tests/test_desktop_package.py` | 29 | `test_all_product_version_surfaces_agree()` |
-| `tests/test_desktop_package.py` | 40 | `test_mismatched_version_or_identity_cannot_build(tmp_path, surface)` |
-| `tests/test_desktop_package.py` | 42 | `root` |
-| `tests/test_desktop_package.py` | 43 | `path` |
-| `tests/test_desktop_package.py` | 44 | `output` |
-| `tests/test_desktop_package.py` | 47 | `selected` |
-| `tests/test_desktop_package.py` | 55 | `path` |
-| `tests/test_desktop_package.py` | 59 | `value` |
-| `tests/test_desktop_package.py` | 83 | `test_source_cleanliness_is_not_a_release_flag_waiver(monkeypatch, dirty, ci, override, sha, allowed)` |
-| `tests/test_desktop_package.py` | 88 | `output(command)` |
-| `tests/test_desktop_package.py` | 105 | `value` |
-| `tests/test_desktop_package.py` | 109 | `test_archive_rejection_remains_active_with_optimized_python()` |
-| `tests/test_desktop_package.py` | 111 | `result` |
+| `tests/test_desktop_package.py` | 37 | `test_native_notice_preflight_has_exact_locked_pytest_build_dependencies()` |
+| `tests/test_desktop_package.py` | 39 | `root` |
+| `tests/test_desktop_package.py` | 40 | `workflow` |
+| `tests/test_desktop_package.py` | 41 | `install` |
+| `tests/test_desktop_package.py` | 49 | `test_mismatched_version_or_identity_cannot_build(tmp_path, surface)` |
+| `tests/test_desktop_package.py` | 51 | `root` |
+| `tests/test_desktop_package.py` | 52 | `path` |
+| `tests/test_desktop_package.py` | 53 | `output` |
+| `tests/test_desktop_package.py` | 56 | `selected` |
+| `tests/test_desktop_package.py` | 64 | `path` |
+| `tests/test_desktop_package.py` | 68 | `value` |
+| `tests/test_desktop_package.py` | 92 | `test_source_cleanliness_is_not_a_release_flag_waiver(monkeypatch, dirty, ci, override, sha, allowed)` |
+| `tests/test_desktop_package.py` | 97 | `output(command)` |
+| `tests/test_desktop_package.py` | 114 | `value` |
+| `tests/test_desktop_package.py` | 118 | `test_archive_rejection_remains_active_with_optimized_python()` |
+| `tests/test_desktop_package.py` | 120 | `result` |
 | `tests/test_desktop_profile.py` | 13 | `test_provision_persist_login_and_existing_roles(tmp_path)` |
 | `tests/test_desktop_profile.py` | 15 | `path` |
 | `tests/test_desktop_profile.py` | 16 | `profile` |

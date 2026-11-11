@@ -34,6 +34,15 @@ def test_all_product_version_surfaces_agree():
     assert package_app.PRODUCT == "first-response-drone-coordinator"
 
 
+def test_native_notice_preflight_has_exact_locked_pytest_build_dependencies():
+    """The real packager's mandatory notice cases need pytest in the same frozen-build interpreter."""
+    root = package_app.ROOT
+    workflow = (root / ".github/workflows/desktop.yml").read_text(encoding="utf-8")
+    install = "python -m pip install --require-hashes -r requirements-dev.lock -r requirements-package.lock"
+    assert workflow.index(install) < workflow.index("python tools/package_app.py")
+    assert "\npytest==" in (root / "requirements-dev.lock").read_text(encoding="utf-8")
+
+
 @pytest.mark.parametrize(
     "surface", ["project", "package", "lock", "lock-root", "runtime", "product"]
 )
