@@ -30,7 +30,7 @@ def test_all_product_version_surfaces_agree():
     """The packaged product and runtime version agree independently of domain schema versions."""
     from coordinator import __version__
 
-    assert package_app.configuration() == __version__ == "0.2.0"
+    assert package_app.configuration() == __version__ == "0.2.1"
     assert package_app.PRODUCT == "first-response-drone-coordinator"
 
 
@@ -54,7 +54,7 @@ def test_mismatched_version_or_identity_cannot_build(tmp_path, surface):
     }[surface]
     path = tmp_path / selected
     if surface in {"project", "runtime"}:
-        path.write_text(path.read_text().replace("0.2.0", "0.1.0"))
+        path.write_text(path.read_text().replace("0.2.1", "0.1.0"))
     else:
         value = json.loads(path.read_text())
         if surface == "lock-root":
@@ -100,9 +100,9 @@ def test_source_cleanliness_is_not_a_release_flag_waiver(
         monkeypatch.setenv("GITHUB_SHA", sha)
     if not allowed:
         with pytest.raises(ValueError):
-            package_app.source_metadata("0.2.0", allow_dirty=override)
+            package_app.source_metadata("0.2.1", allow_dirty=override)
     else:
-        value = package_app.source_metadata("0.2.0", allow_dirty=override)
+        value = package_app.source_metadata("0.2.1", allow_dirty=override)
         assert value["source_commit"] == "a" * 40 and value["source_dirty"] is dirty
 
 

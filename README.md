@@ -38,7 +38,9 @@ TypeScript/React handles typed browser interactions; Python handles strict input
 
 ## Complete desktop application candidate
 
-The 0.2.0 source includes the complete authenticated application, native **profile / first-account / staff / Open / Quit** controls, private persistent profiles and real JSON-file draft import/export. It packages patched Python3.14.10 and actual Tcl/Tk with their notices; no Python/Node installation is required for an extracted release. Prepared examples stay inside the original full application. See [desktop usage, trust boundary and reproducible package validation](docs/DESKTOP.md) and [dated candidate results](docs/reports/DESKTOP_CANDIDATE_20261110.md). This is a source candidate until exact-source hosted acceptance and publication finish; earlier documentation remains tied to its original revision.
+The 0.2.1 source includes the complete authenticated application, native **profile / first-account / staff / Open / Quit** controls, private persistent profiles and real JSON-file draft import/export. It packages patched Python3.14.10 and actual Tcl/Tk with their notices; no Python/Node installation is required for an extracted release. Prepared examples stay inside the original full application. See [desktop usage, trust boundary and reproducible package validation](docs/DESKTOP.md) and [dated candidate results](docs/reports/DESKTOP_CANDIDATE_20261110.md). This is a source candidate until exact-source hosted acceptance and publication finish; earlier documentation remains tied to its original revision.
+
+The 0.2.1 patch refuses profile paths through symbolic links, Windows junctions/reparse points, linked database/identity files or frozen application directories **before workspace writes**. Existing ordinary external profiles, accounts, roles and records retain their schema and cookie namespace. [Path-admission evidence and limits](docs/reports/PROFILE_PATH_ADMISSION_20261111.md).
 
 ## Quick start: disposable local demo
 

@@ -145,31 +145,32 @@ Function/class docstrings describe responsibility; this is navigation, not dead-
 | `coordinator/desktop_host.py` | 76 | `_run(self)` |
 | `coordinator/desktop_host.py` | 89 | `start(self, timeout)` |
 | `coordinator/desktop_host.py` | 97 | `stop(self, timeout)` |
-| `coordinator/desktop_profile.py` | 18 | `PRODUCT` |
-| `coordinator/desktop_profile.py` | 19 | `ROLES` |
-| `coordinator/desktop_profile.py` | 20 | `FIRST_ROLE` |
-| `coordinator/desktop_profile.py` | 23 | `default_directory()` |
-| `coordinator/desktop_profile.py` | 26 | `base` |
-| `coordinator/desktop_profile.py` | 28 | `base` |
-| `coordinator/desktop_profile.py` | 30 | `base` |
-| `coordinator/desktop_profile.py` | 36 | `read_marker(path)` |
-| `coordinator/desktop_profile.py` | 38 | `descriptor` |
-| `coordinator/desktop_profile.py` | 39 | `stream` |
-| `coordinator/desktop_profile.py` | 40 | `info` |
-| `coordinator/desktop_profile.py` | 43 | `raw` |
-| `coordinator/desktop_profile.py` | 46 | `value` |
-| `coordinator/desktop_profile.py` | 59 | `Profile(class)` |
-| `coordinator/desktop_profile.py` | 62 | `__init__(self, directory)` |
-| `coordinator/desktop_profile.py` | 68 | `marker` |
-| `coordinator/desktop_profile.py` | 72 | `stream` |
-| `coordinator/desktop_profile.py` | 74 | `metadata` |
-| `coordinator/desktop_profile.py` | 76 | `namespace` |
-| `coordinator/desktop_profile.py` | 78 | `lock` |
-| `coordinator/desktop_profile.py` | 98 | `database` |
-| `coordinator/desktop_profile.py` | 109 | `count_users(self)` |
-| `coordinator/desktop_profile.py` | 111 | `database` |
-| `coordinator/desktop_profile.py` | 114 | `create_account(self, username, password, confirmation, role)` |
-| `coordinator/desktop_profile.py` | 124 | `close(self)` |
+| `coordinator/desktop_profile.py` | 19 | `PRODUCT` |
+| `coordinator/desktop_profile.py` | 20 | `ROLES` |
+| `coordinator/desktop_profile.py` | 21 | `FIRST_ROLE` |
+| `coordinator/desktop_profile.py` | 24 | `default_directory()` |
+| `coordinator/desktop_profile.py` | 27 | `base` |
+| `coordinator/desktop_profile.py` | 29 | `base` |
+| `coordinator/desktop_profile.py` | 31 | `base` |
+| `coordinator/desktop_profile.py` | 37 | `read_marker(path)` |
+| `coordinator/desktop_profile.py` | 39 | `descriptor` |
+| `coordinator/desktop_profile.py` | 40 | `stream` |
+| `coordinator/desktop_profile.py` | 41 | `info` |
+| `coordinator/desktop_profile.py` | 44 | `raw` |
+| `coordinator/desktop_profile.py` | 47 | `value` |
+| `coordinator/desktop_profile.py` | 60 | `Profile(class)` |
+| `coordinator/desktop_profile.py` | 63 | `__init__(self, directory)` |
+| `coordinator/desktop_profile.py` | 65 | `directory` |
+| `coordinator/desktop_profile.py` | 69 | `marker` |
+| `coordinator/desktop_profile.py` | 75 | `stream` |
+| `coordinator/desktop_profile.py` | 77 | `metadata` |
+| `coordinator/desktop_profile.py` | 79 | `namespace` |
+| `coordinator/desktop_profile.py` | 81 | `lock` |
+| `coordinator/desktop_profile.py` | 97 | `database` |
+| `coordinator/desktop_profile.py` | 107 | `count_users(self)` |
+| `coordinator/desktop_profile.py` | 109 | `database` |
+| `coordinator/desktop_profile.py` | 112 | `create_account(self, username, password, confirmation, role)` |
+| `coordinator/desktop_profile.py` | 122 | `close(self)` |
 | `coordinator/examples.py` | 9 | `KINDS` |
 | `coordinator/examples.py` | 53 | `example(kind)` |
 | `coordinator/examples.py` | 55 | `labels` |
@@ -331,6 +332,25 @@ Function/class docstrings describe responsibility; this is navigation, not dead-
 | `coordinator/planner.py` | 176 | `gaps` |
 | `coordinator/planner.py` | 177 | `task` |
 | `coordinator/planner.py` | 179 | `reason` |
+| `coordinator/profile_paths.py` | 13 | `alias(info)` |
+| `coordinator/profile_paths.py` | 20 | `member(path)` |
+| `coordinator/profile_paths.py` | 23 | `info` |
+| `coordinator/profile_paths.py` | 26 | `expected` |
+| `coordinator/profile_paths.py` | 32 | `admitted_directory(path)` |
+| `coordinator/profile_paths.py` | 34 | `path` |
+| `coordinator/profile_paths.py` | 37 | `ancestor` |
+| `coordinator/profile_paths.py` | 40 | `executable_root` |
+| `coordinator/profile_paths.py` | 41 | `roots` |
+| `coordinator/profile_paths.py` | 42 | `parent` |
+| `coordinator/profile_paths.py` | 43 | `root` |
+| `coordinator/profile_paths.py` | 48 | `workspace_members(directory)` |
+| `coordinator/profile_paths.py` | 50 | `name` |
+| `coordinator/profile_paths.py` | 63 | `open_member(path, flags)` |
+| `coordinator/profile_paths.py` | 65 | `prior` |
+| `coordinator/profile_paths.py` | 66 | `flags` |
+| `coordinator/profile_paths.py` | 72 | `flags` |
+| `coordinator/profile_paths.py` | 73 | `descriptor` |
+| `coordinator/profile_paths.py` | 75 | `opened` |
 | `coordinator/runtime_gui.py` | 7 | `inspect_tk(root, metadata)` |
 | `coordinator/runtime_gui.py` | 9 | `versions` |
 | `coordinator/runtime_gui.py` | 13 | `value` |
@@ -775,6 +795,40 @@ Function/class docstrings describe responsibility; this is navigation, not dead-
 | `tests/test_portable_archive.py` | 114 | `output` |
 | `tests/test_portable_archive.py` | 120 | `path` |
 | `tests/test_portable_archive.py` | 121 | `output` |
+| `tests/test_profile_paths.py` | 12 | `files(directory)` |
+| `tests/test_profile_paths.py` | 16 | `path` |
+| `tests/test_profile_paths.py` | 21 | `junction_or_link(target, alias)` |
+| `tests/test_profile_paths.py` | 34 | `test_actual_directory_alias_refused_before_target_or_parent_creation(tmp_path, ancestor)` |
+| `tests/test_profile_paths.py` | 36 | `target` |
+| `tests/test_profile_paths.py` | 38 | `alias` |
+| `tests/test_profile_paths.py` | 40 | `chosen` |
+| `tests/test_profile_paths.py` | 47 | `test_frozen_program_trees_refused_before_mkdir(tmp_path, monkeypatch, location)` |
+| `tests/test_profile_paths.py` | 49 | `bundle` |
+| `tests/test_profile_paths.py` | 50 | `executable` |
+| `tests/test_profile_paths.py` | 51 | `internal` |
+| `tests/test_profile_paths.py` | 58 | `parent` |
+| `tests/test_profile_paths.py` | 63 | `chosen` |
+| `tests/test_profile_paths.py` | 64 | `before` |
+| `tests/test_profile_paths.py` | 68 | `outside` |
+| `tests/test_profile_paths.py` | 83 | `test_real_hardlinked_member_refused_before_any_other_mutation(tmp_path, name)` |
+| `tests/test_profile_paths.py` | 85 | `chosen` |
+| `tests/test_profile_paths.py` | 86 | `profile` |
+| `tests/test_profile_paths.py` | 88 | `destination` |
+| `tests/test_profile_paths.py` | 89 | `target` |
+| `tests/test_profile_paths.py` | 94 | `before` |
+| `tests/test_profile_paths.py` | 100 | `test_bad_directory_kind_and_parent_traversal_are_not_created(tmp_path)` |
+| `tests/test_profile_paths.py` | 102 | `ordinary` |
+| `tests/test_profile_paths.py` | 111 | `test_read_only_missing_member_never_creates_it(tmp_path)` |
+| `tests/test_profile_paths.py` | 113 | `path` |
+| `tests/test_profile_paths.py` | 119 | `test_opened_identity_replacement_is_rejected_and_descriptor_closed(tmp_path, monkeypatch)` |
+| `tests/test_profile_paths.py` | 121 | `path` |
+| `tests/test_profile_paths.py` | 122 | `replacement` |
+| `tests/test_profile_paths.py` | 125 | `original_open` |
+| `tests/test_profile_paths.py` | 126 | `observed` |
+| `tests/test_profile_paths.py` | 128 | `replace_then_open(candidate, flags, mode)` |
+| `tests/test_profile_paths.py` | 130 | `descriptor` |
+| `tests/test_profile_paths.py` | 142 | `test_existing_nonregular_identity_member_is_refused(tmp_path)` |
+| `tests/test_profile_paths.py` | 144 | `chosen` |
 | `tests/test_publication_policy.py` | 51 | `write_document(root, content, extra)` |
 | `tests/test_publication_policy.py` | 53 | `path` |
 | `tests/test_publication_policy.py` | 55 | `package` |
@@ -1063,6 +1117,21 @@ Function/class docstrings describe responsibility; this is navigation, not dead-
 | `tools/portable_archive.py` | 186 | `source` |
 | `tools/portable_archive.py` | 188 | `bundle` |
 | `tools/portable_archive.py` | 190 | `path` |
+| `tools/profile_admission_smoke.py` | 10 | `snapshot(root)` |
+| `tools/profile_admission_smoke.py` | 14 | `path` |
+| `tools/profile_admission_smoke.py` | 19 | `verify(executable, output, environment)` |
+| `tools/profile_admission_smoke.py` | 21 | `fixture` |
+| `tools/profile_admission_smoke.py` | 23 | `before_program` |
+| `tools/profile_admission_smoke.py` | 24 | `selections` |
+| `tools/profile_admission_smoke.py` | 28 | `label` |
+| `tools/profile_admission_smoke.py` | 29 | `folder` |
+| `tools/profile_admission_smoke.py` | 31 | `target` |
+| `tools/profile_admission_smoke.py` | 33 | `alias` |
+| `tools/profile_admission_smoke.py` | 43 | `results` |
+| `tools/profile_admission_smoke.py` | 44 | `label` |
+| `tools/profile_admission_smoke.py` | 44 | `selected` |
+| `tools/profile_admission_smoke.py` | 45 | `result` |
+| `tools/profile_admission_smoke.py` | 64 | `label` |
 | `tools/runtime_notices.py` | 10 | `UPSTREAM_904` |
 | `tools/runtime_notices.py` | 22 | `read_tcl_notice(interpreter, path)` |
 | `tools/runtime_notices.py` | 27 | `channel` |
@@ -1134,30 +1203,30 @@ Function/class docstrings describe responsibility; this is navigation, not dead-
 | `tools/smoke_app.py` | 125 | `line` |
 | `tools/smoke_app.py` | 128 | `actual_runtime` |
 | `tools/smoke_app.py` | 131 | `key` |
-| `tools/smoke_app.py` | 135 | `process` |
-| `tools/smoke_app.py` | 145 | `events` |
-| `tools/smoke_app.py` | 146 | `log` |
-| `tools/smoke_app.py` | 148 | `read_output()` |
-| `tools/smoke_app.py` | 151 | `line` |
-| `tools/smoke_app.py` | 157 | `reader` |
-| `tools/smoke_app.py` | 159 | `actual_exit` |
-| `tools/smoke_app.py` | 159 | `forced` |
-| `tools/smoke_app.py` | 159 | `passed` |
-| `tools/smoke_app.py` | 159 | `url` |
-| `tools/smoke_app.py` | 161 | `deadline` |
-| `tools/smoke_app.py` | 163 | `remaining` |
-| `tools/smoke_app.py` | 165 | `line` |
-| `tools/smoke_app.py` | 168 | `ready` |
-| `tools/smoke_app.py` | 175 | `url` |
-| `tools/smoke_app.py` | 176 | `code` |
-| `tools/smoke_app.py` | 176 | `raw` |
-| `tools/smoke_app.py` | 222 | `actual_exit` |
-| `tools/smoke_app.py` | 228 | `target` |
-| `tools/smoke_app.py` | 230 | `connection` |
-| `tools/smoke_app.py` | 236 | `reopened` |
-| `tools/smoke_app.py` | 245 | `line` |
-| `tools/smoke_app.py` | 247 | `passed` |
-| `tools/smoke_app.py` | 255 | `forced` |
+| `tools/smoke_app.py` | 138 | `process` |
+| `tools/smoke_app.py` | 148 | `events` |
+| `tools/smoke_app.py` | 149 | `log` |
+| `tools/smoke_app.py` | 151 | `read_output()` |
+| `tools/smoke_app.py` | 154 | `line` |
+| `tools/smoke_app.py` | 160 | `reader` |
+| `tools/smoke_app.py` | 162 | `actual_exit` |
+| `tools/smoke_app.py` | 162 | `forced` |
+| `tools/smoke_app.py` | 162 | `passed` |
+| `tools/smoke_app.py` | 162 | `url` |
+| `tools/smoke_app.py` | 164 | `deadline` |
+| `tools/smoke_app.py` | 166 | `remaining` |
+| `tools/smoke_app.py` | 168 | `line` |
+| `tools/smoke_app.py` | 171 | `ready` |
+| `tools/smoke_app.py` | 178 | `url` |
+| `tools/smoke_app.py` | 179 | `code` |
+| `tools/smoke_app.py` | 179 | `raw` |
+| `tools/smoke_app.py` | 225 | `actual_exit` |
+| `tools/smoke_app.py` | 231 | `target` |
+| `tools/smoke_app.py` | 233 | `connection` |
+| `tools/smoke_app.py` | 239 | `reopened` |
+| `tools/smoke_app.py` | 248 | `line` |
+| `tools/smoke_app.py` | 250 | `passed` |
+| `tools/smoke_app.py` | 258 | `forced` |
 | `ui/src/domain.test.ts` | 13 | `slot` |
 | `ui/src/domain.test.ts` | 16 | `slot` |
 | `ui/src/domain.test.ts` | 20 | `[charge, expected]` |

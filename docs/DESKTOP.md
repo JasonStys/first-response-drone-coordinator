@@ -2,7 +2,7 @@
 
 # First Response Drone Coordinator: portable desktop application
 
-The 0.2.0 source candidate packages the project's complete existing authenticated browser application with Python, SQL storage, built TypeScript UI and native Tk owner controls. It is one application, with optional prepared inputs inside it. It is not a signed installer, a cloud service, a native mobile app, or a live aircraft controller. Publication and operating-system acceptance require the exact-source hosted gates; local candidate results do not claim a public release.
+The 0.2.1 source candidate packages the project's complete existing authenticated browser application with Python, SQL storage, built TypeScript UI and native Tk owner controls. It is one application, with optional prepared inputs inside it. It is not a signed installer, a cloud service, a native mobile app, or a live aircraft controller. Publication and operating-system acceptance require the exact-source hosted gates; local candidate results do not claim a public release.
 
 ## Launch, provision and use
 
@@ -48,3 +48,9 @@ The new read-only desktop workflow builds/test-extracts on Windows, macOS and Ub
 All included fleet/scenario/policy values are fictional. The application provides educational evidence review, not dispatch, airworthiness certification, flight permission, prediction of physical safety, or live equipment control. The application is unsigned; archive extraction/launch is not a signed clean-install or uninstall transaction. Automated tests suppress the operating system's default-browser opener; Desktop shortcut and manual OS/browser integration are separate acceptance steps. Existing CLI workspaces are not automatically imported into native profiles.
 
 See [candidate measurements and corrections](reports/DESKTOP_CANDIDATE_20261110.md), [source navigation](SOURCE_MAP.md) and [file catalog](FILE_CATALOG.md). Earlier Office editions and immutable reports retain their own source/date; they are not rebuilt or relabelled by this candidate.
+
+## Profile path admission
+
+Choose an ordinary physical directory outside the extracted application. Existing ancestors must be real directories: symbolic links and Windows reparse points (including junctions) are refused. The identity, owner lock, SQLite database and any journal/WAL/SHM companions must be regular singly linked files; an unsafe member is refused before opening/writing the workspace. The frozen executable/internal directories and enclosing macOS .app bundle are never data locations. Ordinary existing identified profiles need no migration/reset; their accounts, roles and cookie namespace remain compatible.
+
+These are pre-mutation guards for accidental/trusted-owner path mistakes. The same OS account and administrators remain trusted; SQLite/pathname APIs do not provide an atomic namespace against a concurrent same-OS-user replacing entries after admission. Stop normally and retain the entire external profile. [Dated reproduction and validation](reports/PROFILE_PATH_ADMISSION_20261111.md).

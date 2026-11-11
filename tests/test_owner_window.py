@@ -16,7 +16,7 @@ def window(tmp_path):
     view = owner_window.OwnerWindow(
         root,
         tmp_path / "profile",
-        {"name": PRODUCT, "version": "0.2.0", "mode": "development"},
+        {"name": PRODUCT, "version": "0.2.1", "mode": "development"},
         no_browser=True,
     )
     yield root, view
@@ -131,7 +131,7 @@ def test_identified_profile_automatically_reopens_without_reset(tmp_path, monkey
     root = tk.Tk()
     root.withdraw()
     view = owner_window.OwnerWindow(
-        root, path, {"name": PRODUCT, "version": "0.2.0", "mode": "development"}
+        root, path, {"name": PRODUCT, "version": "0.2.1", "mode": "development"}
     )
     try:
         root.update()

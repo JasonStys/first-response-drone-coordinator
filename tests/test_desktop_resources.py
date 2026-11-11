@@ -14,7 +14,7 @@ def test_source_mode_is_explicit_and_frozen_missing_identity_fails(tmp_path, mon
     """A frozen package cannot silently become an unverified source-mode launch."""
     assert desktop.identity(tmp_path) == {
         "name": PRODUCT,
-        "version": "0.2.0",
+        "version": "0.2.1",
         "mode": "development",
     }
     monkeypatch.setattr(desktop.sys, "frozen", True, raising=False)
@@ -40,7 +40,7 @@ def test_each_wrong_frozen_identity_surface_is_rejected(tmp_path, field, value):
     valid = {
         "schema_version": 1,
         "name": PRODUCT,
-        "version": "0.2.0",
+        "version": "0.2.1",
         "python_version": platform.python_version(),
         "source_commit": "a" * 40,
         "source_dirty": False,
@@ -134,7 +134,7 @@ def test_normal_entrypoint_presents_native_controls(tmp_path, monkeypatch):
     monkeypatch.setattr(owner_window, "OwnerWindow", close_after_construct)
     assert desktop.main(["--profile", str(tmp_path / "chosen"), "--no-browser"]) == 0
     assert observed == [
-        (tmp_path / "chosen", {"name": PRODUCT, "version": "0.2.0", "mode": "development"}, True)
+        (tmp_path / "chosen", {"name": PRODUCT, "version": "0.2.1", "mode": "development"}, True)
     ]
 
 
@@ -191,7 +191,7 @@ def test_console_interrupt_drains_the_actual_owned_host_and_releases_profile(
 
     monkeypatch.setattr(desktop, "Host", remember)
     monkeypatch.setattr(desktop.sys, "stdin", Interrupted())
-    desktop.console_session(path, {"name": PRODUCT, "version": "0.2.0", "mode": "development"})
+    desktop.console_session(path, {"name": PRODUCT, "version": "0.2.1", "mode": "development"})
     assert (
         len(observed) == 1
         and not observed[0].thread.is_alive()
