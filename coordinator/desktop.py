@@ -16,6 +16,7 @@ from pathlib import Path
 from coordinator import __version__
 from coordinator.desktop_host import Host
 from coordinator.desktop_profile import PRODUCT, Profile, default_directory
+from coordinator.runtime_gui import inspect_tk
 
 ROOT = Path(getattr(sys, "_MEIPASS", Path(__file__).resolve().parents[1]))
 
@@ -57,21 +58,6 @@ def identity(root: Path) -> dict:
     return value
 
 
-def inspect_tk(root, metadata: dict) -> dict:
-    """Read the actual loaded GUI runtime; a frozen owner window must match its declared Tcl/Tk pair."""
-    versions = {
-        "tcl_version": str(root.tk.call("info", "patchlevel")),
-        "tk_version": str(root.tk.call("package", "require", "Tk")),
-    }
-    if not all(value.startswith(("8.6.", "9.0.")) for value in versions.values()):
-        raise ValueError("Review this Tcl/Tk runtime family before use")
-    if metadata.get("mode") != "development" and any(
-        metadata.get(name) != value for name, value in versions.items()
-    ):
-        raise ValueError("Loaded Tcl/Tk does not match this package identity")
-    return versions
-
-
 def console_session(directory: Path, metadata: dict):
     """Documented automation/console mode uses the same stored accounts, actual API and graceful owner Quit."""
     profile = Profile(directory)
@@ -91,7 +77,7 @@ def console_session(directory: Path, metadata: dict):
                     break
                 print("Unknown owner command; enter quit.", flush=True)
         except KeyboardInterrupt:
-            pass
+            print("Owner interrupt received; draining active work.", flush=True)
     finally:
         try:
             if host is not None:

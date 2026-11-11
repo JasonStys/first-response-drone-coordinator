@@ -165,7 +165,9 @@ def test_actual_loaded_tk_matches_package_and_runtime_info_opens_no_profile(
     assert not (tmp_path / "never-created").exists()
 
 
-def test_console_interrupt_drains_the_actual_owned_host_and_releases_profile(tmp_path, monkeypatch):
+def test_console_interrupt_drains_the_actual_owned_host_and_releases_profile(
+    tmp_path, monkeypatch, capsys
+):
     """A supported Ctrl+C at the owner pipe cannot orphan the real server or retain its file lock."""
     from coordinator.desktop_profile import FIRST_ROLE, Profile
 
@@ -197,3 +199,4 @@ def test_console_interrupt_drains_the_actual_owned_host_and_releases_profile(tmp
     )
     reopened = Profile(path)
     reopened.close()
+    assert "Owner interrupt received; draining active work." in capsys.readouterr().out

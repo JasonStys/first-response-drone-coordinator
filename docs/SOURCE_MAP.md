@@ -113,33 +113,28 @@ Function/class docstrings describe responsibility; this is navigation, not dead-
 | `coordinator/contingency.py` | 36 | `task` |
 | `coordinator/contingency.py` | 41 | `a` |
 | `coordinator/contingency.py` | 41 | `b` |
-| `coordinator/desktop.py` | 20 | `ROOT` |
-| `coordinator/desktop.py` | 23 | `read_resource(path)` |
-| `coordinator/desktop.py` | 25 | `descriptor` |
-| `coordinator/desktop.py` | 28 | `stream` |
-| `coordinator/desktop.py` | 29 | `info` |
-| `coordinator/desktop.py` | 32 | `raw` |
-| `coordinator/desktop.py` | 38 | `identity(root)` |
-| `coordinator/desktop.py` | 41 | `value` |
-| `coordinator/desktop.py` | 60 | `inspect_tk(root, metadata)` |
-| `coordinator/desktop.py` | 62 | `versions` |
-| `coordinator/desktop.py` | 66 | `value` |
-| `coordinator/desktop.py` | 69 | `name` |
-| `coordinator/desktop.py` | 69 | `value` |
-| `coordinator/desktop.py` | 75 | `console_session(directory, metadata)` |
-| `coordinator/desktop.py` | 77 | `profile` |
-| `coordinator/desktop.py` | 78 | `host` |
-| `coordinator/desktop.py` | 82 | `host` |
-| `coordinator/desktop.py` | 89 | `line` |
-| `coordinator/desktop.py` | 104 | `main(argv)` |
-| `coordinator/desktop.py` | 106 | `parser` |
-| `coordinator/desktop.py` | 123 | `args` |
-| `coordinator/desktop.py` | 127 | `metadata` |
-| `coordinator/desktop.py` | 132 | `root` |
-| `coordinator/desktop.py` | 135 | `versions` |
-| `coordinator/desktop.py` | 140 | `directory` |
-| `coordinator/desktop.py` | 148 | `root` |
-| `coordinator/desktop.py` | 149 | `window` |
+| `coordinator/desktop.py` | 21 | `ROOT` |
+| `coordinator/desktop.py` | 24 | `read_resource(path)` |
+| `coordinator/desktop.py` | 26 | `descriptor` |
+| `coordinator/desktop.py` | 29 | `stream` |
+| `coordinator/desktop.py` | 30 | `info` |
+| `coordinator/desktop.py` | 33 | `raw` |
+| `coordinator/desktop.py` | 39 | `identity(root)` |
+| `coordinator/desktop.py` | 42 | `value` |
+| `coordinator/desktop.py` | 61 | `console_session(directory, metadata)` |
+| `coordinator/desktop.py` | 63 | `profile` |
+| `coordinator/desktop.py` | 64 | `host` |
+| `coordinator/desktop.py` | 68 | `host` |
+| `coordinator/desktop.py` | 75 | `line` |
+| `coordinator/desktop.py` | 90 | `main(argv)` |
+| `coordinator/desktop.py` | 92 | `parser` |
+| `coordinator/desktop.py` | 109 | `args` |
+| `coordinator/desktop.py` | 113 | `metadata` |
+| `coordinator/desktop.py` | 118 | `root` |
+| `coordinator/desktop.py` | 121 | `versions` |
+| `coordinator/desktop.py` | 126 | `directory` |
+| `coordinator/desktop.py` | 134 | `root` |
+| `coordinator/desktop.py` | 135 | `window` |
 | `coordinator/desktop_host.py` | 18 | `OwnedServer(class)` |
 | `coordinator/desktop_host.py` | 21 | `__init__(self, config, ready, record)` |
 | `coordinator/desktop_host.py` | 27 | `startup(self, sockets)` |
@@ -148,8 +143,8 @@ Function/class docstrings describe responsibility; this is navigation, not dead-
 | `coordinator/desktop_host.py` | 54 | `app` |
 | `coordinator/desktop_host.py` | 56 | `config` |
 | `coordinator/desktop_host.py` | 76 | `_run(self)` |
-| `coordinator/desktop_host.py` | 86 | `start(self, timeout)` |
-| `coordinator/desktop_host.py` | 94 | `stop(self, timeout)` |
+| `coordinator/desktop_host.py` | 89 | `start(self, timeout)` |
+| `coordinator/desktop_host.py` | 97 | `stop(self, timeout)` |
 | `coordinator/desktop_profile.py` | 18 | `PRODUCT` |
 | `coordinator/desktop_profile.py` | 19 | `ROLES` |
 | `coordinator/desktop_profile.py` | 20 | `FIRST_ROLE` |
@@ -336,6 +331,11 @@ Function/class docstrings describe responsibility; this is navigation, not dead-
 | `coordinator/planner.py` | 176 | `gaps` |
 | `coordinator/planner.py` | 177 | `task` |
 | `coordinator/planner.py` | 179 | `reason` |
+| `coordinator/runtime_gui.py` | 7 | `inspect_tk(root, metadata)` |
+| `coordinator/runtime_gui.py` | 9 | `versions` |
+| `coordinator/runtime_gui.py` | 13 | `value` |
+| `coordinator/runtime_gui.py` | 16 | `name` |
+| `coordinator/runtime_gui.py` | 16 | `value` |
 | `coordinator/store.py` | 19 | `timestamp()` |
 | `coordinator/store.py` | 24 | `Store(class)` |
 | `coordinator/store.py` | 27 | `__init__(self, path)` |
@@ -528,29 +528,29 @@ Function/class docstrings describe responsibility; this is navigation, not dead-
 | `tests/test_desktop_host.py` | 103 | `message` |
 | `tests/test_desktop_host.py` | 113 | `connection` |
 | `tests/test_desktop_host.py` | 124 | `response` |
-| `tests/test_desktop_host.py` | 137 | `test_startup_failure_is_never_reported_as_ready(tmp_path, monkeypatch)` |
-| `tests/test_desktop_host.py` | 139 | `profile` |
-| `tests/test_desktop_host.py` | 140 | `host` |
-| `tests/test_desktop_host.py` | 142 | `broken()` |
-| `tests/test_desktop_host.py` | 156 | `test_two_actual_profiles_keep_sessions_in_one_host_scoped_cookie_jar(tmp_path)` |
-| `tests/test_desktop_host.py` | 158 | `first` |
-| `tests/test_desktop_host.py` | 159 | `second` |
-| `tests/test_desktop_host.py` | 160 | `password` |
-| `tests/test_desktop_host.py` | 164 | `hosts` |
-| `tests/test_desktop_host.py` | 166 | `host` |
-| `tests/test_desktop_host.py` | 168 | `client` |
-| `tests/test_desktop_host.py` | 169 | `host` |
-| `tests/test_desktop_host.py` | 169 | `name` |
-| `tests/test_desktop_host.py` | 170 | `response` |
-| `tests/test_desktop_host.py` | 176 | `cookie` |
-| `tests/test_desktop_host.py` | 180 | `host` |
-| `tests/test_desktop_host.py` | 180 | `users` |
-| `tests/test_desktop_host.py` | 181 | `user` |
-| `tests/test_desktop_host.py` | 182 | `foreign_cookie` |
-| `tests/test_desktop_host.py` | 189 | `wrong_csrf` |
-| `tests/test_desktop_host.py` | 206 | `host` |
-| `tests/test_desktop_host.py` | 213 | `test_invalid_cookie_namespace_is_rejected_before_database_creation(tmp_path, invalid)` |
-| `tests/test_desktop_host.py` | 217 | `database` |
+| `tests/test_desktop_host.py` | 140 | `test_startup_failure_is_never_reported_as_ready(tmp_path, monkeypatch, failure)` |
+| `tests/test_desktop_host.py` | 142 | `profile` |
+| `tests/test_desktop_host.py` | 143 | `host` |
+| `tests/test_desktop_host.py` | 145 | `broken()` |
+| `tests/test_desktop_host.py` | 163 | `test_two_actual_profiles_keep_sessions_in_one_host_scoped_cookie_jar(tmp_path)` |
+| `tests/test_desktop_host.py` | 165 | `first` |
+| `tests/test_desktop_host.py` | 166 | `second` |
+| `tests/test_desktop_host.py` | 167 | `password` |
+| `tests/test_desktop_host.py` | 171 | `hosts` |
+| `tests/test_desktop_host.py` | 173 | `host` |
+| `tests/test_desktop_host.py` | 175 | `client` |
+| `tests/test_desktop_host.py` | 176 | `host` |
+| `tests/test_desktop_host.py` | 176 | `name` |
+| `tests/test_desktop_host.py` | 177 | `response` |
+| `tests/test_desktop_host.py` | 183 | `cookie` |
+| `tests/test_desktop_host.py` | 187 | `host` |
+| `tests/test_desktop_host.py` | 187 | `users` |
+| `tests/test_desktop_host.py` | 188 | `user` |
+| `tests/test_desktop_host.py` | 189 | `foreign_cookie` |
+| `tests/test_desktop_host.py` | 196 | `wrong_csrf` |
+| `tests/test_desktop_host.py` | 213 | `host` |
+| `tests/test_desktop_host.py` | 220 | `test_invalid_cookie_namespace_is_rejected_before_database_creation(tmp_path, invalid)` |
+| `tests/test_desktop_host.py` | 224 | `database` |
 | `tests/test_desktop_package.py` | 24 | `test_freeze_refuses_old_cached_or_prerelease_runtime(version, level, allowed)` |
 | `tests/test_desktop_package.py` | 29 | `test_all_product_version_surfaces_agree()` |
 | `tests/test_desktop_package.py` | 40 | `test_mismatched_version_or_identity_cannot_build(tmp_path, surface)` |
@@ -617,16 +617,16 @@ Function/class docstrings describe responsibility; this is navigation, not dead-
 | `tests/test_desktop_resources.py` | 162 | `output` |
 | `tests/test_desktop_resources.py` | 163 | `record` |
 | `tests/test_desktop_resources.py` | 164 | `name` |
-| `tests/test_desktop_resources.py` | 168 | `test_console_interrupt_drains_the_actual_owned_host_and_releases_profile(tmp_path, monkeypatch)` |
-| `tests/test_desktop_resources.py` | 172 | `path` |
-| `tests/test_desktop_resources.py` | 173 | `profile` |
-| `tests/test_desktop_resources.py` | 178 | `actual_host` |
-| `tests/test_desktop_resources.py` | 179 | `observed` |
-| `tests/test_desktop_resources.py` | 181 | `remember()` |
-| `tests/test_desktop_resources.py` | 182 | `host` |
-| `tests/test_desktop_resources.py` | 186 | `Interrupted(class)` |
-| `tests/test_desktop_resources.py` | 187 | `__iter__(self)` |
-| `tests/test_desktop_resources.py` | 198 | `reopened` |
+| `tests/test_desktop_resources.py` | 168 | `test_console_interrupt_drains_the_actual_owned_host_and_releases_profile(tmp_path, monkeypatch, capsys)` |
+| `tests/test_desktop_resources.py` | 174 | `path` |
+| `tests/test_desktop_resources.py` | 175 | `profile` |
+| `tests/test_desktop_resources.py` | 180 | `actual_host` |
+| `tests/test_desktop_resources.py` | 181 | `observed` |
+| `tests/test_desktop_resources.py` | 183 | `remember()` |
+| `tests/test_desktop_resources.py` | 184 | `host` |
+| `tests/test_desktop_resources.py` | 188 | `Interrupted(class)` |
+| `tests/test_desktop_resources.py` | 189 | `__iter__(self)` |
+| `tests/test_desktop_resources.py` | 200 | `reopened` |
 | `tests/test_osv_policy.py` | 12 | `lock()` |
 | `tests/test_osv_policy.py` | 24 | `report()` |
 | `tests/test_osv_policy.py` | 32 | `name` |
@@ -916,43 +916,43 @@ Function/class docstrings describe responsibility; this is navigation, not dead-
 | `tools/docs_index.py` | 14 | `ROOT` |
 | `tools/docs_index.py` | 15 | `EXCLUDE` |
 | `tools/docs_index.py` | 28 | `DESCRIPTIONS` |
-| `tools/docs_index.py` | 63 | `public_text(path)` |
-| `tools/docs_index.py` | 67 | `package` |
-| `tools/docs_index.py` | 68 | `members` |
-| `tools/docs_index.py` | 69 | `member` |
-| `tools/docs_index.py` | 69 | `names` |
-| `tools/docs_index.py` | 73 | `member` |
-| `tools/docs_index.py` | 76 | `item` |
-| `tools/docs_index.py` | 79 | `inspected` |
-| `tools/docs_index.py` | 79 | `member` |
+| `tools/docs_index.py` | 64 | `public_text(path)` |
+| `tools/docs_index.py` | 68 | `package` |
+| `tools/docs_index.py` | 69 | `members` |
+| `tools/docs_index.py` | 70 | `member` |
+| `tools/docs_index.py` | 70 | `names` |
+| `tools/docs_index.py` | 74 | `member` |
+| `tools/docs_index.py` | 77 | `item` |
+| `tools/docs_index.py` | 80 | `inspected` |
 | `tools/docs_index.py` | 80 | `member` |
-| `tools/docs_index.py` | 84 | `member` |
-| `tools/docs_index.py` | 87 | `files()` |
-| `tools/docs_index.py` | 89 | `paths` |
-| `tools/docs_index.py` | 90 | `directory` |
-| `tools/docs_index.py` | 90 | `names` |
-| `tools/docs_index.py` | 90 | `subdirectories` |
-| `tools/docs_index.py` | 91 | `name` |
+| `tools/docs_index.py` | 81 | `member` |
+| `tools/docs_index.py` | 85 | `member` |
+| `tools/docs_index.py` | 88 | `files()` |
+| `tools/docs_index.py` | 90 | `paths` |
+| `tools/docs_index.py` | 91 | `directory` |
+| `tools/docs_index.py` | 91 | `names` |
+| `tools/docs_index.py` | 91 | `subdirectories` |
 | `tools/docs_index.py` | 92 | `name` |
-| `tools/docs_index.py` | 96 | `render()` |
-| `tools/docs_index.py` | 98 | `catalog` |
-| `tools/docs_index.py` | 106 | `source` |
-| `tools/docs_index.py` | 116 | `path` |
-| `tools/docs_index.py` | 117 | `relative` |
-| `tools/docs_index.py` | 118 | `text` |
-| `tools/docs_index.py` | 119 | `description` |
-| `tools/docs_index.py` | 120 | `line` |
-| `tools/docs_index.py` | 127 | `records` |
-| `tools/docs_index.py` | 128 | `node` |
-| `tools/docs_index.py` | 130 | `params` |
-| `tools/docs_index.py` | 133 | `arg` |
-| `tools/docs_index.py` | 139 | `line` |
-| `tools/docs_index.py` | 139 | `name` |
-| `tools/docs_index.py` | 141 | `node` |
-| `tools/docs_index.py` | 155 | `main()` |
-| `tools/docs_index.py` | 157 | `content` |
-| `tools/docs_index.py` | 157 | `name` |
-| `tools/docs_index.py` | 158 | `path` |
+| `tools/docs_index.py` | 93 | `name` |
+| `tools/docs_index.py` | 97 | `render()` |
+| `tools/docs_index.py` | 99 | `catalog` |
+| `tools/docs_index.py` | 107 | `source` |
+| `tools/docs_index.py` | 117 | `path` |
+| `tools/docs_index.py` | 118 | `relative` |
+| `tools/docs_index.py` | 119 | `text` |
+| `tools/docs_index.py` | 120 | `description` |
+| `tools/docs_index.py` | 121 | `line` |
+| `tools/docs_index.py` | 128 | `records` |
+| `tools/docs_index.py` | 129 | `node` |
+| `tools/docs_index.py` | 131 | `params` |
+| `tools/docs_index.py` | 134 | `arg` |
+| `tools/docs_index.py` | 140 | `line` |
+| `tools/docs_index.py` | 140 | `name` |
+| `tools/docs_index.py` | 142 | `node` |
+| `tools/docs_index.py` | 156 | `main()` |
+| `tools/docs_index.py` | 158 | `content` |
+| `tools/docs_index.py` | 158 | `name` |
+| `tools/docs_index.py` | 159 | `path` |
 | `tools/package_app.py` | 28 | `ROOT` |
 | `tools/package_app.py` | 29 | `APPLICATION` |
 | `tools/package_app.py` | 30 | `PRODUCT` |

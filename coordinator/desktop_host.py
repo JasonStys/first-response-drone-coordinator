@@ -77,8 +77,11 @@ class Host:
         """Retain startup/runtime failure for the owner; close only this listener when the service finishes."""
         try:
             self.server.run(sockets=[self.listener])
-        except BaseException as error:
+        except Exception as error:
             self.error = error
+        except (KeyboardInterrupt, SystemExit) as error:
+            self.error = RuntimeError("Owned service interrupted before normal completion")
+            self.error.__cause__ = error
         finally:
             self.listener.close()
             self.ready.set()
