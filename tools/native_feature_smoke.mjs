@@ -66,7 +66,7 @@ async function download(name) {
 try {
   await login("planner");
   await expect(
-    page.getByText("Application v0.2.0", { exact: false }),
+    page.getByText("Application v0.2.1", { exact: false }),
   ).toBeVisible();
   const original = await (
     await page.request.get(new URL("api/workspace", base).href)

@@ -65,7 +65,7 @@ def main(argv=None):
     args = parser.parse_args(argv)
     executable = args.executable.resolve()
     expected = json.loads(read_resource(executable.parent / "RELEASE.json"))
-    require(expected["name"] == PRODUCT and expected["version"] == "0.2.0", "Wrong application")
+    require(expected["name"] == PRODUCT and expected["version"] == "0.2.1", "Wrong application")
     require(re.fullmatch(r"[a-f0-9]{40}", expected["source_commit"]), "Invalid source identity")
     require(
         json.loads(
@@ -132,6 +132,9 @@ def main(argv=None):
         "Actual loaded frozen Tcl/Tk differs",
     )
     (output / "runtime.json").write_text(json.dumps(actual_runtime, indent=2) + "\n")
+    from profile_admission_smoke import verify as verify_profile_admission
+
+    verify_profile_admission(executable, output, environment)
     process = subprocess.Popen(
         [str(executable), "--profile", str(profile_directory), "--no-window", "--no-browser"],
         cwd=output,

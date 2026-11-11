@@ -37,7 +37,7 @@ def request(host, path, *, method="GET", body=None, headers=None):
 def test_actual_readiness_private_login_and_owned_stop(tmp_path):
     """Actual API sessions/CSRF stay authoritative, and native completion closes only the owned listener."""
     profile = prepared(tmp_path)
-    metadata = {"name": PRODUCT, "version": "0.2.0", "mode": "development"}
+    metadata = {"name": PRODUCT, "version": "0.2.1", "mode": "development"}
     host = Host(profile, metadata)
     try:
         host.start()
@@ -89,7 +89,7 @@ def test_actual_readiness_private_login_and_owned_stop(tmp_path):
 def test_actual_partial_body_bounds_pre_shutdown_drain(tmp_path):
     """A real held HTTP request reaches ASGI receive, then times out before the owner reports completion."""
     profile = prepared(tmp_path)
-    host = Host(profile, {"name": PRODUCT, "version": "0.2.0", "mode": "development"})
+    host = Host(profile, {"name": PRODUCT, "version": "0.2.1", "mode": "development"})
     received = threading.Event()
 
     class ObserveRead:

@@ -159,7 +159,7 @@ class OwnerWindow:
             self.status.set(
                 "The local profile is open but its service could not start. Quit and reopen this application; saved records were retained."
                 if self.profile is not None
-                else "Could not open that profile. Unknown files, a running owner, or an invalid identity were not adopted. Choose another empty folder or check the local console."
+                else "Could not open that profile. Unsafe paths, unknown files, a running owner, or an invalid identity were not adopted. Choose another empty folder or check the local console."
             )
 
     def create_account(self):

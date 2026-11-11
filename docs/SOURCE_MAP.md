@@ -145,31 +145,32 @@ Function/class docstrings describe responsibility; this is navigation, not dead-
 | `coordinator/desktop_host.py` | 76 | `_run(self)` |
 | `coordinator/desktop_host.py` | 89 | `start(self, timeout)` |
 | `coordinator/desktop_host.py` | 97 | `stop(self, timeout)` |
-| `coordinator/desktop_profile.py` | 18 | `PRODUCT` |
-| `coordinator/desktop_profile.py` | 19 | `ROLES` |
-| `coordinator/desktop_profile.py` | 20 | `FIRST_ROLE` |
-| `coordinator/desktop_profile.py` | 23 | `default_directory()` |
-| `coordinator/desktop_profile.py` | 26 | `base` |
-| `coordinator/desktop_profile.py` | 28 | `base` |
-| `coordinator/desktop_profile.py` | 30 | `base` |
-| `coordinator/desktop_profile.py` | 36 | `read_marker(path)` |
-| `coordinator/desktop_profile.py` | 38 | `descriptor` |
-| `coordinator/desktop_profile.py` | 39 | `stream` |
-| `coordinator/desktop_profile.py` | 40 | `info` |
-| `coordinator/desktop_profile.py` | 43 | `raw` |
-| `coordinator/desktop_profile.py` | 46 | `value` |
-| `coordinator/desktop_profile.py` | 59 | `Profile(class)` |
-| `coordinator/desktop_profile.py` | 62 | `__init__(self, directory)` |
-| `coordinator/desktop_profile.py` | 68 | `marker` |
-| `coordinator/desktop_profile.py` | 72 | `stream` |
-| `coordinator/desktop_profile.py` | 74 | `metadata` |
-| `coordinator/desktop_profile.py` | 76 | `namespace` |
-| `coordinator/desktop_profile.py` | 78 | `lock` |
-| `coordinator/desktop_profile.py` | 98 | `database` |
-| `coordinator/desktop_profile.py` | 109 | `count_users(self)` |
-| `coordinator/desktop_profile.py` | 111 | `database` |
-| `coordinator/desktop_profile.py` | 114 | `create_account(self, username, password, confirmation, role)` |
-| `coordinator/desktop_profile.py` | 124 | `close(self)` |
+| `coordinator/desktop_profile.py` | 19 | `PRODUCT` |
+| `coordinator/desktop_profile.py` | 20 | `ROLES` |
+| `coordinator/desktop_profile.py` | 21 | `FIRST_ROLE` |
+| `coordinator/desktop_profile.py` | 24 | `default_directory()` |
+| `coordinator/desktop_profile.py` | 27 | `base` |
+| `coordinator/desktop_profile.py` | 29 | `base` |
+| `coordinator/desktop_profile.py` | 31 | `base` |
+| `coordinator/desktop_profile.py` | 37 | `read_marker(path)` |
+| `coordinator/desktop_profile.py` | 39 | `descriptor` |
+| `coordinator/desktop_profile.py` | 40 | `stream` |
+| `coordinator/desktop_profile.py` | 41 | `info` |
+| `coordinator/desktop_profile.py` | 44 | `raw` |
+| `coordinator/desktop_profile.py` | 47 | `value` |
+| `coordinator/desktop_profile.py` | 60 | `Profile(class)` |
+| `coordinator/desktop_profile.py` | 63 | `__init__(self, directory)` |
+| `coordinator/desktop_profile.py` | 65 | `directory` |
+| `coordinator/desktop_profile.py` | 69 | `marker` |
+| `coordinator/desktop_profile.py` | 75 | `stream` |
+| `coordinator/desktop_profile.py` | 77 | `metadata` |
+| `coordinator/desktop_profile.py` | 79 | `namespace` |
+| `coordinator/desktop_profile.py` | 81 | `lock` |
+| `coordinator/desktop_profile.py` | 97 | `database` |
+| `coordinator/desktop_profile.py` | 107 | `count_users(self)` |
+| `coordinator/desktop_profile.py` | 109 | `database` |
+| `coordinator/desktop_profile.py` | 112 | `create_account(self, username, password, confirmation, role)` |
+| `coordinator/desktop_profile.py` | 122 | `close(self)` |
 | `coordinator/examples.py` | 9 | `KINDS` |
 | `coordinator/examples.py` | 53 | `example(kind)` |
 | `coordinator/examples.py` | 55 | `labels` |
@@ -331,6 +332,25 @@ Function/class docstrings describe responsibility; this is navigation, not dead-
 | `coordinator/planner.py` | 176 | `gaps` |
 | `coordinator/planner.py` | 177 | `task` |
 | `coordinator/planner.py` | 179 | `reason` |
+| `coordinator/profile_paths.py` | 13 | `alias(info)` |
+| `coordinator/profile_paths.py` | 20 | `member(path)` |
+| `coordinator/profile_paths.py` | 23 | `info` |
+| `coordinator/profile_paths.py` | 26 | `expected` |
+| `coordinator/profile_paths.py` | 32 | `admitted_directory(path)` |
+| `coordinator/profile_paths.py` | 34 | `path` |
+| `coordinator/profile_paths.py` | 37 | `ancestor` |
+| `coordinator/profile_paths.py` | 40 | `executable_root` |
+| `coordinator/profile_paths.py` | 41 | `roots` |
+| `coordinator/profile_paths.py` | 42 | `parent` |
+| `coordinator/profile_paths.py` | 43 | `root` |
+| `coordinator/profile_paths.py` | 48 | `workspace_members(directory)` |
+| `coordinator/profile_paths.py` | 50 | `name` |
+| `coordinator/profile_paths.py` | 63 | `open_member(path, flags)` |
+| `coordinator/profile_paths.py` | 65 | `prior` |
+| `coordinator/profile_paths.py` | 66 | `flags` |
+| `coordinator/profile_paths.py` | 72 | `flags` |
+| `coordinator/profile_paths.py` | 73 | `descriptor` |
+| `coordinator/profile_paths.py` | 75 | `opened` |
 | `coordinator/runtime_gui.py` | 7 | `inspect_tk(root, metadata)` |
 | `coordinator/runtime_gui.py` | 9 | `versions` |
 | `coordinator/runtime_gui.py` | 13 | `value` |
@@ -371,6 +391,38 @@ Function/class docstrings describe responsibility; this is navigation, not dead-
 | `coordinator/store.py` | 150 | `events` |
 | `coordinator/store.py` | 151 | `row` |
 | `coordinator/store.py` | 153 | `proposal` |
+| `tests/runtime_notice_cases.py` | 10 | `ROOT` |
+| `tests/runtime_notice_cases.py` | 14 | `interpreter()` |
+| `tests/runtime_notice_cases.py` | 16 | `root` |
+| `tests/runtime_notice_cases.py` | 24 | `test_actual_tcl_notice_reader_preserves_bytes_and_missing_identity(tmp_path, interpreter)` |
+| `tests/runtime_notice_cases.py` | 26 | `path` |
+| `tests/runtime_notice_cases.py` | 27 | `raw` |
+| `tests/runtime_notice_cases.py` | 34 | `raw` |
+| `tests/runtime_notice_cases.py` | 42 | `test_exact_mac_version_uses_verbatim_upstream_notice_and_binds_digest(tmp_path, kind, interpreter)` |
+| `tests/runtime_notice_cases.py` | 46 | `library` |
+| `tests/runtime_notice_cases.py` | 47 | `file` |
+| `tests/runtime_notice_cases.py` | 48 | `target` |
+| `tests/runtime_notice_cases.py` | 51 | `raw` |
+| `tests/runtime_notice_cases.py` | 51 | `source` |
+| `tests/runtime_notice_cases.py` | 78 | `test_unreviewed_platform_version_or_library_cannot_substitute_notice(version, library, system, interpreter)` |
+| `tests/runtime_notice_cases.py` | 87 | `test_ubuntu_uses_actual_runtime_package_copyright_not_guessed_script_file(tmp_path, monkeypatch, kind, interpreter)` |
+| `tests/runtime_notice_cases.py` | 91 | `fixture` |
+| `tests/runtime_notice_cases.py` | 93 | `actual` |
+| `tests/runtime_notice_cases.py` | 94 | `calls` |
+| `tests/runtime_notice_cases.py` | 95 | `library` |
+| `tests/runtime_notice_cases.py` | 96 | `package_path` |
+| `tests/runtime_notice_cases.py` | 98 | `installed(interpreter, path)` |
+| `tests/runtime_notice_cases.py` | 105 | `raw` |
+| `tests/runtime_notice_cases.py` | 105 | `source` |
+| `tests/runtime_notice_cases.py` | 110 | `test_present_invalid_runtime_notice_never_falls_back_to_other_terms(tmp_path, interpreter)` |
+| `tests/runtime_notice_cases.py` | 118 | `test_mac_pre905_terms_require_exact_psf_sdk_recipe(tmp_path, monkeypatch, interpreter, python_version, accepted)` |
+| `tests/runtime_notice_cases.py` | 123 | `library` |
+| `tests/runtime_notice_cases.py` | 124 | `name` |
+| `tests/runtime_notice_cases.py` | 128 | `raw` |
+| `tests/runtime_notice_cases.py` | 128 | `source` |
+| `tests/runtime_notice_cases.py` | 136 | `test_mac_pre905_changed_notice_is_rejected(tmp_path, monkeypatch, interpreter)` |
+| `tests/runtime_notice_cases.py` | 140 | `path` |
+| `tests/runtime_notice_cases.py` | 142 | `library` |
 | `tests/test_api.py` | 23 | `ORIGIN` |
 | `tests/test_api.py` | 24 | `PASSWORD` |
 | `tests/test_api.py` | 28 | `app(tmp_path)` |
@@ -553,18 +605,22 @@ Function/class docstrings describe responsibility; this is navigation, not dead-
 | `tests/test_desktop_host.py` | 224 | `database` |
 | `tests/test_desktop_package.py` | 24 | `test_freeze_refuses_old_cached_or_prerelease_runtime(version, level, allowed)` |
 | `tests/test_desktop_package.py` | 29 | `test_all_product_version_surfaces_agree()` |
-| `tests/test_desktop_package.py` | 40 | `test_mismatched_version_or_identity_cannot_build(tmp_path, surface)` |
-| `tests/test_desktop_package.py` | 42 | `root` |
-| `tests/test_desktop_package.py` | 43 | `path` |
-| `tests/test_desktop_package.py` | 44 | `output` |
-| `tests/test_desktop_package.py` | 47 | `selected` |
-| `tests/test_desktop_package.py` | 55 | `path` |
-| `tests/test_desktop_package.py` | 59 | `value` |
-| `tests/test_desktop_package.py` | 83 | `test_source_cleanliness_is_not_a_release_flag_waiver(monkeypatch, dirty, ci, override, sha, allowed)` |
-| `tests/test_desktop_package.py` | 88 | `output(command)` |
-| `tests/test_desktop_package.py` | 105 | `value` |
-| `tests/test_desktop_package.py` | 109 | `test_archive_rejection_remains_active_with_optimized_python()` |
-| `tests/test_desktop_package.py` | 111 | `result` |
+| `tests/test_desktop_package.py` | 37 | `test_native_notice_preflight_has_exact_locked_pytest_build_dependencies()` |
+| `tests/test_desktop_package.py` | 39 | `root` |
+| `tests/test_desktop_package.py` | 40 | `workflow` |
+| `tests/test_desktop_package.py` | 41 | `install` |
+| `tests/test_desktop_package.py` | 49 | `test_mismatched_version_or_identity_cannot_build(tmp_path, surface)` |
+| `tests/test_desktop_package.py` | 51 | `root` |
+| `tests/test_desktop_package.py` | 52 | `path` |
+| `tests/test_desktop_package.py` | 53 | `output` |
+| `tests/test_desktop_package.py` | 56 | `selected` |
+| `tests/test_desktop_package.py` | 64 | `path` |
+| `tests/test_desktop_package.py` | 68 | `value` |
+| `tests/test_desktop_package.py` | 92 | `test_source_cleanliness_is_not_a_release_flag_waiver(monkeypatch, dirty, ci, override, sha, allowed)` |
+| `tests/test_desktop_package.py` | 97 | `output(command)` |
+| `tests/test_desktop_package.py` | 114 | `value` |
+| `tests/test_desktop_package.py` | 118 | `test_archive_rejection_remains_active_with_optimized_python()` |
+| `tests/test_desktop_package.py` | 120 | `result` |
 | `tests/test_desktop_profile.py` | 13 | `test_provision_persist_login_and_existing_roles(tmp_path)` |
 | `tests/test_desktop_profile.py` | 15 | `path` |
 | `tests/test_desktop_profile.py` | 16 | `profile` |
@@ -627,6 +683,14 @@ Function/class docstrings describe responsibility; this is navigation, not dead-
 | `tests/test_desktop_resources.py` | 188 | `Interrupted(class)` |
 | `tests/test_desktop_resources.py` | 189 | `__iter__(self)` |
 | `tests/test_desktop_resources.py` | 200 | `reopened` |
+| `tests/test_notice_runner_guard.py` | 9 | `test_notice_runner_cannot_turn_child_fault_into_a_pass(tmp_path, fault)` |
+| `tests/test_notice_runner_guard.py` | 14 | `count` |
+| `tests/test_notice_runner_guard.py` | 15 | `cases` |
+| `tests/test_notice_runner_guard.py` | 16 | `index` |
+| `tests/test_notice_runner_guard.py` | 17 | `body` |
+| `tests/test_notice_runner_guard.py` | 24 | `cases` |
+| `tests/test_notice_runner_guard.py` | 26 | `error` |
+| `tests/test_notice_runner_guard.py` | 26 | `reason` |
 | `tests/test_osv_policy.py` | 12 | `lock()` |
 | `tests/test_osv_policy.py` | 24 | `report()` |
 | `tests/test_osv_policy.py` | 32 | `name` |
@@ -775,6 +839,42 @@ Function/class docstrings describe responsibility; this is navigation, not dead-
 | `tests/test_portable_archive.py` | 114 | `output` |
 | `tests/test_portable_archive.py` | 120 | `path` |
 | `tests/test_portable_archive.py` | 121 | `output` |
+| `tests/test_profile_paths.py` | 12 | `files(directory)` |
+| `tests/test_profile_paths.py` | 16 | `path` |
+| `tests/test_profile_paths.py` | 21 | `junction_or_link(target, alias)` |
+| `tests/test_profile_paths.py` | 34 | `test_actual_directory_alias_refused_before_target_or_parent_creation(tmp_path, ancestor)` |
+| `tests/test_profile_paths.py` | 36 | `target` |
+| `tests/test_profile_paths.py` | 38 | `alias` |
+| `tests/test_profile_paths.py` | 40 | `chosen` |
+| `tests/test_profile_paths.py` | 47 | `test_frozen_program_trees_refused_before_mkdir(tmp_path, monkeypatch, location)` |
+| `tests/test_profile_paths.py` | 49 | `bundle` |
+| `tests/test_profile_paths.py` | 50 | `executable` |
+| `tests/test_profile_paths.py` | 51 | `internal` |
+| `tests/test_profile_paths.py` | 58 | `parent` |
+| `tests/test_profile_paths.py` | 63 | `chosen` |
+| `tests/test_profile_paths.py` | 64 | `before` |
+| `tests/test_profile_paths.py` | 68 | `outside` |
+| `tests/test_profile_paths.py` | 83 | `test_real_hardlinked_member_refused_before_any_other_mutation(tmp_path, name)` |
+| `tests/test_profile_paths.py` | 85 | `chosen` |
+| `tests/test_profile_paths.py` | 86 | `profile` |
+| `tests/test_profile_paths.py` | 88 | `destination` |
+| `tests/test_profile_paths.py` | 89 | `target` |
+| `tests/test_profile_paths.py` | 94 | `before` |
+| `tests/test_profile_paths.py` | 100 | `test_bad_directory_kind_and_parent_traversal_are_not_created(tmp_path)` |
+| `tests/test_profile_paths.py` | 102 | `ordinary` |
+| `tests/test_profile_paths.py` | 111 | `test_read_only_missing_member_never_creates_it(tmp_path)` |
+| `tests/test_profile_paths.py` | 113 | `path` |
+| `tests/test_profile_paths.py` | 115 | `descriptor` |
+| `tests/test_profile_paths.py` | 123 | `test_opened_identity_replacement_is_rejected_and_descriptor_closed(tmp_path, monkeypatch)` |
+| `tests/test_profile_paths.py` | 125 | `path` |
+| `tests/test_profile_paths.py` | 126 | `replacement` |
+| `tests/test_profile_paths.py` | 129 | `original_open` |
+| `tests/test_profile_paths.py` | 130 | `observed` |
+| `tests/test_profile_paths.py` | 132 | `replace_then_open(candidate, flags, mode)` |
+| `tests/test_profile_paths.py` | 134 | `descriptor` |
+| `tests/test_profile_paths.py` | 140 | `descriptor` |
+| `tests/test_profile_paths.py` | 150 | `test_existing_nonregular_identity_member_is_refused(tmp_path)` |
+| `tests/test_profile_paths.py` | 152 | `chosen` |
 | `tests/test_publication_policy.py` | 51 | `write_document(root, content, extra)` |
 | `tests/test_publication_policy.py` | 53 | `path` |
 | `tests/test_publication_policy.py` | 55 | `package` |
@@ -799,38 +899,8 @@ Function/class docstrings describe responsibility; this is navigation, not dead-
 | `tests/test_publication_policy.py` | 126 | `path` |
 | `tests/test_publication_policy.py` | 128 | `package` |
 | `tests/test_publication_policy.py` | 133 | `package` |
-| `tests/test_runtime_notices.py` | 10 | `ROOT` |
-| `tests/test_runtime_notices.py` | 14 | `interpreter(capfd)` |
-| `tests/test_runtime_notices.py` | 17 | `root` |
-| `tests/test_runtime_notices.py` | 25 | `test_actual_tcl_notice_reader_preserves_bytes_and_missing_identity(tmp_path, interpreter)` |
-| `tests/test_runtime_notices.py` | 27 | `path` |
-| `tests/test_runtime_notices.py` | 28 | `raw` |
-| `tests/test_runtime_notices.py` | 35 | `raw` |
-| `tests/test_runtime_notices.py` | 43 | `test_exact_mac_version_uses_verbatim_upstream_notice_and_binds_digest(tmp_path, kind, interpreter)` |
-| `tests/test_runtime_notices.py` | 47 | `library` |
-| `tests/test_runtime_notices.py` | 48 | `file` |
-| `tests/test_runtime_notices.py` | 49 | `target` |
-| `tests/test_runtime_notices.py` | 52 | `raw` |
-| `tests/test_runtime_notices.py` | 52 | `source` |
-| `tests/test_runtime_notices.py` | 79 | `test_unreviewed_platform_version_or_library_cannot_substitute_notice(version, library, system, interpreter)` |
-| `tests/test_runtime_notices.py` | 88 | `test_ubuntu_uses_actual_runtime_package_copyright_not_guessed_script_file(tmp_path, monkeypatch, kind, interpreter)` |
-| `tests/test_runtime_notices.py` | 92 | `fixture` |
-| `tests/test_runtime_notices.py` | 94 | `actual` |
-| `tests/test_runtime_notices.py` | 95 | `calls` |
-| `tests/test_runtime_notices.py` | 96 | `library` |
-| `tests/test_runtime_notices.py` | 97 | `package_path` |
-| `tests/test_runtime_notices.py` | 99 | `installed(interpreter, path)` |
-| `tests/test_runtime_notices.py` | 106 | `raw` |
-| `tests/test_runtime_notices.py` | 106 | `source` |
-| `tests/test_runtime_notices.py` | 111 | `test_present_invalid_runtime_notice_never_falls_back_to_other_terms(tmp_path, interpreter)` |
-| `tests/test_runtime_notices.py` | 119 | `test_mac_pre905_terms_require_exact_psf_sdk_recipe(tmp_path, monkeypatch, interpreter, python_version, accepted)` |
-| `tests/test_runtime_notices.py` | 124 | `library` |
-| `tests/test_runtime_notices.py` | 125 | `name` |
-| `tests/test_runtime_notices.py` | 129 | `raw` |
-| `tests/test_runtime_notices.py` | 129 | `source` |
-| `tests/test_runtime_notices.py` | 137 | `test_mac_pre905_changed_notice_is_rejected(tmp_path, monkeypatch, interpreter)` |
-| `tests/test_runtime_notices.py` | 141 | `path` |
-| `tests/test_runtime_notices.py` | 143 | `library` |
+| `tests/test_runtime_notices.py` | 8 | `test_all_thirteen_actual_notice_contracts_in_one_fresh_owned_interpreter()` |
+| `tests/test_runtime_notices.py` | 10 | `receipt` |
 | `tools/audit_npm.py` | 13 | `LEVELS` |
 | `tools/audit_npm.py` | 14 | `TRANSIENT` |
 | `tools/audit_npm.py` | 17 | `assess(report, returncode)` |
@@ -953,6 +1023,17 @@ Function/class docstrings describe responsibility; this is navigation, not dead-
 | `tools/docs_index.py` | 158 | `content` |
 | `tools/docs_index.py` | 158 | `name` |
 | `tools/docs_index.py` | 159 | `path` |
+| `tools/notice_contract.py` | 16 | `run_contract(root)` |
+| `tools/notice_contract.py` | 18 | `cases` |
+| `tools/notice_contract.py` | 19 | `temporary` |
+| `tools/notice_contract.py` | 20 | `result_path` |
+| `tools/notice_contract.py` | 21 | `result` |
+| `tools/notice_contract.py` | 38 | `records` |
+| `tools/notice_contract.py` | 39 | `item` |
+| `tools/notice_contract.py` | 41 | `item` |
+| `tools/notice_contract.py` | 43 | `receipt` |
+| `tools/notice_contract.py` | 45 | `item` |
+| `tools/notice_contract.py` | 56 | `target` |
 | `tools/package_app.py` | 28 | `ROOT` |
 | `tools/package_app.py` | 29 | `APPLICATION` |
 | `tools/package_app.py` | 30 | `PRODUCT` |
@@ -969,38 +1050,38 @@ Function/class docstrings describe responsibility; this is navigation, not dead-
 | `tools/package_app.py` | 92 | `main(argv)` |
 | `tools/package_app.py` | 94 | `parser` |
 | `tools/package_app.py` | 101 | `args` |
-| `tools/package_app.py` | 106 | `version` |
-| `tools/package_app.py` | 107 | `notices` |
-| `tools/package_app.py` | 107 | `versions` |
-| `tools/package_app.py` | 108 | `metadata` |
-| `tools/package_app.py` | 110 | `generated` |
-| `tools/package_app.py` | 112 | `identity_file` |
-| `tools/package_app.py` | 114 | `notice_file` |
-| `tools/package_app.py` | 116 | `pyinstaller` |
-| `tools/package_app.py` | 117 | `licenses` |
-| `tools/package_app.py` | 119 | `path` |
-| `tools/package_app.py` | 123 | `build` |
-| `tools/package_app.py` | 124 | `command` |
-| `tools/package_app.py` | 141 | `destination` |
-| `tools/package_app.py` | 141 | `source` |
-| `tools/package_app.py` | 150 | `source_path` |
-| `tools/package_app.py` | 152 | `source_path` |
-| `tools/package_app.py` | 153 | `command` |
-| `tools/package_app.py` | 154 | `hidden` |
-| `tools/package_app.py` | 159 | `command` |
-| `tools/package_app.py` | 160 | `command` |
-| `tools/package_app.py` | 161 | `environment` |
-| `tools/package_app.py` | 167 | `bundle` |
-| `tools/package_app.py` | 169 | `suffix` |
-| `tools/package_app.py` | 170 | `name` |
-| `tools/package_app.py` | 171 | `output` |
-| `tools/package_app.py` | 173 | `archive` |
-| `tools/package_app.py` | 173 | `sidecar` |
-| `tools/package_app.py` | 177 | `temporary` |
-| `tools/package_app.py` | 178 | `extracted` |
-| `tools/package_app.py` | 179 | `executable` |
-| `tools/package_app.py` | 192 | `stream` |
-| `tools/package_app.py` | 193 | `digest` |
+| `tools/package_app.py` | 121 | `version` |
+| `tools/package_app.py` | 122 | `notices` |
+| `tools/package_app.py` | 122 | `versions` |
+| `tools/package_app.py` | 123 | `metadata` |
+| `tools/package_app.py` | 125 | `generated` |
+| `tools/package_app.py` | 127 | `identity_file` |
+| `tools/package_app.py` | 129 | `notice_file` |
+| `tools/package_app.py` | 131 | `pyinstaller` |
+| `tools/package_app.py` | 132 | `licenses` |
+| `tools/package_app.py` | 134 | `path` |
+| `tools/package_app.py` | 138 | `build` |
+| `tools/package_app.py` | 139 | `command` |
+| `tools/package_app.py` | 156 | `destination` |
+| `tools/package_app.py` | 156 | `source` |
+| `tools/package_app.py` | 165 | `source_path` |
+| `tools/package_app.py` | 167 | `source_path` |
+| `tools/package_app.py` | 168 | `command` |
+| `tools/package_app.py` | 169 | `hidden` |
+| `tools/package_app.py` | 174 | `command` |
+| `tools/package_app.py` | 175 | `command` |
+| `tools/package_app.py` | 176 | `environment` |
+| `tools/package_app.py` | 182 | `bundle` |
+| `tools/package_app.py` | 184 | `suffix` |
+| `tools/package_app.py` | 185 | `name` |
+| `tools/package_app.py` | 186 | `output` |
+| `tools/package_app.py` | 188 | `archive` |
+| `tools/package_app.py` | 188 | `sidecar` |
+| `tools/package_app.py` | 192 | `temporary` |
+| `tools/package_app.py` | 193 | `extracted` |
+| `tools/package_app.py` | 194 | `executable` |
+| `tools/package_app.py` | 207 | `stream` |
+| `tools/package_app.py` | 208 | `digest` |
 | `tools/portable_archive.py` | 17 | `MAX_BYTES` |
 | `tools/portable_archive.py` | 18 | `MAX_MEMBERS` |
 | `tools/portable_archive.py` | 21 | `require(condition, message)` |
@@ -1063,6 +1144,21 @@ Function/class docstrings describe responsibility; this is navigation, not dead-
 | `tools/portable_archive.py` | 186 | `source` |
 | `tools/portable_archive.py` | 188 | `bundle` |
 | `tools/portable_archive.py` | 190 | `path` |
+| `tools/profile_admission_smoke.py` | 10 | `snapshot(root)` |
+| `tools/profile_admission_smoke.py` | 14 | `path` |
+| `tools/profile_admission_smoke.py` | 19 | `verify(executable, output, environment)` |
+| `tools/profile_admission_smoke.py` | 21 | `fixture` |
+| `tools/profile_admission_smoke.py` | 23 | `before_program` |
+| `tools/profile_admission_smoke.py` | 24 | `selections` |
+| `tools/profile_admission_smoke.py` | 28 | `label` |
+| `tools/profile_admission_smoke.py` | 29 | `folder` |
+| `tools/profile_admission_smoke.py` | 31 | `target` |
+| `tools/profile_admission_smoke.py` | 33 | `alias` |
+| `tools/profile_admission_smoke.py` | 43 | `results` |
+| `tools/profile_admission_smoke.py` | 44 | `label` |
+| `tools/profile_admission_smoke.py` | 44 | `selected` |
+| `tools/profile_admission_smoke.py` | 45 | `result` |
+| `tools/profile_admission_smoke.py` | 64 | `label` |
 | `tools/runtime_notices.py` | 10 | `UPSTREAM_904` |
 | `tools/runtime_notices.py` | 22 | `read_tcl_notice(interpreter, path)` |
 | `tools/runtime_notices.py` | 27 | `channel` |
@@ -1134,30 +1230,30 @@ Function/class docstrings describe responsibility; this is navigation, not dead-
 | `tools/smoke_app.py` | 125 | `line` |
 | `tools/smoke_app.py` | 128 | `actual_runtime` |
 | `tools/smoke_app.py` | 131 | `key` |
-| `tools/smoke_app.py` | 135 | `process` |
-| `tools/smoke_app.py` | 145 | `events` |
-| `tools/smoke_app.py` | 146 | `log` |
-| `tools/smoke_app.py` | 148 | `read_output()` |
-| `tools/smoke_app.py` | 151 | `line` |
-| `tools/smoke_app.py` | 157 | `reader` |
-| `tools/smoke_app.py` | 159 | `actual_exit` |
-| `tools/smoke_app.py` | 159 | `forced` |
-| `tools/smoke_app.py` | 159 | `passed` |
-| `tools/smoke_app.py` | 159 | `url` |
-| `tools/smoke_app.py` | 161 | `deadline` |
-| `tools/smoke_app.py` | 163 | `remaining` |
-| `tools/smoke_app.py` | 165 | `line` |
-| `tools/smoke_app.py` | 168 | `ready` |
-| `tools/smoke_app.py` | 175 | `url` |
-| `tools/smoke_app.py` | 176 | `code` |
-| `tools/smoke_app.py` | 176 | `raw` |
-| `tools/smoke_app.py` | 222 | `actual_exit` |
-| `tools/smoke_app.py` | 228 | `target` |
-| `tools/smoke_app.py` | 230 | `connection` |
-| `tools/smoke_app.py` | 236 | `reopened` |
-| `tools/smoke_app.py` | 245 | `line` |
-| `tools/smoke_app.py` | 247 | `passed` |
-| `tools/smoke_app.py` | 255 | `forced` |
+| `tools/smoke_app.py` | 138 | `process` |
+| `tools/smoke_app.py` | 148 | `events` |
+| `tools/smoke_app.py` | 149 | `log` |
+| `tools/smoke_app.py` | 151 | `read_output()` |
+| `tools/smoke_app.py` | 154 | `line` |
+| `tools/smoke_app.py` | 160 | `reader` |
+| `tools/smoke_app.py` | 162 | `actual_exit` |
+| `tools/smoke_app.py` | 162 | `forced` |
+| `tools/smoke_app.py` | 162 | `passed` |
+| `tools/smoke_app.py` | 162 | `url` |
+| `tools/smoke_app.py` | 164 | `deadline` |
+| `tools/smoke_app.py` | 166 | `remaining` |
+| `tools/smoke_app.py` | 168 | `line` |
+| `tools/smoke_app.py` | 171 | `ready` |
+| `tools/smoke_app.py` | 178 | `url` |
+| `tools/smoke_app.py` | 179 | `code` |
+| `tools/smoke_app.py` | 179 | `raw` |
+| `tools/smoke_app.py` | 225 | `actual_exit` |
+| `tools/smoke_app.py` | 231 | `target` |
+| `tools/smoke_app.py` | 233 | `connection` |
+| `tools/smoke_app.py` | 239 | `reopened` |
+| `tools/smoke_app.py` | 248 | `line` |
+| `tools/smoke_app.py` | 250 | `passed` |
+| `tools/smoke_app.py` | 258 | `forced` |
 | `ui/src/domain.test.ts` | 13 | `slot` |
 | `ui/src/domain.test.ts` | 16 | `slot` |
 | `ui/src/domain.test.ts` | 20 | `[charge, expected]` |
