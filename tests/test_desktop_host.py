@@ -134,19 +134,26 @@ def test_actual_partial_body_bounds_pre_shutdown_drain(tmp_path):
         profile.close()
 
 
-def test_startup_failure_is_never_reported_as_ready(tmp_path, monkeypatch):
+@pytest.mark.parametrize(
+    "failure", [RuntimeError("synthetic startup failure"), KeyboardInterrupt(), SystemExit(7)]
+)
+def test_startup_failure_is_never_reported_as_ready(tmp_path, monkeypatch, failure):
     """A real owned thread captures the failing server and closes its own listener without adoption."""
     profile = prepared(tmp_path)
     host = Host(profile, {})
 
     def broken(*_args, **_kwargs):
-        raise RuntimeError("synthetic startup failure")
+        raise failure
 
     monkeypatch.setattr(host.server, "run", broken)
     try:
         with pytest.raises(RuntimeError, match="did not become ready"):
             host.start()
         assert not host.server.started and host.listener.fileno() == -1
+        if isinstance(failure, Exception):
+            assert host.error is failure
+        else:
+            assert isinstance(host.error, RuntimeError) and host.error.__cause__ is failure
         with pytest.raises(RuntimeError, match="exited with an error"):
             host.stop()
     finally:
