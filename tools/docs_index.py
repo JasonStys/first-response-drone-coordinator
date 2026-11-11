@@ -26,6 +26,8 @@ EXCLUDE = {
     "playwright-report",
 }
 DESCRIPTIONS = {
+    "licenses/TCL-9.0.4.txt": "Verbatim exact official Tcl9.0.4 source notice with immutable provenance and digest-bound Mac SDK use.",
+    "licenses/TK-9.0.4.txt": "Verbatim exact official Tk9.0.4 source notice with immutable provenance and digest-bound Mac SDK use.",
     "licenses/PYTHON.txt": "Official Python3.14.10 runtime license terms retained with the portable application.",
     "docs/DESKTOP.md": "Complete native profile/staff/Open/Quit workflow, actual JSON features, build steps and privacy/lifecycle limits.",
     "docs/reports/DESKTOP_CANDIDATE_20261110.md": "Dated candidate validation, original gates, real native roles/exports, observed failures and explicit release limitations.",

@@ -1,8 +1,74 @@
 """Jason Stys: collect real runtime license notices, including DLL-embedded Tcl/Tk9 libraries. Lines: docs/SOURCE_MAP.md."""
 
+import hashlib
 import re
+import sys
 from importlib.metadata import distribution
 from pathlib import Path
+
+UPSTREAM_904 = {
+    "Tcl": (
+        "c655b4770b1d6d32a8cbffd6cef59db6029fe19e",
+        "c0a69a2bfd757361ec7e6143973b103c90409316b49e9c88db26ad6388e79f16",
+    ),
+    "Tk": (
+        "584f8fcf62c320d7c341e77171188cb4d79c3725",
+        "2cde822b93ca16ae535c954b7dfe658b4ad10df2a193628d1b358f1765e8b198",
+    ),
+}
+
+
+def read_tcl_notice(interpreter, path: str) -> bytes:
+    """Read actual filesystem/zipfs bytes through Tcl; only genuine ENOENT permits a reviewed alternative."""
+    import tkinter
+
+    try:
+        channel = interpreter.call("open", path, "rb")
+    except tkinter.TclError as error:
+        code = interpreter.call("set", "errorCode")
+        if tuple(interpreter.splitlist(code))[:2] == ("POSIX", "ENOENT"):
+            raise FileNotFoundError(path) from error
+        raise ValueError(f"GUI runtime notice open failed: {code!r}") from error
+    try:
+        raw = interpreter.call("read", channel, 65537)
+    finally:
+        interpreter.call("close", channel)
+    raw = raw.encode("utf-8") if isinstance(raw, str) else raw
+    if not isinstance(raw, bytes) or not 100 <= len(raw) <= 65536:
+        raise ValueError("Actual GUI runtime license is missing or exceeds its byte bound")
+    return raw
+
+
+def gui_notice(interpreter, root: Path, kind: str, version: str, library: str, system=None):
+    """Prefer actual runtime notices; explicit Ubuntu copyright and exact upstream Mac904 terms are reviewed alternatives."""
+    system = sys.platform if system is None else system
+    try:
+        return "actual loaded runtime library notice", read_tcl_notice(
+            interpreter, library + "/license.terms"
+        )
+    except FileNotFoundError:
+        pass
+    if (
+        system == "linux"
+        and version.startswith("8.6.")
+        and library == f"/usr/share/tcltk/{kind.lower()}8.6"
+    ):
+        # Ubuntu's actual runtime package installs its full notice under /usr/share/doc, not the script library.
+        path = f"/usr/share/doc/lib{kind.lower()}8.6/copyright"
+        return "actual Ubuntu runtime-package copyright", read_tcl_notice(interpreter, path)
+    framework = f"/Library/Frameworks/Python.framework/Versions/3.14/Frameworks/{kind}.framework/Versions/9.0/Resources/Scripts"
+    if system == "darwin" and version == "9.0.4" and library == framework and kind in UPSTREAM_904:
+        # Unix Tcl/Tk installation omits license.terms. Retain verbatim source terms for this exact loaded version.
+        commit, expected = UPSTREAM_904[kind]
+        with (root / f"licenses/{kind.upper()}-9.0.4.txt").open("rb") as stream:
+            raw = stream.read(65537)
+        if not 100 <= len(raw) <= 65536 or hashlib.sha256(raw).hexdigest() != expected:
+            raise ValueError("Exact upstream Tcl/Tk9.0.4 notice digest mismatch")
+        return (
+            f"verbatim upstream9.0.4 notice: https://github.com/tcltk/{kind.lower()}/blob/{commit}/license.terms",
+            raw,
+        )
+    raise ValueError("No reviewed notice source for the actual loaded GUI runtime")
 
 
 def collect(root: Path) -> tuple[dict, bytes]:
@@ -19,19 +85,12 @@ def collect(root: Path) -> tuple[dict, bytes]:
         if not all(value.startswith(("8.6.", "9.0.")) for value in versions.values()):
             raise ValueError("Review a different Tcl/Tk family before freezing")
         blocks = []
-        for title, library in [
-            ("Tcl " + versions["tcl_version"], window.tk.call("info", "library")),
-            ("Tk " + versions["tk_version"], window.tk.eval("set tk_library")),
+        for kind, version, library in [
+            ("Tcl", versions["tcl_version"], window.tk.call("info", "library")),
+            ("Tk", versions["tk_version"], window.tk.eval("set tk_library")),
         ]:
-            channel = window.tk.call("open", str(library) + "/license.terms", "rb")
-            try:
-                raw = window.tk.call("read", channel, 65537)
-            finally:
-                window.tk.call("close", channel)
-            raw = raw.encode("utf-8") if isinstance(raw, str) else raw
-            if not isinstance(raw, bytes) or not 100 <= len(raw) <= 65536:
-                raise ValueError("Actual GUI runtime license is missing or exceeds its byte bound")
-            blocks.append((title, raw))
+            provenance, raw = gui_notice(window.tk, root, kind, version, str(library))
+            blocks.append((kind + " " + version + " — " + provenance, raw))
     finally:
         window.destroy()
     blocks.append(("Authored project — MIT", (root / "LICENSE").read_bytes()))

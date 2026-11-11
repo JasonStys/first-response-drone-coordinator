@@ -33,7 +33,7 @@ The owner footer remains visible at the 700×600 minimum; the variable-height fo
 Use final Python 3.14.10 or a later supported 3.14 security patch, Node.js 24, and the exact locks:
 
 ```text
-python -m pip install --require-hashes -r requirements-package.lock
+python -m pip install --require-hashes -r requirements.lock -r requirements-package.lock
 npm ci --ignore-scripts --no-audit
 npm run build
 python tools/package_app.py

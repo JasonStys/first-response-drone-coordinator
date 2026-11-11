@@ -12,7 +12,7 @@ Native profile selection, no-default first-account/staff provisioning, full auth
 
 | Check | Observed result |
 | --- | --- |
-| Full Python suite including real SQLite/API, two actual localhost profiles, Tk widgets and package/archive guards | 196 passed; combined branch-aware package coverage 95.10% against the unchanged90% floor |
+| Full Python suite including real SQLite/API, two actual localhost profiles, Tk widgets and package/archive guards | 206 passed; combined branch-aware package coverage 95.10% against the unchanged90% floor |
 | TypeScript pure helper suite | 30 passed;100% statements/branches/functions/lines; denominator includes bounded file reader |
 | Existing source browser suites | 27 passed across the original configured browser profiles/engines; zero retries |
 | Actual extracted Windows application | All-role Chromium import/review/export workflow passed; actual process exit0, output pipe closed, listener unreachable, profile lock released and accounts retained |
@@ -44,3 +44,17 @@ An additional normal native-window acceptance probe located the exact frozen EXE
 The new desktop workflow is read-only and source-bound: pinned Actions, persisted checkout credentials disabled, exact locks, patched Python floor, WindowsZIP/POSIXtar.gz, actual extracted application acceptance on three OSes. It uploads no artifacts/caches by default. Original validation, dependency, security, source-map, payload, benchmark, browser and CodeQL jobs remain; real headless Tk uses Xvfb rather than a test skip. Live Python audit now also covers the new packaging lock. Current hosted results must be checked at the final commit; this local report does not fabricate them.
 
 Profiles are private local SQLite files, not encrypted against the OS owner. Native staff provisioning trusts that signed-in OS session; browser roles stay unchanged. No anonymous registration, real account migration, LAN/public hosting, signed installer transaction, live aircraft/hardware, flight authorization or physical-safety claim is provided. Tests use fictional data and do not certify dispatch, maintenance or airworthiness.
+
+
+## First hosted candidate corrections
+
+The first clean PR runs were retained. First Response's new entry-point tests correctly rejected a missing production `dist/index.html` because that workflow built the UI after pytest; the existing frontend build/test step now precedes those tests. No missing-resource check was removed. Maintenance already used the correct order.
+
+The first Linux/macOS packages stopped before freezing because their script-library directories do not install `license.terms`. Windows actual DLL zipfs extraction already passed. Ubuntu now retains the actual installed `libtcl8.6`/`libtk8.6` package copyright through the same bounded Tcl reader. The observed Python3.14 Mac framework with actual loaded Tcl/Tk9.0.4 uses checked-in verbatim upstream9.0.4 notices, each bound to its official immutable commit and SHA256; titles explicitly identify those as upstream source terms, not bytes extracted from an absent installed file. Unknown versions/paths, modified or oversized notices and other read errors fail closed. Tests exercise genuine Tcl reads, byte bounds, platform/version/path rejection and tamper detection. These unit paths do not claim actual Linux/macOS native success until the fresh hosted jobs pass.
+
+Primary notice locations and source: [Ubuntu libtcl8.6 inventory](https://packages.ubuntu.com/noble/amd64/libtcl8.6/filelist), [Tcl9.0.4 terms](https://github.com/tcltk/tcl/blob/c655b4770b1d6d32a8cbffd6cef59db6029fe19e/license.terms), [Tk9.0.4 terms](https://github.com/tcltk/tk/blob/584f8fcf62c320d7c341e77171188cb4d79c3725/license.terms). The official Unix install-library targets omit the license file; distribution notices are retained rather than fabricated or skipped.
+
+
+The first hosted Windows package also correctly failed when the new desktop job installed the PyInstaller-only build lock without the separate application-runtime lock. The local development environment already contained those runtime dependencies, which is why local builds did not expose this setup error. Both locks are now explicitly installed with hashes in the desktop job and documented build command. The actual fresh hosted environment remains the acceptance proof; no package-notice or missing-dependency error is treated as success.
+
+The final local suite includes ten additional notice-reader/source contracts: 206 tests passed with the original package coverage unchanged. The Windows Tcl fixture isolates pytest descriptor capture only for its owned interpreter lifetime, because Tcl caches native channels; assertions and all actual reads stay enabled.

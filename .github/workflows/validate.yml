@@ -35,6 +35,7 @@ jobs:
       - run: python -m ruff check coordinator tests tools
       - run: python -m ruff format --check coordinator tests tools
       - run: python tools/docs_index.py --check
+      - run: npm run format:check && npm test && npm run build
       - name: Full Python coverage with actual native widgets
         shell: bash
         run: |
@@ -45,7 +46,6 @@ jobs:
           else
             python -m pytest --cov=coordinator --cov-report=term-missing
           fi
-      - run: npm run format:check && npm test && npm run build
       - run: python tools/check_repo.py --dist
       - run: python tools/benchmark.py
       - if: matrix.os == 'ubuntu-24.04' && matrix.python == '3.14'
