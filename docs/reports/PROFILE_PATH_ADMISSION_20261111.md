@@ -15,7 +15,7 @@ The marker schema, database schema, account provisioning, HTTP roles/CSRF, cooki
 
 ## Local validation
 
-On patched Python 3.14.10, the complete original parent suite plus new regressions passed **226 tests**, with **95.56%** branch-aware package coverage (unchanged 90% minimum). The parent suite also mandates thirteen actual Tcl/Tk notice cases in a fresh bounded interpreter; these are reported separately, not padded into the parent total. No parent tests were skipped.
+On patched Python 3.14.10, the complete original parent suite plus new regressions passed **217 parent tests**, with **95.56%** branch-aware package coverage (unchanged 90% minimum). The parent suite also mandates thirteen actual Tcl/Tk notice cases in a fresh bounded interpreter; these are reported separately, not padded into the parent total. No parent tests were skipped.
 
 The new file contributes 15 meaningful admission cases: actual Windows final/ancestor junctions; real hardlinked marker/lock/DB/recovery members; frozen executable/internal/macOS bundle boundaries; directory/type/traversal errors; missing-read refusal; a real precreated identity replacement and descriptor closure. The original profile tests retain genuine account hashing/login, exclusive owner locking and exact database-dump persistence checks.
 
@@ -30,3 +30,11 @@ The first local candidate correctly failed an obsolete native-consumer footer ex
 ## Limits
 
 The same OS account/administrator is trusted. These admission and descriptor-identity checks do not establish a race-proof namespace against concurrent same-user file replacement; SQLite still uses pathname-based connections. This is an unsigned portable application, not a signed installer, clean-OS transaction or security certification. No existing application, profile, shortcut or published archive was replaced during source validation.
+
+## Hosted Windows notice-fixture correction
+
+Validation run 42982811615, Windows core job 130396947798, failed one original notice fixture with an empty TclError and errorCode(NONE);225 other parent tests passed. The exact hosted cause is not proven, and the failure was preserved instead of rerun. Other three core platforms/browser/CodeQL and all three native desktop jobs passed. The original 226-test local count included thirteen direct notice cases; it was not 226 plus thirteen isolated cases.
+
+The thirteen original assertions and parametrized case IDs are retained in `tests/runtime_notice_cases.py`; the test-function ASTs were compared for exact equality before changing only interpreter/capture ownership. The mandatory runner invokes them once in a fresh bounded interpreter with capture=sys, requires thirteen unique successful JUnit records, rejects skips/failures/count mismatches and records source hashes. The ordinary parent suite and packager both invoke this runner. Three independent real pytest children prove failure, skip and missing-case controls cannot become a successful receipt. Subprocess execution lives in trusted build tooling; no lint suppression, notice-reader fallback, coverage exclusion or original deadline was added.
+
+The corrected full local result is 217 parent tests plus thirteen actual isolated notice cases at 95.56% combined package coverage, with the original 90% floor. Exact new hosted and clean-main release checks remain required; prior native candidate proof remains explicitly local/dirty and its product runtime did not change in this fixture-only followup.

@@ -391,6 +391,38 @@ Function/class docstrings describe responsibility; this is navigation, not dead-
 | `coordinator/store.py` | 150 | `events` |
 | `coordinator/store.py` | 151 | `row` |
 | `coordinator/store.py` | 153 | `proposal` |
+| `tests/runtime_notice_cases.py` | 10 | `ROOT` |
+| `tests/runtime_notice_cases.py` | 14 | `interpreter()` |
+| `tests/runtime_notice_cases.py` | 16 | `root` |
+| `tests/runtime_notice_cases.py` | 24 | `test_actual_tcl_notice_reader_preserves_bytes_and_missing_identity(tmp_path, interpreter)` |
+| `tests/runtime_notice_cases.py` | 26 | `path` |
+| `tests/runtime_notice_cases.py` | 27 | `raw` |
+| `tests/runtime_notice_cases.py` | 34 | `raw` |
+| `tests/runtime_notice_cases.py` | 42 | `test_exact_mac_version_uses_verbatim_upstream_notice_and_binds_digest(tmp_path, kind, interpreter)` |
+| `tests/runtime_notice_cases.py` | 46 | `library` |
+| `tests/runtime_notice_cases.py` | 47 | `file` |
+| `tests/runtime_notice_cases.py` | 48 | `target` |
+| `tests/runtime_notice_cases.py` | 51 | `raw` |
+| `tests/runtime_notice_cases.py` | 51 | `source` |
+| `tests/runtime_notice_cases.py` | 78 | `test_unreviewed_platform_version_or_library_cannot_substitute_notice(version, library, system, interpreter)` |
+| `tests/runtime_notice_cases.py` | 87 | `test_ubuntu_uses_actual_runtime_package_copyright_not_guessed_script_file(tmp_path, monkeypatch, kind, interpreter)` |
+| `tests/runtime_notice_cases.py` | 91 | `fixture` |
+| `tests/runtime_notice_cases.py` | 93 | `actual` |
+| `tests/runtime_notice_cases.py` | 94 | `calls` |
+| `tests/runtime_notice_cases.py` | 95 | `library` |
+| `tests/runtime_notice_cases.py` | 96 | `package_path` |
+| `tests/runtime_notice_cases.py` | 98 | `installed(interpreter, path)` |
+| `tests/runtime_notice_cases.py` | 105 | `raw` |
+| `tests/runtime_notice_cases.py` | 105 | `source` |
+| `tests/runtime_notice_cases.py` | 110 | `test_present_invalid_runtime_notice_never_falls_back_to_other_terms(tmp_path, interpreter)` |
+| `tests/runtime_notice_cases.py` | 118 | `test_mac_pre905_terms_require_exact_psf_sdk_recipe(tmp_path, monkeypatch, interpreter, python_version, accepted)` |
+| `tests/runtime_notice_cases.py` | 123 | `library` |
+| `tests/runtime_notice_cases.py` | 124 | `name` |
+| `tests/runtime_notice_cases.py` | 128 | `raw` |
+| `tests/runtime_notice_cases.py` | 128 | `source` |
+| `tests/runtime_notice_cases.py` | 136 | `test_mac_pre905_changed_notice_is_rejected(tmp_path, monkeypatch, interpreter)` |
+| `tests/runtime_notice_cases.py` | 140 | `path` |
+| `tests/runtime_notice_cases.py` | 142 | `library` |
 | `tests/test_api.py` | 23 | `ORIGIN` |
 | `tests/test_api.py` | 24 | `PASSWORD` |
 | `tests/test_api.py` | 28 | `app(tmp_path)` |
@@ -647,6 +679,14 @@ Function/class docstrings describe responsibility; this is navigation, not dead-
 | `tests/test_desktop_resources.py` | 188 | `Interrupted(class)` |
 | `tests/test_desktop_resources.py` | 189 | `__iter__(self)` |
 | `tests/test_desktop_resources.py` | 200 | `reopened` |
+| `tests/test_notice_runner_guard.py` | 9 | `test_notice_runner_cannot_turn_child_fault_into_a_pass(tmp_path, fault)` |
+| `tests/test_notice_runner_guard.py` | 14 | `count` |
+| `tests/test_notice_runner_guard.py` | 15 | `cases` |
+| `tests/test_notice_runner_guard.py` | 16 | `index` |
+| `tests/test_notice_runner_guard.py` | 17 | `body` |
+| `tests/test_notice_runner_guard.py` | 24 | `cases` |
+| `tests/test_notice_runner_guard.py` | 26 | `error` |
+| `tests/test_notice_runner_guard.py` | 26 | `reason` |
 | `tests/test_osv_policy.py` | 12 | `lock()` |
 | `tests/test_osv_policy.py` | 24 | `report()` |
 | `tests/test_osv_policy.py` | 32 | `name` |
@@ -853,38 +893,8 @@ Function/class docstrings describe responsibility; this is navigation, not dead-
 | `tests/test_publication_policy.py` | 126 | `path` |
 | `tests/test_publication_policy.py` | 128 | `package` |
 | `tests/test_publication_policy.py` | 133 | `package` |
-| `tests/test_runtime_notices.py` | 10 | `ROOT` |
-| `tests/test_runtime_notices.py` | 14 | `interpreter(capfd)` |
-| `tests/test_runtime_notices.py` | 17 | `root` |
-| `tests/test_runtime_notices.py` | 25 | `test_actual_tcl_notice_reader_preserves_bytes_and_missing_identity(tmp_path, interpreter)` |
-| `tests/test_runtime_notices.py` | 27 | `path` |
-| `tests/test_runtime_notices.py` | 28 | `raw` |
-| `tests/test_runtime_notices.py` | 35 | `raw` |
-| `tests/test_runtime_notices.py` | 43 | `test_exact_mac_version_uses_verbatim_upstream_notice_and_binds_digest(tmp_path, kind, interpreter)` |
-| `tests/test_runtime_notices.py` | 47 | `library` |
-| `tests/test_runtime_notices.py` | 48 | `file` |
-| `tests/test_runtime_notices.py` | 49 | `target` |
-| `tests/test_runtime_notices.py` | 52 | `raw` |
-| `tests/test_runtime_notices.py` | 52 | `source` |
-| `tests/test_runtime_notices.py` | 79 | `test_unreviewed_platform_version_or_library_cannot_substitute_notice(version, library, system, interpreter)` |
-| `tests/test_runtime_notices.py` | 88 | `test_ubuntu_uses_actual_runtime_package_copyright_not_guessed_script_file(tmp_path, monkeypatch, kind, interpreter)` |
-| `tests/test_runtime_notices.py` | 92 | `fixture` |
-| `tests/test_runtime_notices.py` | 94 | `actual` |
-| `tests/test_runtime_notices.py` | 95 | `calls` |
-| `tests/test_runtime_notices.py` | 96 | `library` |
-| `tests/test_runtime_notices.py` | 97 | `package_path` |
-| `tests/test_runtime_notices.py` | 99 | `installed(interpreter, path)` |
-| `tests/test_runtime_notices.py` | 106 | `raw` |
-| `tests/test_runtime_notices.py` | 106 | `source` |
-| `tests/test_runtime_notices.py` | 111 | `test_present_invalid_runtime_notice_never_falls_back_to_other_terms(tmp_path, interpreter)` |
-| `tests/test_runtime_notices.py` | 119 | `test_mac_pre905_terms_require_exact_psf_sdk_recipe(tmp_path, monkeypatch, interpreter, python_version, accepted)` |
-| `tests/test_runtime_notices.py` | 124 | `library` |
-| `tests/test_runtime_notices.py` | 125 | `name` |
-| `tests/test_runtime_notices.py` | 129 | `raw` |
-| `tests/test_runtime_notices.py` | 129 | `source` |
-| `tests/test_runtime_notices.py` | 137 | `test_mac_pre905_changed_notice_is_rejected(tmp_path, monkeypatch, interpreter)` |
-| `tests/test_runtime_notices.py` | 141 | `path` |
-| `tests/test_runtime_notices.py` | 143 | `library` |
+| `tests/test_runtime_notices.py` | 8 | `test_all_thirteen_actual_notice_contracts_in_one_fresh_owned_interpreter()` |
+| `tests/test_runtime_notices.py` | 10 | `receipt` |
 | `tools/audit_npm.py` | 13 | `LEVELS` |
 | `tools/audit_npm.py` | 14 | `TRANSIENT` |
 | `tools/audit_npm.py` | 17 | `assess(report, returncode)` |
@@ -1007,6 +1017,17 @@ Function/class docstrings describe responsibility; this is navigation, not dead-
 | `tools/docs_index.py` | 158 | `content` |
 | `tools/docs_index.py` | 158 | `name` |
 | `tools/docs_index.py` | 159 | `path` |
+| `tools/notice_contract.py` | 16 | `run_contract(root)` |
+| `tools/notice_contract.py` | 18 | `cases` |
+| `tools/notice_contract.py` | 19 | `temporary` |
+| `tools/notice_contract.py` | 20 | `result_path` |
+| `tools/notice_contract.py` | 21 | `result` |
+| `tools/notice_contract.py` | 38 | `records` |
+| `tools/notice_contract.py` | 39 | `item` |
+| `tools/notice_contract.py` | 41 | `item` |
+| `tools/notice_contract.py` | 43 | `receipt` |
+| `tools/notice_contract.py` | 45 | `item` |
+| `tools/notice_contract.py` | 56 | `target` |
 | `tools/package_app.py` | 28 | `ROOT` |
 | `tools/package_app.py` | 29 | `APPLICATION` |
 | `tools/package_app.py` | 30 | `PRODUCT` |
@@ -1023,38 +1044,38 @@ Function/class docstrings describe responsibility; this is navigation, not dead-
 | `tools/package_app.py` | 92 | `main(argv)` |
 | `tools/package_app.py` | 94 | `parser` |
 | `tools/package_app.py` | 101 | `args` |
-| `tools/package_app.py` | 106 | `version` |
-| `tools/package_app.py` | 107 | `notices` |
-| `tools/package_app.py` | 107 | `versions` |
-| `tools/package_app.py` | 108 | `metadata` |
-| `tools/package_app.py` | 110 | `generated` |
-| `tools/package_app.py` | 112 | `identity_file` |
-| `tools/package_app.py` | 114 | `notice_file` |
-| `tools/package_app.py` | 116 | `pyinstaller` |
-| `tools/package_app.py` | 117 | `licenses` |
-| `tools/package_app.py` | 119 | `path` |
-| `tools/package_app.py` | 123 | `build` |
-| `tools/package_app.py` | 124 | `command` |
-| `tools/package_app.py` | 141 | `destination` |
-| `tools/package_app.py` | 141 | `source` |
-| `tools/package_app.py` | 150 | `source_path` |
-| `tools/package_app.py` | 152 | `source_path` |
-| `tools/package_app.py` | 153 | `command` |
-| `tools/package_app.py` | 154 | `hidden` |
-| `tools/package_app.py` | 159 | `command` |
-| `tools/package_app.py` | 160 | `command` |
-| `tools/package_app.py` | 161 | `environment` |
-| `tools/package_app.py` | 167 | `bundle` |
-| `tools/package_app.py` | 169 | `suffix` |
-| `tools/package_app.py` | 170 | `name` |
-| `tools/package_app.py` | 171 | `output` |
-| `tools/package_app.py` | 173 | `archive` |
-| `tools/package_app.py` | 173 | `sidecar` |
-| `tools/package_app.py` | 177 | `temporary` |
-| `tools/package_app.py` | 178 | `extracted` |
-| `tools/package_app.py` | 179 | `executable` |
-| `tools/package_app.py` | 192 | `stream` |
-| `tools/package_app.py` | 193 | `digest` |
+| `tools/package_app.py` | 121 | `version` |
+| `tools/package_app.py` | 122 | `notices` |
+| `tools/package_app.py` | 122 | `versions` |
+| `tools/package_app.py` | 123 | `metadata` |
+| `tools/package_app.py` | 125 | `generated` |
+| `tools/package_app.py` | 127 | `identity_file` |
+| `tools/package_app.py` | 129 | `notice_file` |
+| `tools/package_app.py` | 131 | `pyinstaller` |
+| `tools/package_app.py` | 132 | `licenses` |
+| `tools/package_app.py` | 134 | `path` |
+| `tools/package_app.py` | 138 | `build` |
+| `tools/package_app.py` | 139 | `command` |
+| `tools/package_app.py` | 156 | `destination` |
+| `tools/package_app.py` | 156 | `source` |
+| `tools/package_app.py` | 165 | `source_path` |
+| `tools/package_app.py` | 167 | `source_path` |
+| `tools/package_app.py` | 168 | `command` |
+| `tools/package_app.py` | 169 | `hidden` |
+| `tools/package_app.py` | 174 | `command` |
+| `tools/package_app.py` | 175 | `command` |
+| `tools/package_app.py` | 176 | `environment` |
+| `tools/package_app.py` | 182 | `bundle` |
+| `tools/package_app.py` | 184 | `suffix` |
+| `tools/package_app.py` | 185 | `name` |
+| `tools/package_app.py` | 186 | `output` |
+| `tools/package_app.py` | 188 | `archive` |
+| `tools/package_app.py` | 188 | `sidecar` |
+| `tools/package_app.py` | 192 | `temporary` |
+| `tools/package_app.py` | 193 | `extracted` |
+| `tools/package_app.py` | 194 | `executable` |
+| `tools/package_app.py` | 207 | `stream` |
+| `tools/package_app.py` | 208 | `digest` |
 | `tools/portable_archive.py` | 17 | `MAX_BYTES` |
 | `tools/portable_archive.py` | 18 | `MAX_MEMBERS` |
 | `tools/portable_archive.py` | 21 | `require(condition, message)` |

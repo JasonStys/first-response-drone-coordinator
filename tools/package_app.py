@@ -103,6 +103,21 @@ def main(argv=None) -> int:
         build_python_supported(tuple(sys.version_info[:3]), sys.version_info.releaselevel),
         "Freeze requires final Python 3.14.10 or a later 3.14 security patch",
     )
+    # All thirteen original real Tcl notice assertions are mandatory in a fresh
+    # stable-descriptor interpreter. A failed case is never retried or skipped.
+    subprocess.run(
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            str(ROOT / "tests/test_runtime_notices.py"),
+            "--capture=sys",
+            "-q",
+        ],
+        cwd=ROOT,
+        check=True,
+        timeout=45,
+    )
     version = configuration()
     versions, notices = collect(ROOT)
     metadata = {**source_metadata(version, allow_dirty=args.allow_dirty), **versions}
