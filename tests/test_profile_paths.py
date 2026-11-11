@@ -112,7 +112,11 @@ def test_read_only_missing_member_never_creates_it(tmp_path):
     """The identity reader must not turn a missing input into a new file."""
     path = tmp_path / "missing"
     with pytest.raises(FileNotFoundError):
-        open_member(path, os.O_RDONLY)
+        descriptor = open_member(path, os.O_RDONLY)
+        try:
+            pytest.fail("Unsafe open unexpectedly returned a descriptor")
+        finally:
+            os.close(descriptor)
     assert member(path) is None and not path.exists()
 
 
@@ -125,7 +129,7 @@ def test_opened_identity_replacement_is_rejected_and_descriptor_closed(tmp_path,
     original_open = os.open
     observed = []
 
-    def replace_then_open(candidate, flags, mode=0o777):
+    def replace_then_open(candidate, flags, mode=0o600):
         replacement.replace(path)
         descriptor = original_open(candidate, flags, mode)
         observed.append(descriptor)
@@ -133,7 +137,11 @@ def test_opened_identity_replacement_is_rejected_and_descriptor_closed(tmp_path,
 
     monkeypatch.setattr(os, "open", replace_then_open)
     with pytest.raises(ValueError, match="identity changed"):
-        open_member(path, os.O_RDWR)
+        descriptor = open_member(path, os.O_RDWR)
+        try:
+            pytest.fail("Unsafe open unexpectedly returned a descriptor")
+        finally:
+            os.close(descriptor)
     assert path.read_bytes() == b"replacement retained"
     with pytest.raises(OSError):
         os.fstat(observed[0])

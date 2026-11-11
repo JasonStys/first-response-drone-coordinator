@@ -864,15 +864,17 @@ Function/class docstrings describe responsibility; this is navigation, not dead-
 | `tests/test_profile_paths.py` | 102 | `ordinary` |
 | `tests/test_profile_paths.py` | 111 | `test_read_only_missing_member_never_creates_it(tmp_path)` |
 | `tests/test_profile_paths.py` | 113 | `path` |
-| `tests/test_profile_paths.py` | 119 | `test_opened_identity_replacement_is_rejected_and_descriptor_closed(tmp_path, monkeypatch)` |
-| `tests/test_profile_paths.py` | 121 | `path` |
-| `tests/test_profile_paths.py` | 122 | `replacement` |
-| `tests/test_profile_paths.py` | 125 | `original_open` |
-| `tests/test_profile_paths.py` | 126 | `observed` |
-| `tests/test_profile_paths.py` | 128 | `replace_then_open(candidate, flags, mode)` |
-| `tests/test_profile_paths.py` | 130 | `descriptor` |
-| `tests/test_profile_paths.py` | 142 | `test_existing_nonregular_identity_member_is_refused(tmp_path)` |
-| `tests/test_profile_paths.py` | 144 | `chosen` |
+| `tests/test_profile_paths.py` | 115 | `descriptor` |
+| `tests/test_profile_paths.py` | 123 | `test_opened_identity_replacement_is_rejected_and_descriptor_closed(tmp_path, monkeypatch)` |
+| `tests/test_profile_paths.py` | 125 | `path` |
+| `tests/test_profile_paths.py` | 126 | `replacement` |
+| `tests/test_profile_paths.py` | 129 | `original_open` |
+| `tests/test_profile_paths.py` | 130 | `observed` |
+| `tests/test_profile_paths.py` | 132 | `replace_then_open(candidate, flags, mode)` |
+| `tests/test_profile_paths.py` | 134 | `descriptor` |
+| `tests/test_profile_paths.py` | 140 | `descriptor` |
+| `tests/test_profile_paths.py` | 150 | `test_existing_nonregular_identity_member_is_refused(tmp_path)` |
+| `tests/test_profile_paths.py` | 152 | `chosen` |
 | `tests/test_publication_policy.py` | 51 | `write_document(root, content, extra)` |
 | `tests/test_publication_policy.py` | 53 | `path` |
 | `tests/test_publication_policy.py` | 55 | `package` |
