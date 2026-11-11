@@ -35,12 +35,21 @@ jobs:
       - run: python -m ruff check coordinator tests tools
       - run: python -m ruff format --check coordinator tests tools
       - run: python tools/docs_index.py --check
-      - run: python -m pytest --cov=coordinator --cov-report=term-missing
       - run: npm run format:check && npm test && npm run build
+      - name: Full Python coverage with actual native widgets
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ "$RUNNER_OS" = "Linux" ]; then
+            command -v xvfb-run
+            xvfb-run -a python -m pytest --cov=coordinator --cov-report=term-missing
+          else
+            python -m pytest --cov=coordinator --cov-report=term-missing
+          fi
       - run: python tools/check_repo.py --dist
       - run: python tools/benchmark.py
       - if: matrix.os == 'ubuntu-24.04' && matrix.python == '3.14'
-        run: python -m pip_audit --disable-pip --no-deps -r requirements-dev.lock
+        run: python -m pip_audit --disable-pip --no-deps -r requirements-dev.lock -r requirements-package.lock
       - if: matrix.os == 'ubuntu-24.04' && matrix.python == '3.14'
         name: Required live OSV audit / complete locked npm inventory / zero findings
         run: python tools/audit_osv.py

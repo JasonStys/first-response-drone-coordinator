@@ -6,6 +6,7 @@ Function/class docstrings describe responsibility; this is navigation, not dead-
 
 | File | Line | Declaration / variable |
 | --- | ---: | --- |
+| `coordinator/__init__.py` | 3 | `__version__` |
 | `coordinator/__main__.py` | 18 | `main()` |
 | `coordinator/__main__.py` | 20 | `parser` |
 | `coordinator/__main__.py` | 22 | `commands` |
@@ -15,82 +16,85 @@ Function/class docstrings describe responsibility; this is navigation, not dead-
 | `coordinator/__main__.py` | 30 | `args` |
 | `coordinator/__main__.py` | 31 | `store` |
 | `coordinator/__main__.py` | 36 | `password` |
-| `coordinator/api.py` | 21 | `ROOT` |
-| `coordinator/api.py` | 22 | `MAX_BODY` |
-| `coordinator/api.py` | 23 | `HEADERS` |
-| `coordinator/api.py` | 33 | `create_app(database, origin)` |
-| `coordinator/api.py` | 35 | `parsed` |
-| `coordinator/api.py` | 45 | `app` |
-| `coordinator/api.py` | 51 | `invalid_input(request, error)` |
-| `coordinator/api.py` | 58 | `security(request, call_next)` |
-| `coordinator/api.py` | 60 | `response` |
-| `coordinator/api.py` | 62 | `response` |
-| `coordinator/api.py` | 67 | `response` |
-| `coordinator/api.py` | 72 | `response` |
-| `coordinator/api.py` | 74 | `chunks` |
-| `coordinator/api.py` | 75 | `size` |
-| `coordinator/api.py` | 76 | `chunk` |
-| `coordinator/api.py` | 77 | `size` |
-| `coordinator/api.py` | 79 | `response` |
-| `coordinator/api.py` | 86 | `response` |
-| `coordinator/api.py` | 93 | `health()` |
-| `coordinator/api.py` | 98 | `login(body, request)` |
-| `coordinator/api.py` | 100 | `token` |
-| `coordinator/api.py` | 100 | `user` |
-| `coordinator/api.py` | 101 | `response` |
-| `coordinator/api.py` | 113 | `me(request)` |
-| `coordinator/api.py` | 118 | `logout(request)` |
-| `coordinator/api.py` | 121 | `response` |
-| `coordinator/api.py` | 126 | `workspace(request)` |
-| `coordinator/api.py` | 129 | `revision` |
-| `coordinator/api.py` | 129 | `scenario` |
-| `coordinator/api.py` | 130 | `events` |
-| `coordinator/api.py` | 130 | `proposals` |
-| `coordinator/api.py` | 139 | `examples(request)` |
-| `coordinator/api.py` | 142 | `kind` |
-| `coordinator/api.py` | 145 | `replace(body, request)` |
-| `coordinator/api.py` | 147 | `user` |
-| `coordinator/api.py` | 148 | `revision` |
-| `coordinator/api.py` | 152 | `propose(body, request)` |
-| `coordinator/api.py` | 154 | `user` |
-| `coordinator/api.py` | 155 | `revision` |
-| `coordinator/api.py` | 155 | `scenario` |
-| `coordinator/api.py` | 158 | `result` |
-| `coordinator/api.py` | 159 | `identifier` |
-| `coordinator/api.py` | 163 | `contingency(body, request)` |
-| `coordinator/api.py` | 165 | `user` |
-| `coordinator/api.py` | 168 | `revision` |
-| `coordinator/api.py` | 168 | `scenario` |
-| `coordinator/api.py` | 172 | `result` |
-| `coordinator/api.py` | 180 | `review(identifier, selected, body, request)` |
-| `coordinator/api.py` | 182 | `user` |
-| `coordinator/api.py` | 187 | `report(request)` |
-| `coordinator/api.py` | 189 | `data` |
-| `coordinator/api.py` | 190 | `proposal` |
-| `coordinator/api.py` | 200 | `index()` |
+| `coordinator/api.py` | 24 | `ROOT` |
+| `coordinator/api.py` | 25 | `MAX_BODY` |
+| `coordinator/api.py` | 26 | `HEADERS` |
+| `coordinator/api.py` | 36 | `create_app(database, origin)` |
+| `coordinator/api.py` | 38 | `parsed` |
+| `coordinator/api.py` | 50 | `app` |
+| `coordinator/api.py` | 57 | `invalid_input(request, error)` |
+| `coordinator/api.py` | 64 | `security(request, call_next)` |
+| `coordinator/api.py` | 66 | `response` |
+| `coordinator/api.py` | 68 | `response` |
+| `coordinator/api.py` | 73 | `response` |
+| `coordinator/api.py` | 78 | `response` |
+| `coordinator/api.py` | 80 | `chunks` |
+| `coordinator/api.py` | 81 | `size` |
+| `coordinator/api.py` | 84 | `chunk` |
+| `coordinator/api.py` | 85 | `size` |
+| `coordinator/api.py` | 87 | `response` |
+| `coordinator/api.py` | 93 | `response` |
+| `coordinator/api.py` | 98 | `response` |
+| `coordinator/api.py` | 105 | `health()` |
+| `coordinator/api.py` | 107 | `result` |
+| `coordinator/api.py` | 113 | `login(body, request)` |
+| `coordinator/api.py` | 115 | `token` |
+| `coordinator/api.py` | 115 | `user` |
+| `coordinator/api.py` | 116 | `response` |
+| `coordinator/api.py` | 128 | `me(request)` |
+| `coordinator/api.py` | 133 | `logout(request)` |
+| `coordinator/api.py` | 136 | `response` |
+| `coordinator/api.py` | 141 | `workspace(request)` |
+| `coordinator/api.py` | 144 | `revision` |
+| `coordinator/api.py` | 144 | `scenario` |
+| `coordinator/api.py` | 145 | `events` |
+| `coordinator/api.py` | 145 | `proposals` |
+| `coordinator/api.py` | 154 | `examples(request)` |
+| `coordinator/api.py` | 157 | `kind` |
+| `coordinator/api.py` | 160 | `replace(body, request)` |
+| `coordinator/api.py` | 162 | `user` |
+| `coordinator/api.py` | 163 | `revision` |
+| `coordinator/api.py` | 167 | `propose(body, request)` |
+| `coordinator/api.py` | 169 | `user` |
+| `coordinator/api.py` | 170 | `revision` |
+| `coordinator/api.py` | 170 | `scenario` |
+| `coordinator/api.py` | 173 | `result` |
+| `coordinator/api.py` | 174 | `identifier` |
+| `coordinator/api.py` | 178 | `contingency(body, request)` |
+| `coordinator/api.py` | 180 | `user` |
+| `coordinator/api.py` | 183 | `revision` |
+| `coordinator/api.py` | 183 | `scenario` |
+| `coordinator/api.py` | 187 | `result` |
+| `coordinator/api.py` | 195 | `review(identifier, selected, body, request)` |
+| `coordinator/api.py` | 197 | `user` |
+| `coordinator/api.py` | 202 | `report(request)` |
+| `coordinator/api.py` | 204 | `data` |
+| `coordinator/api.py` | 205 | `proposal` |
+| `coordinator/api.py` | 215 | `index()` |
 | `coordinator/auth.py` | 16 | `HASHER` |
 | `coordinator/auth.py` | 17 | `DUMMY` |
-| `coordinator/auth.py` | 20 | `add_user(store, username, password, role)` |
-| `coordinator/auth.py` | 32 | `hashed` |
-| `coordinator/auth.py` | 33 | `db` |
-| `coordinator/auth.py` | 37 | `sign_in(request, username, password)` |
-| `coordinator/auth.py` | 39 | `store` |
-| `coordinator/auth.py` | 40 | `now` |
-| `coordinator/auth.py` | 41 | `client` |
-| `coordinator/auth.py` | 44 | `db` |
-| `coordinator/auth.py` | 46 | `row` |
-| `coordinator/auth.py` | 55 | `user` |
-| `coordinator/auth.py` | 62 | `csrf` |
-| `coordinator/auth.py` | 62 | `token` |
-| `coordinator/auth.py` | 63 | `db` |
-| `coordinator/auth.py` | 76 | `identity(request)` |
-| `coordinator/auth.py` | 78 | `token` |
-| `coordinator/auth.py` | 81 | `db` |
-| `coordinator/auth.py` | 82 | `row` |
-| `coordinator/auth.py` | 91 | `authorize(request, role)` |
-| `coordinator/auth.py` | 93 | `user` |
-| `coordinator/auth.py` | 103 | `sign_out(request)` |
-| `coordinator/auth.py` | 106 | `db` |
+| `coordinator/auth.py` | 20 | `session_cookie_name(request)` |
+| `coordinator/auth.py` | 25 | `add_user(store, username, password, role)` |
+| `coordinator/auth.py` | 37 | `hashed` |
+| `coordinator/auth.py` | 38 | `db` |
+| `coordinator/auth.py` | 42 | `sign_in(request, username, password)` |
+| `coordinator/auth.py` | 44 | `store` |
+| `coordinator/auth.py` | 45 | `now` |
+| `coordinator/auth.py` | 46 | `client` |
+| `coordinator/auth.py` | 49 | `db` |
+| `coordinator/auth.py` | 51 | `row` |
+| `coordinator/auth.py` | 60 | `user` |
+| `coordinator/auth.py` | 67 | `csrf` |
+| `coordinator/auth.py` | 67 | `token` |
+| `coordinator/auth.py` | 68 | `db` |
+| `coordinator/auth.py` | 81 | `identity(request)` |
+| `coordinator/auth.py` | 83 | `token` |
+| `coordinator/auth.py` | 86 | `db` |
+| `coordinator/auth.py` | 87 | `row` |
+| `coordinator/auth.py` | 96 | `authorize(request, role)` |
+| `coordinator/auth.py` | 98 | `user` |
+| `coordinator/auth.py` | 108 | `sign_out(request)` |
+| `coordinator/auth.py` | 111 | `db` |
 | `coordinator/contingency.py` | 11 | `preview(scenario, kind, resource, node_limit)` |
 | `coordinator/contingency.py` | 15 | `resources` |
 | `coordinator/contingency.py` | 16 | `item` |
@@ -109,6 +113,68 @@ Function/class docstrings describe responsibility; this is navigation, not dead-
 | `coordinator/contingency.py` | 36 | `task` |
 | `coordinator/contingency.py` | 41 | `a` |
 | `coordinator/contingency.py` | 41 | `b` |
+| `coordinator/desktop.py` | 20 | `ROOT` |
+| `coordinator/desktop.py` | 23 | `read_resource(path)` |
+| `coordinator/desktop.py` | 25 | `descriptor` |
+| `coordinator/desktop.py` | 28 | `stream` |
+| `coordinator/desktop.py` | 29 | `info` |
+| `coordinator/desktop.py` | 32 | `raw` |
+| `coordinator/desktop.py` | 38 | `identity(root)` |
+| `coordinator/desktop.py` | 41 | `value` |
+| `coordinator/desktop.py` | 60 | `inspect_tk(root, metadata)` |
+| `coordinator/desktop.py` | 62 | `versions` |
+| `coordinator/desktop.py` | 66 | `value` |
+| `coordinator/desktop.py` | 69 | `name` |
+| `coordinator/desktop.py` | 69 | `value` |
+| `coordinator/desktop.py` | 75 | `console_session(directory, metadata)` |
+| `coordinator/desktop.py` | 77 | `profile` |
+| `coordinator/desktop.py` | 78 | `host` |
+| `coordinator/desktop.py` | 82 | `host` |
+| `coordinator/desktop.py` | 89 | `line` |
+| `coordinator/desktop.py` | 104 | `main(argv)` |
+| `coordinator/desktop.py` | 106 | `parser` |
+| `coordinator/desktop.py` | 123 | `args` |
+| `coordinator/desktop.py` | 127 | `metadata` |
+| `coordinator/desktop.py` | 132 | `root` |
+| `coordinator/desktop.py` | 135 | `versions` |
+| `coordinator/desktop.py` | 140 | `directory` |
+| `coordinator/desktop.py` | 148 | `root` |
+| `coordinator/desktop.py` | 149 | `window` |
+| `coordinator/desktop_host.py` | 18 | `OwnedServer(class)` |
+| `coordinator/desktop_host.py` | 21 | `__init__(self, config, ready, record)` |
+| `coordinator/desktop_host.py` | 27 | `startup(self, sockets)` |
+| `coordinator/desktop_host.py` | 36 | `Host(class)` |
+| `coordinator/desktop_host.py` | 39 | `__init__(self, profile, metadata)` |
+| `coordinator/desktop_host.py` | 54 | `app` |
+| `coordinator/desktop_host.py` | 56 | `config` |
+| `coordinator/desktop_host.py` | 76 | `_run(self)` |
+| `coordinator/desktop_host.py` | 86 | `start(self, timeout)` |
+| `coordinator/desktop_host.py` | 94 | `stop(self, timeout)` |
+| `coordinator/desktop_profile.py` | 18 | `PRODUCT` |
+| `coordinator/desktop_profile.py` | 19 | `ROLES` |
+| `coordinator/desktop_profile.py` | 20 | `FIRST_ROLE` |
+| `coordinator/desktop_profile.py` | 23 | `default_directory()` |
+| `coordinator/desktop_profile.py` | 26 | `base` |
+| `coordinator/desktop_profile.py` | 28 | `base` |
+| `coordinator/desktop_profile.py` | 30 | `base` |
+| `coordinator/desktop_profile.py` | 36 | `read_marker(path)` |
+| `coordinator/desktop_profile.py` | 38 | `descriptor` |
+| `coordinator/desktop_profile.py` | 39 | `stream` |
+| `coordinator/desktop_profile.py` | 40 | `info` |
+| `coordinator/desktop_profile.py` | 43 | `raw` |
+| `coordinator/desktop_profile.py` | 46 | `value` |
+| `coordinator/desktop_profile.py` | 59 | `Profile(class)` |
+| `coordinator/desktop_profile.py` | 62 | `__init__(self, directory)` |
+| `coordinator/desktop_profile.py` | 68 | `marker` |
+| `coordinator/desktop_profile.py` | 72 | `stream` |
+| `coordinator/desktop_profile.py` | 74 | `metadata` |
+| `coordinator/desktop_profile.py` | 76 | `namespace` |
+| `coordinator/desktop_profile.py` | 78 | `lock` |
+| `coordinator/desktop_profile.py` | 98 | `database` |
+| `coordinator/desktop_profile.py` | 109 | `count_users(self)` |
+| `coordinator/desktop_profile.py` | 111 | `database` |
+| `coordinator/desktop_profile.py` | 114 | `create_account(self, username, password, confirmation, role)` |
+| `coordinator/desktop_profile.py` | 124 | `close(self)` |
 | `coordinator/examples.py` | 9 | `KINDS` |
 | `coordinator/examples.py` | 53 | `example(kind)` |
 | `coordinator/examples.py` | 55 | `labels` |
@@ -183,6 +249,30 @@ Function/class docstrings describe responsibility; this is navigation, not dead-
 | `coordinator/models.py` | 133 | `Login(class)` |
 | `coordinator/models.py` | 136 | `username` |
 | `coordinator/models.py` | 137 | `password` |
+| `coordinator/owner_window.py` | 19 | `OwnerWindow(class)` |
+| `coordinator/owner_window.py` | 22 | `__init__(self, root, directory, metadata)` |
+| `coordinator/owner_window.py` | 42 | `shell` |
+| `coordinator/owner_window.py` | 45 | `actions` |
+| `coordinator/owner_window.py` | 53 | `content` |
+| `coordinator/owner_window.py` | 56 | `scrollbar` |
+| `coordinator/owner_window.py` | 60 | `body` |
+| `coordinator/owner_window.py` | 61 | `item` |
+| `coordinator/owner_window.py` | 82 | `location` |
+| `coordinator/owner_window.py` | 94 | `account` |
+| `coordinator/owner_window.py` | 104 | `caption` |
+| `coordinator/owner_window.py` | 104 | `index` |
+| `coordinator/owner_window.py` | 104 | `secret` |
+| `coordinator/owner_window.py` | 104 | `variable` |
+| `coordinator/owner_window.py` | 113 | `entry` |
+| `coordinator/owner_window.py` | 136 | `choose_directory(self)` |
+| `coordinator/owner_window.py` | 138 | `selected` |
+| `coordinator/owner_window.py` | 144 | `open_profile(self)` |
+| `coordinator/owner_window.py` | 150 | `control` |
+| `coordinator/owner_window.py` | 165 | `create_account(self)` |
+| `coordinator/owner_window.py` | 187 | `start_host(self)` |
+| `coordinator/owner_window.py` | 199 | `open_browser(self)` |
+| `coordinator/owner_window.py` | 204 | `quit(self)` |
+| `coordinator/owner_window.py` | 214 | `stop(self)` |
 | `coordinator/planner.py` | 13 | `SLOT_MINUTES` |
 | `coordinator/planner.py` | 14 | `NODE_LIMIT` |
 | `coordinator/planner.py` | 17 | `digest(value)` |
@@ -409,6 +499,134 @@ Function/class docstrings describe responsibility; this is navigation, not dead-
 | `tests/test_contingency.py` | 105 | `resource` |
 | `tests/test_contingency.py` | 106 | `limited` |
 | `tests/test_contingency.py` | 110 | `held` |
+| `tests/test_desktop_host.py` | 15 | `prepared(tmp_path)` |
+| `tests/test_desktop_host.py` | 17 | `profile` |
+| `tests/test_desktop_host.py` | 24 | `request(host, path)` |
+| `tests/test_desktop_host.py` | 26 | `connection` |
+| `tests/test_desktop_host.py` | 31 | `response` |
+| `tests/test_desktop_host.py` | 37 | `test_actual_readiness_private_login_and_owned_stop(tmp_path)` |
+| `tests/test_desktop_host.py` | 39 | `profile` |
+| `tests/test_desktop_host.py` | 40 | `metadata` |
+| `tests/test_desktop_host.py` | 41 | `host` |
+| `tests/test_desktop_host.py` | 44 | `_` |
+| `tests/test_desktop_host.py` | 44 | `code` |
+| `tests/test_desktop_host.py` | 44 | `raw` |
+| `tests/test_desktop_host.py` | 45 | `health` |
+| `tests/test_desktop_host.py` | 50 | `login` |
+| `tests/test_desktop_host.py` | 61 | `code` |
+| `tests/test_desktop_host.py` | 61 | `headers` |
+| `tests/test_desktop_host.py` | 61 | `raw` |
+| `tests/test_desktop_host.py` | 69 | `cookie` |
+| `tests/test_desktop_host.py` | 89 | `test_actual_partial_body_bounds_pre_shutdown_drain(tmp_path)` |
+| `tests/test_desktop_host.py` | 91 | `profile` |
+| `tests/test_desktop_host.py` | 92 | `host` |
+| `tests/test_desktop_host.py` | 93 | `received` |
+| `tests/test_desktop_host.py` | 95 | `ObserveRead(class)` |
+| `tests/test_desktop_host.py` | 98 | `__init__(self, app)` |
+| `tests/test_desktop_host.py` | 101 | `__call__(self, scope, receive, send)` |
+| `tests/test_desktop_host.py` | 102 | `observed()` |
+| `tests/test_desktop_host.py` | 103 | `message` |
+| `tests/test_desktop_host.py` | 113 | `connection` |
+| `tests/test_desktop_host.py` | 124 | `response` |
+| `tests/test_desktop_host.py` | 137 | `test_startup_failure_is_never_reported_as_ready(tmp_path, monkeypatch)` |
+| `tests/test_desktop_host.py` | 139 | `profile` |
+| `tests/test_desktop_host.py` | 140 | `host` |
+| `tests/test_desktop_host.py` | 142 | `broken()` |
+| `tests/test_desktop_host.py` | 156 | `test_two_actual_profiles_keep_sessions_in_one_host_scoped_cookie_jar(tmp_path)` |
+| `tests/test_desktop_host.py` | 158 | `first` |
+| `tests/test_desktop_host.py` | 159 | `second` |
+| `tests/test_desktop_host.py` | 160 | `password` |
+| `tests/test_desktop_host.py` | 164 | `hosts` |
+| `tests/test_desktop_host.py` | 166 | `host` |
+| `tests/test_desktop_host.py` | 168 | `client` |
+| `tests/test_desktop_host.py` | 169 | `host` |
+| `tests/test_desktop_host.py` | 169 | `name` |
+| `tests/test_desktop_host.py` | 170 | `response` |
+| `tests/test_desktop_host.py` | 176 | `cookie` |
+| `tests/test_desktop_host.py` | 180 | `host` |
+| `tests/test_desktop_host.py` | 180 | `users` |
+| `tests/test_desktop_host.py` | 181 | `user` |
+| `tests/test_desktop_host.py` | 182 | `foreign_cookie` |
+| `tests/test_desktop_host.py` | 189 | `wrong_csrf` |
+| `tests/test_desktop_host.py` | 206 | `host` |
+| `tests/test_desktop_host.py` | 213 | `test_invalid_cookie_namespace_is_rejected_before_database_creation(tmp_path, invalid)` |
+| `tests/test_desktop_host.py` | 217 | `database` |
+| `tests/test_desktop_package.py` | 24 | `test_freeze_refuses_old_cached_or_prerelease_runtime(version, level, allowed)` |
+| `tests/test_desktop_package.py` | 29 | `test_all_product_version_surfaces_agree()` |
+| `tests/test_desktop_package.py` | 40 | `test_mismatched_version_or_identity_cannot_build(tmp_path, surface)` |
+| `tests/test_desktop_package.py` | 42 | `root` |
+| `tests/test_desktop_package.py` | 43 | `path` |
+| `tests/test_desktop_package.py` | 44 | `output` |
+| `tests/test_desktop_package.py` | 47 | `selected` |
+| `tests/test_desktop_package.py` | 55 | `path` |
+| `tests/test_desktop_package.py` | 59 | `value` |
+| `tests/test_desktop_package.py` | 83 | `test_source_cleanliness_is_not_a_release_flag_waiver(monkeypatch, dirty, ci, override, sha, allowed)` |
+| `tests/test_desktop_package.py` | 88 | `output(command)` |
+| `tests/test_desktop_package.py` | 105 | `value` |
+| `tests/test_desktop_package.py` | 109 | `test_archive_rejection_remains_active_with_optimized_python()` |
+| `tests/test_desktop_package.py` | 111 | `result` |
+| `tests/test_desktop_profile.py` | 13 | `test_provision_persist_login_and_existing_roles(tmp_path)` |
+| `tests/test_desktop_profile.py` | 15 | `path` |
+| `tests/test_desktop_profile.py` | 16 | `profile` |
+| `tests/test_desktop_profile.py` | 24 | `original` |
+| `tests/test_desktop_profile.py` | 25 | `namespace` |
+| `tests/test_desktop_profile.py` | 26 | `marker_bytes` |
+| `tests/test_desktop_profile.py` | 33 | `reopened` |
+| `tests/test_desktop_profile.py` | 40 | `client` |
+| `tests/test_desktop_profile.py` | 42 | `response` |
+| `tests/test_desktop_profile.py` | 48 | `db` |
+| `tests/test_desktop_profile.py` | 49 | `row` |
+| `tests/test_desktop_profile.py` | 49 | `values` |
+| `tests/test_desktop_profile.py` | 50 | `value` |
+| `tests/test_desktop_profile.py` | 55 | `test_invalid_duplicate_and_first_role_do_not_create_account(tmp_path)` |
+| `tests/test_desktop_profile.py` | 57 | `profile` |
+| `tests/test_desktop_profile.py` | 59 | `args` |
+| `tests/test_desktop_profile.py` | 68 | `db` |
+| `tests/test_desktop_profile.py` | 69 | `original_hash` |
+| `tests/test_desktop_profile.py` | 77 | `db` |
+| `tests/test_desktop_profile.py` | 98 | `test_invalid_marker_never_adopts_unknown_profile(tmp_path, content)` |
+| `tests/test_desktop_profile.py` | 100 | `folder` |
+| `tests/test_desktop_profile.py` | 108 | `test_unknown_folder_and_wrong_product_are_preserved(tmp_path)` |
+| `tests/test_desktop_profile.py` | 110 | `important` |
+| `tests/test_desktop_profile.py` | 119 | `marker` |
+| `tests/test_desktop_profile.py` | 127 | `test_default_directory_is_per_user_and_outside_source(monkeypatch, tmp_path)` |
+| `tests/test_desktop_resources.py` | 13 | `test_source_mode_is_explicit_and_frozen_missing_identity_fails(tmp_path, monkeypatch)` |
+| `tests/test_desktop_resources.py` | 36 | `test_each_wrong_frozen_identity_surface_is_rejected(tmp_path, field, value)` |
+| `tests/test_desktop_resources.py` | 38 | `path` |
+| `tests/test_desktop_resources.py` | 40 | `valid` |
+| `tests/test_desktop_resources.py` | 55 | `test_resources_are_real_regular_nonempty_bounded_files(tmp_path)` |
+| `tests/test_desktop_resources.py` | 57 | `path` |
+| `tests/test_desktop_resources.py` | 60 | `raw` |
+| `tests/test_desktop_resources.py` | 68 | `test_console_owner_uses_actual_saved_profile_and_quits_without_password_input(tmp_path, monkeypatch, capsys)` |
+| `tests/test_desktop_resources.py` | 74 | `path` |
+| `tests/test_desktop_resources.py` | 75 | `profile` |
+| `tests/test_desktop_resources.py` | 82 | `output` |
+| `tests/test_desktop_resources.py` | 85 | `reopened` |
+| `tests/test_desktop_resources.py` | 92 | `test_console_cannot_create_preset_first_account(tmp_path)` |
+| `tests/test_desktop_resources.py` | 96 | `path` |
+| `tests/test_desktop_resources.py` | 99 | `profile` |
+| `tests/test_desktop_resources.py` | 106 | `test_entrypoint_requires_explicit_console_mode_and_real_resources(tmp_path, monkeypatch, capsys)` |
+| `tests/test_desktop_resources.py` | 110 | `error` |
+| `tests/test_desktop_resources.py` | 121 | `test_normal_entrypoint_presents_native_controls(tmp_path, monkeypatch)` |
+| `tests/test_desktop_resources.py` | 125 | `observed` |
+| `tests/test_desktop_resources.py` | 127 | `close_after_construct(root, directory, metadata)` |
+| `tests/test_desktop_resources.py` | 141 | `test_actual_loaded_tk_matches_package_and_runtime_info_opens_no_profile(tmp_path, monkeypatch, capsys)` |
+| `tests/test_desktop_resources.py` | 147 | `root` |
+| `tests/test_desktop_resources.py` | 150 | `versions` |
+| `tests/test_desktop_resources.py` | 159 | `_` |
+| `tests/test_desktop_resources.py` | 162 | `output` |
+| `tests/test_desktop_resources.py` | 163 | `record` |
+| `tests/test_desktop_resources.py` | 164 | `name` |
+| `tests/test_desktop_resources.py` | 168 | `test_console_interrupt_drains_the_actual_owned_host_and_releases_profile(tmp_path, monkeypatch)` |
+| `tests/test_desktop_resources.py` | 172 | `path` |
+| `tests/test_desktop_resources.py` | 173 | `profile` |
+| `tests/test_desktop_resources.py` | 178 | `actual_host` |
+| `tests/test_desktop_resources.py` | 179 | `observed` |
+| `tests/test_desktop_resources.py` | 181 | `remember()` |
+| `tests/test_desktop_resources.py` | 182 | `host` |
+| `tests/test_desktop_resources.py` | 186 | `Interrupted(class)` |
+| `tests/test_desktop_resources.py` | 187 | `__iter__(self)` |
+| `tests/test_desktop_resources.py` | 198 | `reopened` |
 | `tests/test_osv_policy.py` | 12 | `lock()` |
 | `tests/test_osv_policy.py` | 24 | `report()` |
 | `tests/test_osv_policy.py` | 32 | `name` |
@@ -419,6 +637,48 @@ Function/class docstrings describe responsibility; this is navigation, not dead-
 | `tests/test_osv_policy.py` | 57 | `data` |
 | `tests/test_osv_policy.py` | 82 | `test_incomplete_or_finding_never_passes(change)` |
 | `tests/test_osv_policy.py` | 84 | `data` |
+| `tests/test_owner_window.py` | 12 | `window(tmp_path)` |
+| `tests/test_owner_window.py` | 14 | `root` |
+| `tests/test_owner_window.py` | 16 | `view` |
+| `tests/test_owner_window.py` | 33 | `credentials(view, name, password, confirmation)` |
+| `tests/test_owner_window.py` | 35 | `password` |
+| `tests/test_owner_window.py` | 41 | `test_actual_buttons_first_account_staff_and_no_password_retention(window, monkeypatch)` |
+| `tests/test_owner_window.py` | 43 | `_` |
+| `tests/test_owner_window.py` | 43 | `view` |
+| `tests/test_owner_window.py` | 44 | `opened` |
+| `tests/test_owner_window.py` | 63 | `original_host` |
+| `tests/test_owner_window.py` | 78 | `test_folder_choice_and_unknown_existing_files_are_not_adopted(window, tmp_path, monkeypatch)` |
+| `tests/test_owner_window.py` | 80 | `_` |
+| `tests/test_owner_window.py` | 80 | `view` |
+| `tests/test_owner_window.py` | 81 | `original` |
+| `tests/test_owner_window.py` | 85 | `target` |
+| `tests/test_owner_window.py` | 87 | `note` |
+| `tests/test_owner_window.py` | 96 | `test_cancelled_or_busy_quit_retains_owner_until_actual_completion(window, monkeypatch)` |
+| `tests/test_owner_window.py` | 98 | `root` |
+| `tests/test_owner_window.py` | 98 | `view` |
+| `tests/test_owner_window.py` | 107 | `busy()` |
+| `tests/test_owner_window.py` | 110 | `change` |
+| `tests/test_owner_window.py` | 120 | `test_identified_profile_automatically_reopens_without_reset(tmp_path, monkeypatch)` |
+| `tests/test_owner_window.py` | 122 | `path` |
+| `tests/test_owner_window.py` | 123 | `profile` |
+| `tests/test_owner_window.py` | 127 | `before` |
+| `tests/test_owner_window.py` | 129 | `opened` |
+| `tests/test_owner_window.py` | 131 | `root` |
+| `tests/test_owner_window.py` | 133 | `view` |
+| `tests/test_owner_window.py` | 149 | `test_quit_after_real_startup_failure_releases_owner_and_retains_failure_exit(tmp_path, monkeypatch)` |
+| `tests/test_owner_window.py` | 153 | `path` |
+| `tests/test_owner_window.py` | 154 | `profile` |
+| `tests/test_owner_window.py` | 159 | `actual_host` |
+| `tests/test_owner_window.py` | 161 | `failed_host()` |
+| `tests/test_owner_window.py` | 162 | `host` |
+| `tests/test_owner_window.py` | 164 | `fail()` |
+| `tests/test_owner_window.py` | 172 | `root` |
+| `tests/test_owner_window.py` | 174 | `view` |
+| `tests/test_owner_window.py` | 181 | `test_minimum_window_keeps_lifecycle_controls_visible_and_long_status_scrollable(window)` |
+| `tests/test_owner_window.py` | 183 | `root` |
+| `tests/test_owner_window.py` | 183 | `view` |
+| `tests/test_owner_window.py` | 188 | `control` |
+| `tests/test_owner_window.py` | 189 | `top` |
 | `tests/test_planner.py` | 26 | `small_case(seed)` |
 | `tests/test_planner.py` | 28 | `rng` |
 | `tests/test_planner.py` | 29 | `data` |
@@ -483,6 +743,38 @@ Function/class docstrings describe responsibility; this is navigation, not dead-
 | `tests/test_planner.py` | 200 | `one` |
 | `tests/test_planner.py` | 230 | `test_strict_schema(mutate)` |
 | `tests/test_planner.py` | 232 | `data` |
+| `tests/test_portable_archive.py` | 17 | `APPLICATION` |
+| `tests/test_portable_archive.py` | 21 | `test_roundtrip_keeps_one_application_root_and_metadata(tmp_path, suffix)` |
+| `tests/test_portable_archive.py` | 23 | `bundle` |
+| `tests/test_portable_archive.py` | 27 | `destination` |
+| `tests/test_portable_archive.py` | 30 | `extracted` |
+| `tests/test_portable_archive.py` | 38 | `test_posix_archive_keeps_relative_link_and_executable_mode(tmp_path)` |
+| `tests/test_portable_archive.py` | 40 | `path` |
+| `tests/test_portable_archive.py` | 41 | `output` |
+| `tests/test_portable_archive.py` | 42 | `member` |
+| `tests/test_portable_archive.py` | 45 | `link` |
+| `tests/test_portable_archive.py` | 48 | `bundle` |
+| `tests/test_portable_archive.py` | 68 | `test_member_escape_or_alias_is_rejected_before_writes(tmp_path, name)` |
+| `tests/test_portable_archive.py` | 70 | `target` |
+| `tests/test_portable_archive.py` | 71 | `output` |
+| `tests/test_portable_archive.py` | 73 | `sentinel` |
+| `tests/test_portable_archive.py` | 81 | `test_tar_link_escape_rejected_without_creating_links(tmp_path, target)` |
+| `tests/test_portable_archive.py` | 83 | `path` |
+| `tests/test_portable_archive.py` | 84 | `output` |
+| `tests/test_portable_archive.py` | 85 | `member` |
+| `tests/test_portable_archive.py` | 93 | `test_zip_symlink_and_duplicate_members_are_rejected(tmp_path)` |
+| `tests/test_portable_archive.py` | 95 | `path` |
+| `tests/test_portable_archive.py` | 96 | `output` |
+| `tests/test_portable_archive.py` | 97 | `member` |
+| `tests/test_portable_archive.py` | 102 | `path` |
+| `tests/test_portable_archive.py` | 103 | `output` |
+| `tests/test_portable_archive.py` | 104 | `_` |
+| `tests/test_portable_archive.py` | 105 | `member` |
+| `tests/test_portable_archive.py` | 111 | `test_member_content_and_metadata_budgets_are_checked(tmp_path, monkeypatch)` |
+| `tests/test_portable_archive.py` | 113 | `path` |
+| `tests/test_portable_archive.py` | 114 | `output` |
+| `tests/test_portable_archive.py` | 120 | `path` |
+| `tests/test_portable_archive.py` | 121 | `output` |
 | `tests/test_publication_policy.py` | 51 | `write_document(root, content, extra)` |
 | `tests/test_publication_policy.py` | 53 | `path` |
 | `tests/test_publication_policy.py` | 55 | `package` |
@@ -507,6 +799,38 @@ Function/class docstrings describe responsibility; this is navigation, not dead-
 | `tests/test_publication_policy.py` | 126 | `path` |
 | `tests/test_publication_policy.py` | 128 | `package` |
 | `tests/test_publication_policy.py` | 133 | `package` |
+| `tests/test_runtime_notices.py` | 10 | `ROOT` |
+| `tests/test_runtime_notices.py` | 14 | `interpreter(capfd)` |
+| `tests/test_runtime_notices.py` | 17 | `root` |
+| `tests/test_runtime_notices.py` | 25 | `test_actual_tcl_notice_reader_preserves_bytes_and_missing_identity(tmp_path, interpreter)` |
+| `tests/test_runtime_notices.py` | 27 | `path` |
+| `tests/test_runtime_notices.py` | 28 | `raw` |
+| `tests/test_runtime_notices.py` | 35 | `raw` |
+| `tests/test_runtime_notices.py` | 43 | `test_exact_mac_version_uses_verbatim_upstream_notice_and_binds_digest(tmp_path, kind, interpreter)` |
+| `tests/test_runtime_notices.py` | 47 | `library` |
+| `tests/test_runtime_notices.py` | 48 | `file` |
+| `tests/test_runtime_notices.py` | 49 | `target` |
+| `tests/test_runtime_notices.py` | 52 | `raw` |
+| `tests/test_runtime_notices.py` | 52 | `source` |
+| `tests/test_runtime_notices.py` | 79 | `test_unreviewed_platform_version_or_library_cannot_substitute_notice(version, library, system, interpreter)` |
+| `tests/test_runtime_notices.py` | 88 | `test_ubuntu_uses_actual_runtime_package_copyright_not_guessed_script_file(tmp_path, monkeypatch, kind, interpreter)` |
+| `tests/test_runtime_notices.py` | 92 | `fixture` |
+| `tests/test_runtime_notices.py` | 94 | `actual` |
+| `tests/test_runtime_notices.py` | 95 | `calls` |
+| `tests/test_runtime_notices.py` | 96 | `library` |
+| `tests/test_runtime_notices.py` | 97 | `package_path` |
+| `tests/test_runtime_notices.py` | 99 | `installed(interpreter, path)` |
+| `tests/test_runtime_notices.py` | 106 | `raw` |
+| `tests/test_runtime_notices.py` | 106 | `source` |
+| `tests/test_runtime_notices.py` | 111 | `test_present_invalid_runtime_notice_never_falls_back_to_other_terms(tmp_path, interpreter)` |
+| `tests/test_runtime_notices.py` | 119 | `test_mac_pre905_terms_require_exact_psf_sdk_recipe(tmp_path, monkeypatch, interpreter, python_version, accepted)` |
+| `tests/test_runtime_notices.py` | 124 | `library` |
+| `tests/test_runtime_notices.py` | 125 | `name` |
+| `tests/test_runtime_notices.py` | 129 | `raw` |
+| `tests/test_runtime_notices.py` | 129 | `source` |
+| `tests/test_runtime_notices.py` | 137 | `test_mac_pre905_changed_notice_is_rejected(tmp_path, monkeypatch, interpreter)` |
+| `tests/test_runtime_notices.py` | 141 | `path` |
+| `tests/test_runtime_notices.py` | 143 | `library` |
 | `tools/audit_npm.py` | 13 | `LEVELS` |
 | `tools/audit_npm.py` | 14 | `TRANSIENT` |
 | `tools/audit_npm.py` | 17 | `assess(report, returncode)` |
@@ -592,43 +916,189 @@ Function/class docstrings describe responsibility; this is navigation, not dead-
 | `tools/docs_index.py` | 14 | `ROOT` |
 | `tools/docs_index.py` | 15 | `EXCLUDE` |
 | `tools/docs_index.py` | 28 | `DESCRIPTIONS` |
-| `tools/docs_index.py` | 57 | `public_text(path)` |
-| `tools/docs_index.py` | 61 | `package` |
-| `tools/docs_index.py` | 62 | `members` |
-| `tools/docs_index.py` | 63 | `member` |
-| `tools/docs_index.py` | 63 | `names` |
-| `tools/docs_index.py` | 67 | `member` |
-| `tools/docs_index.py` | 70 | `item` |
-| `tools/docs_index.py` | 73 | `inspected` |
+| `tools/docs_index.py` | 63 | `public_text(path)` |
+| `tools/docs_index.py` | 67 | `package` |
+| `tools/docs_index.py` | 68 | `members` |
+| `tools/docs_index.py` | 69 | `member` |
+| `tools/docs_index.py` | 69 | `names` |
 | `tools/docs_index.py` | 73 | `member` |
-| `tools/docs_index.py` | 74 | `member` |
-| `tools/docs_index.py` | 78 | `member` |
-| `tools/docs_index.py` | 81 | `files()` |
-| `tools/docs_index.py` | 83 | `paths` |
-| `tools/docs_index.py` | 84 | `directory` |
-| `tools/docs_index.py` | 84 | `names` |
-| `tools/docs_index.py` | 84 | `subdirectories` |
-| `tools/docs_index.py` | 85 | `name` |
-| `tools/docs_index.py` | 86 | `name` |
-| `tools/docs_index.py` | 90 | `render()` |
-| `tools/docs_index.py` | 92 | `catalog` |
-| `tools/docs_index.py` | 100 | `source` |
-| `tools/docs_index.py` | 110 | `path` |
-| `tools/docs_index.py` | 111 | `relative` |
-| `tools/docs_index.py` | 112 | `text` |
-| `tools/docs_index.py` | 113 | `description` |
-| `tools/docs_index.py` | 114 | `line` |
-| `tools/docs_index.py` | 121 | `records` |
-| `tools/docs_index.py` | 122 | `node` |
-| `tools/docs_index.py` | 124 | `params` |
-| `tools/docs_index.py` | 127 | `arg` |
-| `tools/docs_index.py` | 133 | `line` |
-| `tools/docs_index.py` | 133 | `name` |
-| `tools/docs_index.py` | 135 | `node` |
-| `tools/docs_index.py` | 149 | `main()` |
-| `tools/docs_index.py` | 151 | `content` |
-| `tools/docs_index.py` | 151 | `name` |
-| `tools/docs_index.py` | 152 | `path` |
+| `tools/docs_index.py` | 76 | `item` |
+| `tools/docs_index.py` | 79 | `inspected` |
+| `tools/docs_index.py` | 79 | `member` |
+| `tools/docs_index.py` | 80 | `member` |
+| `tools/docs_index.py` | 84 | `member` |
+| `tools/docs_index.py` | 87 | `files()` |
+| `tools/docs_index.py` | 89 | `paths` |
+| `tools/docs_index.py` | 90 | `directory` |
+| `tools/docs_index.py` | 90 | `names` |
+| `tools/docs_index.py` | 90 | `subdirectories` |
+| `tools/docs_index.py` | 91 | `name` |
+| `tools/docs_index.py` | 92 | `name` |
+| `tools/docs_index.py` | 96 | `render()` |
+| `tools/docs_index.py` | 98 | `catalog` |
+| `tools/docs_index.py` | 106 | `source` |
+| `tools/docs_index.py` | 116 | `path` |
+| `tools/docs_index.py` | 117 | `relative` |
+| `tools/docs_index.py` | 118 | `text` |
+| `tools/docs_index.py` | 119 | `description` |
+| `tools/docs_index.py` | 120 | `line` |
+| `tools/docs_index.py` | 127 | `records` |
+| `tools/docs_index.py` | 128 | `node` |
+| `tools/docs_index.py` | 130 | `params` |
+| `tools/docs_index.py` | 133 | `arg` |
+| `tools/docs_index.py` | 139 | `line` |
+| `tools/docs_index.py` | 139 | `name` |
+| `tools/docs_index.py` | 141 | `node` |
+| `tools/docs_index.py` | 155 | `main()` |
+| `tools/docs_index.py` | 157 | `content` |
+| `tools/docs_index.py` | 157 | `name` |
+| `tools/docs_index.py` | 158 | `path` |
+| `tools/package_app.py` | 28 | `ROOT` |
+| `tools/package_app.py` | 29 | `APPLICATION` |
+| `tools/package_app.py` | 30 | `PRODUCT` |
+| `tools/package_app.py` | 33 | `build_python_supported(version, releaselevel)` |
+| `tools/package_app.py` | 43 | `configuration(root)` |
+| `tools/package_app.py` | 45 | `project` |
+| `tools/package_app.py` | 46 | `package` |
+| `tools/package_app.py` | 47 | `lock` |
+| `tools/package_app.py` | 48 | `version` |
+| `tools/package_app.py` | 62 | `source_metadata(version)` |
+| `tools/package_app.py` | 68 | `command` |
+| `tools/package_app.py` | 69 | `source` |
+| `tools/package_app.py` | 70 | `changed` |
+| `tools/package_app.py` | 92 | `main(argv)` |
+| `tools/package_app.py` | 94 | `parser` |
+| `tools/package_app.py` | 101 | `args` |
+| `tools/package_app.py` | 106 | `version` |
+| `tools/package_app.py` | 107 | `notices` |
+| `tools/package_app.py` | 107 | `versions` |
+| `tools/package_app.py` | 108 | `metadata` |
+| `tools/package_app.py` | 110 | `generated` |
+| `tools/package_app.py` | 112 | `identity_file` |
+| `tools/package_app.py` | 114 | `notice_file` |
+| `tools/package_app.py` | 116 | `pyinstaller` |
+| `tools/package_app.py` | 117 | `licenses` |
+| `tools/package_app.py` | 119 | `path` |
+| `tools/package_app.py` | 123 | `build` |
+| `tools/package_app.py` | 124 | `command` |
+| `tools/package_app.py` | 141 | `destination` |
+| `tools/package_app.py` | 141 | `source` |
+| `tools/package_app.py` | 150 | `source_path` |
+| `tools/package_app.py` | 152 | `source_path` |
+| `tools/package_app.py` | 153 | `command` |
+| `tools/package_app.py` | 154 | `hidden` |
+| `tools/package_app.py` | 159 | `command` |
+| `tools/package_app.py` | 160 | `command` |
+| `tools/package_app.py` | 161 | `environment` |
+| `tools/package_app.py` | 167 | `bundle` |
+| `tools/package_app.py` | 169 | `suffix` |
+| `tools/package_app.py` | 170 | `name` |
+| `tools/package_app.py` | 171 | `output` |
+| `tools/package_app.py` | 173 | `archive` |
+| `tools/package_app.py` | 173 | `sidecar` |
+| `tools/package_app.py` | 177 | `temporary` |
+| `tools/package_app.py` | 178 | `extracted` |
+| `tools/package_app.py` | 179 | `executable` |
+| `tools/package_app.py` | 192 | `stream` |
+| `tools/package_app.py` | 193 | `digest` |
+| `tools/portable_archive.py` | 17 | `MAX_BYTES` |
+| `tools/portable_archive.py` | 18 | `MAX_MEMBERS` |
+| `tools/portable_archive.py` | 21 | `require(condition, message)` |
+| `tools/portable_archive.py` | 27 | `safe_name(name, application)` |
+| `tools/portable_archive.py` | 29 | `parts` |
+| `tools/portable_archive.py` | 30 | `raw_parts` |
+| `tools/portable_archive.py` | 38 | `part` |
+| `tools/portable_archive.py` | 39 | `char` |
+| `tools/portable_archive.py` | 44 | `safe_link(name, target, application)` |
+| `tools/portable_archive.py` | 51 | `char` |
+| `tools/portable_archive.py` | 54 | `resolved` |
+| `tools/portable_archive.py` | 60 | `create_archive(bundle, archive)` |
+| `tools/portable_archive.py` | 66 | `members` |
+| `tools/portable_archive.py` | 68 | `total` |
+| `tools/portable_archive.py` | 69 | `path` |
+| `tools/portable_archive.py` | 78 | `total` |
+| `tools/portable_archive.py` | 82 | `path` |
+| `tools/portable_archive.py` | 84 | `target` |
+| `tools/portable_archive.py` | 85 | `path` |
+| `tools/portable_archive.py` | 88 | `target` |
+| `tools/portable_archive.py` | 89 | `path` |
+| `tools/portable_archive.py` | 97 | `inspected(archive, application)` |
+| `tools/portable_archive.py` | 102 | `members` |
+| `tools/portable_archive.py` | 103 | `total` |
+| `tools/portable_archive.py` | 104 | `names` |
+| `tools/portable_archive.py` | 106 | `source` |
+| `tools/portable_archive.py` | 107 | `member` |
+| `tools/portable_archive.py` | 111 | `total` |
+| `tools/portable_archive.py` | 112 | `kind` |
+| `tools/portable_archive.py` | 114 | `source` |
+| `tools/portable_archive.py` | 115 | `member` |
+| `tools/portable_archive.py` | 124 | `total` |
+| `tools/portable_archive.py` | 129 | `kind` |
+| `tools/portable_archive.py` | 136 | `member` |
+| `tools/portable_archive.py` | 137 | `name` |
+| `tools/portable_archive.py` | 143 | `archive_metadata(archive, application)` |
+| `tools/portable_archive.py` | 145 | `kind` |
+| `tools/portable_archive.py` | 145 | `members` |
+| `tools/portable_archive.py` | 146 | `expected` |
+| `tools/portable_archive.py` | 147 | `m` |
+| `tools/portable_archive.py` | 147 | `selected` |
+| `tools/portable_archive.py` | 149 | `member` |
+| `tools/portable_archive.py` | 150 | `size` |
+| `tools/portable_archive.py` | 155 | `source` |
+| `tools/portable_archive.py` | 156 | `value` |
+| `tools/portable_archive.py` | 158 | `source` |
+| `tools/portable_archive.py` | 159 | `stream` |
+| `tools/portable_archive.py` | 161 | `value` |
+| `tools/portable_archive.py` | 166 | `extract_archive(archive, destination, application)` |
+| `tools/portable_archive.py` | 168 | `kind` |
+| `tools/portable_archive.py` | 168 | `members` |
+| `tools/portable_archive.py` | 171 | `source` |
+| `tools/portable_archive.py` | 172 | `member` |
+| `tools/portable_archive.py` | 173 | `target` |
+| `tools/portable_archive.py` | 178 | `total` |
+| `tools/portable_archive.py` | 179 | `incoming` |
+| `tools/portable_archive.py` | 179 | `outgoing` |
+| `tools/portable_archive.py` | 180 | `chunk` |
+| `tools/portable_archive.py` | 181 | `total` |
+| `tools/portable_archive.py` | 186 | `source` |
+| `tools/portable_archive.py` | 188 | `bundle` |
+| `tools/portable_archive.py` | 190 | `path` |
+| `tools/runtime_notices.py` | 10 | `UPSTREAM_904` |
+| `tools/runtime_notices.py` | 22 | `read_tcl_notice(interpreter, path)` |
+| `tools/runtime_notices.py` | 27 | `channel` |
+| `tools/runtime_notices.py` | 29 | `code` |
+| `tools/runtime_notices.py` | 34 | `raw` |
+| `tools/runtime_notices.py` | 37 | `raw` |
+| `tools/runtime_notices.py` | 43 | `gui_notice(interpreter, root, kind, version, library, system)` |
+| `tools/runtime_notices.py` | 45 | `system` |
+| `tools/runtime_notices.py` | 58 | `path` |
+| `tools/runtime_notices.py` | 60 | `framework` |
+| `tools/runtime_notices.py` | 63 | `commit` |
+| `tools/runtime_notices.py` | 63 | `expected` |
+| `tools/runtime_notices.py` | 64 | `stream` |
+| `tools/runtime_notices.py` | 65 | `raw` |
+| `tools/runtime_notices.py` | 81 | `stream` |
+| `tools/runtime_notices.py` | 82 | `raw` |
+| `tools/runtime_notices.py` | 96 | `collect(root)` |
+| `tools/runtime_notices.py` | 100 | `window` |
+| `tools/runtime_notices.py` | 103 | `versions` |
+| `tools/runtime_notices.py` | 107 | `value` |
+| `tools/runtime_notices.py` | 109 | `blocks` |
+| `tools/runtime_notices.py` | 110 | `kind` |
+| `tools/runtime_notices.py` | 110 | `library` |
+| `tools/runtime_notices.py` | 110 | `version` |
+| `tools/runtime_notices.py` | 114 | `provenance` |
+| `tools/runtime_notices.py` | 114 | `raw` |
+| `tools/runtime_notices.py` | 120 | `names` |
+| `tools/runtime_notices.py` | 123 | `name` |
+| `tools/runtime_notices.py` | 124 | `info` |
+| `tools/runtime_notices.py` | 125 | `files` |
+| `tools/runtime_notices.py` | 127 | `path` |
+| `tools/runtime_notices.py` | 133 | `path` |
+| `tools/runtime_notices.py` | 134 | `stream` |
+| `tools/runtime_notices.py` | 135 | `raw` |
+| `tools/runtime_notices.py` | 139 | `raw` |
+| `tools/runtime_notices.py` | 139 | `title` |
 | `tools/serve_demo.py` | 20 | `main()` |
 | `tools/serve_demo.py` | 22 | `parser` |
 | `tools/serve_demo.py` | 24 | `args` |
@@ -636,6 +1106,58 @@ Function/class docstrings describe responsibility; this is navigation, not dead-
 | `tools/serve_demo.py` | 29 | `directory` |
 | `tools/serve_demo.py` | 30 | `app` |
 | `tools/serve_demo.py` | 32 | `role` |
+| `tools/smoke_app.py` | 22 | `ROOT` |
+| `tools/smoke_app.py` | 26 | `require(condition, message)` |
+| `tools/smoke_app.py` | 32 | `request(url, path)` |
+| `tools/smoke_app.py` | 34 | `target` |
+| `tools/smoke_app.py` | 43 | `connection` |
+| `tools/smoke_app.py` | 46 | `response` |
+| `tools/smoke_app.py` | 47 | `raw` |
+| `tools/smoke_app.py` | 57 | `main(argv)` |
+| `tools/smoke_app.py` | 62 | `parser` |
+| `tools/smoke_app.py` | 65 | `args` |
+| `tools/smoke_app.py` | 66 | `executable` |
+| `tools/smoke_app.py` | 67 | `expected` |
+| `tools/smoke_app.py` | 77 | `output` |
+| `tools/smoke_app.py` | 79 | `node` |
+| `tools/smoke_app.py` | 81 | `profile_directory` |
+| `tools/smoke_app.py` | 82 | `password` |
+| `tools/smoke_app.py` | 83 | `profile` |
+| `tools/smoke_app.py` | 84 | `expected_cookie` |
+| `tools/smoke_app.py` | 86 | `role` |
+| `tools/smoke_app.py` | 90 | `allowed` |
+| `tools/smoke_app.py` | 106 | `environment` |
+| `tools/smoke_app.py` | 106 | `key` |
+| `tools/smoke_app.py` | 106 | `value` |
+| `tools/smoke_app.py` | 115 | `diagnostic` |
+| `tools/smoke_app.py` | 124 | `lines` |
+| `tools/smoke_app.py` | 125 | `line` |
+| `tools/smoke_app.py` | 128 | `actual_runtime` |
+| `tools/smoke_app.py` | 131 | `key` |
+| `tools/smoke_app.py` | 135 | `process` |
+| `tools/smoke_app.py` | 145 | `events` |
+| `tools/smoke_app.py` | 146 | `log` |
+| `tools/smoke_app.py` | 148 | `read_output()` |
+| `tools/smoke_app.py` | 151 | `line` |
+| `tools/smoke_app.py` | 157 | `reader` |
+| `tools/smoke_app.py` | 159 | `actual_exit` |
+| `tools/smoke_app.py` | 159 | `forced` |
+| `tools/smoke_app.py` | 159 | `passed` |
+| `tools/smoke_app.py` | 159 | `url` |
+| `tools/smoke_app.py` | 161 | `deadline` |
+| `tools/smoke_app.py` | 163 | `remaining` |
+| `tools/smoke_app.py` | 165 | `line` |
+| `tools/smoke_app.py` | 168 | `ready` |
+| `tools/smoke_app.py` | 175 | `url` |
+| `tools/smoke_app.py` | 176 | `code` |
+| `tools/smoke_app.py` | 176 | `raw` |
+| `tools/smoke_app.py` | 222 | `actual_exit` |
+| `tools/smoke_app.py` | 228 | `target` |
+| `tools/smoke_app.py` | 230 | `connection` |
+| `tools/smoke_app.py` | 236 | `reopened` |
+| `tools/smoke_app.py` | 245 | `line` |
+| `tools/smoke_app.py` | 247 | `passed` |
+| `tools/smoke_app.py` | 255 | `forced` |
 | `ui/src/domain.test.ts` | 13 | `slot` |
 | `ui/src/domain.test.ts` | 16 | `slot` |
 | `ui/src/domain.test.ts` | 20 | `[charge, expected]` |
@@ -668,87 +1190,112 @@ Function/class docstrings describe responsibility; this is navigation, not dead-
 | `ui/src/domain.ts` | 143 | `errorMessage` |
 | `ui/src/domain.ts` | 143 | `status` |
 | `ui/src/domain.ts` | 143 | `detail` |
-| `ui/src/main.tsx` | 15 | `App` |
-| `ui/src/main.tsx` | 16 | `[user, setUser]` |
-| `ui/src/main.tsx` | 17 | `[workspace, setWorkspace]` |
-| `ui/src/main.tsx` | 18 | `[username, setUsername]` |
-| `ui/src/main.tsx` | 19 | `[password, setPassword]` |
-| `ui/src/main.tsx` | 20 | `[error, setError]` |
-| `ui/src/main.tsx` | 21 | `[message, setMessage]` |
-| `ui/src/main.tsx` | 22 | `[busy, setBusy]` |
-| `ui/src/main.tsx` | 23 | `[editor, setEditor]` |
-| `ui/src/main.tsx` | 24 | `[selected, setSelected]` |
-| `ui/src/main.tsx` | 25 | `[note, setNote]` |
-| `ui/src/main.tsx` | 26 | `[ack, setAck]` |
-| `ui/src/main.tsx` | 27 | `[connected, setConnected]` |
-| `ui/src/main.tsx` | 28 | `[needsRefresh, setNeedsRefresh]` |
-| `ui/src/main.tsx` | 29 | `[lostResource, setLostResource]` |
-| `ui/src/main.tsx` | 30 | `[contingency, setContingency]` |
-| `ui/src/main.tsx` | 33 | `api` |
-| `ui/src/main.tsx` | 34 | `path` |
-| `ui/src/main.tsx` | 35 | `method` |
-| `ui/src/main.tsx` | 36 | `data` |
-| `ui/src/main.tsx` | 37 | `session` |
-| `ui/src/main.tsx` | 39 | `response` |
-| `ui/src/main.tsx` | 48 | `body` |
-| `ui/src/main.tsx` | 60 | `refresh` |
-| `ui/src/main.tsx` | 60 | `session` |
-| `ui/src/main.tsx` | 61 | `data` |
-| `ui/src/main.tsx` | 66 | `latest` |
-| `ui/src/main.tsx` | 71 | `item` |
-| `ui/src/main.tsx` | 79 | `action` |
-| `ui/src/main.tsx` | 79 | `work` |
-| `ui/src/main.tsx` | 85 | `cause` |
-| `ui/src/main.tsx` | 94 | `session` |
-| `ui/src/main.tsx` | 101 | `online` |
-| `ui/src/main.tsx` | 102 | `offline` |
-| `ui/src/main.tsx` | 114 | `scenario` |
-| `ui/src/main.tsx` | 115 | `proposal` |
-| `ui/src/main.tsx` | 116 | `alternative` |
-| `ui/src/main.tsx` | 117 | `current` |
-| `ui/src/main.tsx` | 118 | `covered` |
-| `ui/src/main.tsx` | 120 | `disabled` |
-| `ui/src/main.tsx` | 211 | `event` |
-| `ui/src/main.tsx` | 214 | `session` |
-| `ui/src/main.tsx` | 230 | `event` |
-| `ui/src/main.tsx` | 240 | `event` |
-| `ui/src/main.tsx` | 315 | `event` |
-| `ui/src/main.tsx` | 324 | `item` |
-| `ui/src/main.tsx` | 325 | `item` |
-| `ui/src/main.tsx` | 334 | `item` |
-| `ui/src/main.tsx` | 335 | `item` |
-| `ui/src/main.tsx` | 350 | `[kind, resource]` |
-| `ui/src/main.tsx` | 351 | `result` |
-| `ui/src/main.tsx` | 389 | `gap` |
-| `ui/src/main.tsx` | 397 | `url` |
-| `ui/src/main.tsx` | 402 | `anchor` |
-| `ui/src/main.tsx` | 427 | `[key, label]` |
-| `ui/src/main.tsx` | 476 | `item` |
-| `ui/src/main.tsx` | 504 | `row` |
-| `ui/src/main.tsx` | 505 | `column` |
-| `ui/src/main.tsx` | 506 | `cell` |
-| `ui/src/main.tsx` | 507 | `task` |
-| `ui/src/main.tsx` | 508 | `item` |
-| `ui/src/main.tsx` | 541 | `event` |
-| `ui/src/main.tsx` | 546 | `item` |
-| `ui/src/main.tsx` | 546 | `index` |
-| `ui/src/main.tsx` | 580 | `hold` |
-| `ui/src/main.tsx` | 588 | `gap` |
-| `ui/src/main.tsx` | 620 | `item` |
-| `ui/src/main.tsx` | 641 | `craft` |
-| `ui/src/main.tsx` | 683 | `task` |
-| `ui/src/main.tsx` | 684 | `assignment` |
-| `ui/src/main.tsx` | 686 | `item` |
-| `ui/src/main.tsx` | 727 | `item` |
-| `ui/src/main.tsx` | 747 | `event` |
-| `ui/src/main.tsx` | 774 | `event` |
-| `ui/src/main.tsx` | 782 | `event` |
-| `ui/src/main.tsx` | 812 | `kind` |
-| `ui/src/main.tsx` | 819 | `templates` |
-| `ui/src/main.tsx` | 840 | `event` |
-| `ui/src/main.tsx` | 849 | `updated` |
-| `ui/src/main.tsx` | 866 | `item` |
-| `ui/src/main.tsx` | 882 | `item` |
+| `ui/src/env.d.ts` | 2 | `__APP_VERSION__` |
+| `ui/src/import_file.test.ts` | 11 | `value` |
+| `ui/src/import_file.test.ts` | 23 | `text` |
+| `ui/src/import_file.test.ts` | 34 | `incorrectMetadata` |
+| `ui/src/import_file.ts` | 2 | `MAX_IMPORT_BYTES` |
+| `ui/src/import_file.ts` | 5 | `objectFromText` |
+| `ui/src/import_file.ts` | 5 | `text` |
+| `ui/src/import_file.ts` | 8 | `value` |
+| `ui/src/import_file.ts` | 11 | `stack` |
+| `ui/src/import_file.ts` | 12 | `visited` |
+| `ui/src/import_file.ts` | 15 | `[node, depth]` |
+| `ui/src/import_file.ts` | 21 | `child` |
+| `ui/src/import_file.ts` | 27 | `readObjectFile` |
+| `ui/src/import_file.ts` | 28 | `file` |
+| `ui/src/import_file.ts` | 32 | `bytes` |
+| `ui/src/main.tsx` | 16 | `App` |
+| `ui/src/main.tsx` | 17 | `[user, setUser]` |
+| `ui/src/main.tsx` | 18 | `[workspace, setWorkspace]` |
+| `ui/src/main.tsx` | 19 | `[username, setUsername]` |
+| `ui/src/main.tsx` | 20 | `[password, setPassword]` |
+| `ui/src/main.tsx` | 21 | `[error, setError]` |
+| `ui/src/main.tsx` | 22 | `[message, setMessage]` |
+| `ui/src/main.tsx` | 23 | `[busy, setBusy]` |
+| `ui/src/main.tsx` | 24 | `[editor, setEditor]` |
+| `ui/src/main.tsx` | 25 | `[selected, setSelected]` |
+| `ui/src/main.tsx` | 26 | `[note, setNote]` |
+| `ui/src/main.tsx` | 27 | `[ack, setAck]` |
+| `ui/src/main.tsx` | 28 | `[connected, setConnected]` |
+| `ui/src/main.tsx` | 29 | `[needsRefresh, setNeedsRefresh]` |
+| `ui/src/main.tsx` | 30 | `[lostResource, setLostResource]` |
+| `ui/src/main.tsx` | 31 | `[contingency, setContingency]` |
+| `ui/src/main.tsx` | 32 | `editorRevision` |
+| `ui/src/main.tsx` | 35 | `api` |
+| `ui/src/main.tsx` | 36 | `path` |
+| `ui/src/main.tsx` | 37 | `method` |
+| `ui/src/main.tsx` | 38 | `data` |
+| `ui/src/main.tsx` | 39 | `session` |
+| `ui/src/main.tsx` | 41 | `response` |
+| `ui/src/main.tsx` | 50 | `body` |
+| `ui/src/main.tsx` | 62 | `refresh` |
+| `ui/src/main.tsx` | 62 | `session` |
+| `ui/src/main.tsx` | 64 | `data` |
+| `ui/src/main.tsx` | 69 | `latest` |
+| `ui/src/main.tsx` | 74 | `item` |
+| `ui/src/main.tsx` | 82 | `action` |
+| `ui/src/main.tsx` | 82 | `work` |
+| `ui/src/main.tsx` | 89 | `cause` |
+| `ui/src/main.tsx` | 96 | `importScenario` |
+| `ui/src/main.tsx` | 96 | `file` |
+| `ui/src/main.tsx` | 98 | `requested` |
+| `ui/src/main.tsx` | 102 | `value` |
+| `ui/src/main.tsx` | 104 | `scenario` |
+| `ui/src/main.tsx` | 107 | `formatted` |
+| `ui/src/main.tsx` | 115 | `cause` |
+| `ui/src/main.tsx` | 127 | `session` |
+| `ui/src/main.tsx` | 134 | `online` |
+| `ui/src/main.tsx` | 135 | `offline` |
+| `ui/src/main.tsx` | 147 | `scenario` |
+| `ui/src/main.tsx` | 148 | `proposal` |
+| `ui/src/main.tsx` | 149 | `alternative` |
+| `ui/src/main.tsx` | 150 | `current` |
+| `ui/src/main.tsx` | 151 | `covered` |
+| `ui/src/main.tsx` | 153 | `disabled` |
+| `ui/src/main.tsx` | 244 | `event` |
+| `ui/src/main.tsx` | 247 | `session` |
+| `ui/src/main.tsx` | 263 | `event` |
+| `ui/src/main.tsx` | 273 | `event` |
+| `ui/src/main.tsx` | 348 | `event` |
+| `ui/src/main.tsx` | 357 | `item` |
+| `ui/src/main.tsx` | 358 | `item` |
+| `ui/src/main.tsx` | 367 | `item` |
+| `ui/src/main.tsx` | 368 | `item` |
+| `ui/src/main.tsx` | 383 | `[kind, resource]` |
+| `ui/src/main.tsx` | 384 | `result` |
+| `ui/src/main.tsx` | 422 | `gap` |
+| `ui/src/main.tsx` | 430 | `url` |
+| `ui/src/main.tsx` | 435 | `anchor` |
+| `ui/src/main.tsx` | 460 | `[key, label]` |
+| `ui/src/main.tsx` | 509 | `item` |
+| `ui/src/main.tsx` | 537 | `row` |
+| `ui/src/main.tsx` | 538 | `column` |
+| `ui/src/main.tsx` | 539 | `cell` |
+| `ui/src/main.tsx` | 540 | `task` |
+| `ui/src/main.tsx` | 541 | `item` |
+| `ui/src/main.tsx` | 574 | `event` |
+| `ui/src/main.tsx` | 579 | `item` |
+| `ui/src/main.tsx` | 579 | `index` |
+| `ui/src/main.tsx` | 613 | `hold` |
+| `ui/src/main.tsx` | 621 | `gap` |
+| `ui/src/main.tsx` | 653 | `item` |
+| `ui/src/main.tsx` | 674 | `craft` |
+| `ui/src/main.tsx` | 721 | `task` |
+| `ui/src/main.tsx` | 722 | `assignment` |
+| `ui/src/main.tsx` | 724 | `item` |
+| `ui/src/main.tsx` | 765 | `item` |
+| `ui/src/main.tsx` | 785 | `event` |
+| `ui/src/main.tsx` | 812 | `event` |
+| `ui/src/main.tsx` | 819 | `event` |
+| `ui/src/main.tsx` | 849 | `kind` |
+| `ui/src/main.tsx` | 856 | `templates` |
+| `ui/src/main.tsx` | 877 | `event` |
+| `ui/src/main.tsx` | 878 | `file` |
+| `ui/src/main.tsx` | 890 | `event` |
+| `ui/src/main.tsx` | 905 | `updated` |
+| `ui/src/main.tsx` | 922 | `item` |
+| `ui/src/main.tsx` | 938 | `item` |
 | `tests/browser/contingency.spec.ts` | 6 | `signIn` |
 | `tests/browser/contingency.spec.ts` | 6 | `page` |
 | `tests/browser/contingency.spec.ts` | 6 | `role` |
@@ -757,6 +1304,32 @@ Function/class docstrings describe responsibility; this is navigation, not dead-
 | `tests/browser/contingency.spec.ts` | 40 | `pending` |
 | `tests/browser/contingency.spec.ts` | 44 | `path` |
 | `tests/browser/contingency.spec.ts` | 45 | `saved` |
+| `tests/browser/import.spec.ts` | 6 | `Window` |
+| `tests/browser/import.spec.ts` | 13 | `login` |
+| `tests/browser/import.spec.ts` | 13 | `page` |
+| `tests/browser/import.spec.ts` | 13 | `role` |
+| `tests/browser/import.spec.ts` | 25 | `{ page, }` |
+| `tests/browser/import.spec.ts` | 29 | `original` |
+| `tests/browser/import.spec.ts` | 30 | `scenario` |
+| `tests/browser/import.spec.ts` | 37 | `input` |
+| `tests/browser/import.spec.ts` | 38 | `editor` |
+| `tests/browser/import.spec.ts` | 51 | `retained` |
+| `tests/browser/import.spec.ts` | 52 | `buffer` |
+| `tests/browser/import.spec.ts` | 71 | `{ page, }` |
+| `tests/browser/import.spec.ts` | 79 | `original` |
+| `tests/browser/import.spec.ts` | 83 | `resolve` |
+| `tests/browser/import.spec.ts` | 83 | `reject` |
+| `tests/browser/import.spec.ts` | 90 | `input` |
+| `tests/browser/import.spec.ts` | 91 | `editor` |
+| `tests/browser/import.spec.ts` | 92 | `before` |
+| `tests/browser/import.spec.ts` | 93 | `older` |
+| `tests/browser/import.spec.ts` | 94 | `newer` |
+| `tests/browser/import.spec.ts` | 95 | `hold` |
+| `tests/browser/import.spec.ts` | 130 | `{ page, }` |
+| `tests/browser/import.spec.ts` | 142 | `{ page, }` |
+| `tests/browser/import.spec.ts` | 168 | `region` |
+| `tests/browser/import.spec.ts` | 176 | `element` |
+| `tests/browser/import.spec.ts` | 181 | `element` |
 | `tests/browser/workspace.spec.ts` | 7 | `login` |
 | `tests/browser/workspace.spec.ts` | 7 | `page` |
 | `tests/browser/workspace.spec.ts` | 7 | `role` |
@@ -769,11 +1342,42 @@ Function/class docstrings describe responsibility; this is navigation, not dead-
 | `tests/browser/workspace.spec.ts` | 81 | `report` |
 | `tests/browser/workspace.spec.ts` | 85 | `{ page, }` |
 | `tests/browser/workspace.spec.ts` | 96 | `editor` |
-| `tests/browser/workspace.spec.ts` | 97 | `scenario` |
-| `tests/browser/workspace.spec.ts` | 117 | `{ page, baseURL, }` |
-| `tests/browser/workspace.spec.ts` | 169 | `{ page, context, }` |
-| `tests/browser/workspace.spec.ts` | 173 | `errors` |
-| `tests/browser/workspace.spec.ts` | 174 | `error` |
+| `tests/browser/workspace.spec.ts` | 100 | `scenario` |
+| `tests/browser/workspace.spec.ts` | 120 | `{ page, baseURL, }` |
+| `tests/browser/workspace.spec.ts` | 172 | `{ page, context, }` |
+| `tests/browser/workspace.spec.ts` | 176 | `errors` |
+| `tests/browser/workspace.spec.ts` | 177 | `error` |
+| `tools/native_feature_smoke.mjs` | 8 | `[base, output]` |
+| `tools/native_feature_smoke.mjs` | 10 | `origin` |
+| `tools/native_feature_smoke.mjs` | 11 | `browser` |
+| `tools/native_feature_smoke.mjs` | 12 | `context` |
+| `tools/native_feature_smoke.mjs` | 17 | `page` |
+| `tools/native_feature_smoke.mjs` | 18 | `errors` |
+| `tools/native_feature_smoke.mjs` | 19 | `external` |
+| `tools/native_feature_smoke.mjs` | 20 | `error` |
+| `tools/native_feature_smoke.mjs` | 21 | `request` |
+| `tools/native_feature_smoke.mjs` | 30 | `login` |
+| `tools/native_feature_smoke.mjs` | 30 | `role` |
+| `tools/native_feature_smoke.mjs` | 44 | `signOut` |
+| `tools/native_feature_smoke.mjs` | 45 | `response` |
+| `tools/native_feature_smoke.mjs` | 46 | `response` |
+| `tools/native_feature_smoke.mjs` | 58 | `download` |
+| `tools/native_feature_smoke.mjs` | 58 | `name` |
+| `tools/native_feature_smoke.mjs` | 59 | `event` |
+| `tools/native_feature_smoke.mjs` | 61 | `file` |
+| `tools/native_feature_smoke.mjs` | 71 | `original` |
+| `tools/native_feature_smoke.mjs` | 75 | `scenario` |
+| `tools/native_feature_smoke.mjs` | 94 | `elements` |
+| `tools/native_feature_smoke.mjs` | 95 | `element` |
+| `tools/native_feature_smoke.mjs` | 97 | `label` |
+| `tools/native_feature_smoke.mjs` | 112 | `notSaved` |
+| `tools/native_feature_smoke.mjs` | 131 | `saved` |
+| `tools/native_feature_smoke.mjs` | 138 | `beforeInvalid` |
+| `tools/native_feature_smoke.mjs` | 184 | `reviewed` |
+| `tools/native_feature_smoke.mjs` | 205 | `allocationRegion` |
+| `tools/native_feature_smoke.mjs` | 213 | `element` |
+| `tools/native_feature_smoke.mjs` | 218 | `element` |
+| `tools/native_feature_smoke.mjs` | 237 | `cookies` |
 | `tools/source_index.mjs` | 7 | `collect` |
 | `tools/source_index.mjs` | 7 | `root` |
 | `tools/source_index.mjs` | 10 | `a` |
@@ -789,6 +1393,7 @@ Function/class docstrings describe responsibility; this is navigation, not dead-
 | `tools/source_index.mjs` | 44 | `name` |
 | `tools/source_index.mjs` | 48 | `line` |
 | `tools/source_index.mjs` | 59 | `row` |
+| `vite.config.ts` | 5 | `version` |
 | `playwright.config.ts` | 4 | `localPython` |
 | `playwright.config.ts` | 8 | `python` |
 | `playwright.config.ts` | 24 | `port` |

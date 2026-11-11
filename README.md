@@ -36,9 +36,13 @@ is excluded. Refresh clears the comparison. See [validation and limits](docs/rep
 
 TypeScript/React handles typed browser interactions; Python handles strict input validation, bounded combinatorial search and HTTP orchestration; SQL handles transactional persistent state. No language is included merely to inflate the language count. There is no LLM in the decision path: constraints and objectives are deterministic and explainable.
 
+## Complete desktop application candidate
+
+The 0.2.0 source includes the complete authenticated application, native **profile / first-account / staff / Open / Quit** controls, private persistent profiles and real JSON-file draft import/export. It packages patched Python3.14.10 and actual Tcl/Tk with their notices; no Python/Node installation is required for an extracted release. Prepared examples stay inside the original full application. See [desktop usage, trust boundary and reproducible package validation](docs/DESKTOP.md) and [dated candidate results](docs/reports/DESKTOP_CANDIDATE_20261110.md). This is a source candidate until exact-source hosted acceptance and publication finish; earlier documentation remains tied to its original revision.
+
 ## Quick start: disposable local demo
 
-Prerequisites: Python 3.12–3.14, Node 24, npm, Git. Dependency downloads require internet; normal runtime does not. Commands below work from this repository in PowerShell; on macOS/Linux replace `.venv/Scripts/python` with `.venv/bin/python`.
+Prerequisites: Python 3.12â€“3.14, Node 24, npm, Git. Dependency downloads require internet; normal runtime does not. Commands below work from this repository in PowerShell; on macOS/Linux replace `.venv/Scripts/python` with `.venv/bin/python`.
 
 ```powershell
 python -m venv .venv
@@ -90,7 +94,7 @@ npm run test:e2e
 
 On POSIX use `COORD_PYTHON="$PWD/.venv/bin/python" npm run test:e2e`. CI also installs Linux browser system dependencies. The required npm dependency gate runs Google's official **OSV-Scanner v2.7.0**, downloads only a fixed vendor release, verifies its pinned SHA256 before execution, scans live advisories, independently checks coverage of every resolved lockfile identity, and fails on **any finding** or incomplete/unavailable scan. The explicit scanner configuration has no ignores. Install-time `--no-audit` avoids redundant incidental requests; it does not disable this required security scan. Python dependencies are separately audited with pip-audit. The additional `npm run audit` diagnostic remains available with bounded, fail-closed retries; npm's own advisory endpoint may be unavailable even when the independent OSV scan succeeds. See the recorded outage and provider distinction in [validation](docs/VALIDATION.md).
 
-Coverage gates: backend ≥90% branch-aware over `coordinator/` excluding only the interactive CLI; TypeScript pure helper statements/functions/lines ≥95%, branches ≥90%. Browser coverage is behavioral, not a claim that all UI branches have instrumentation coverage. See [test design](docs/TESTING.md) and [Actions](https://github.com/JasonStys/first-response-drone-coordinator/actions).
+Coverage gates: backend â‰¥90% branch-aware over `coordinator/` excluding only the interactive CLI; TypeScript pure helper statements/functions/lines â‰¥95%, branches â‰¥90%. Browser coverage is behavioral, not a claim that all UI branches have instrumentation coverage. See [test design](docs/TESTING.md) and [Actions](https://github.com/JasonStys/first-response-drone-coordinator/actions).
 
 ## Code and file navigation
 
@@ -122,4 +126,4 @@ Original code developed with AI assistance and verified through reproducible aut
 
 Start with the [organized handbook](docs/handbook.md) for current usage, design, security and test guidance. Reviewed downloadable editions: [project-guide.docx](docs/reports/project-guide.docx).
 
-[Publication identities and source scope](docs/reports/publications.json) · [Documentation validation record](docs/reports/documentation-refresh-2026-11-09.md). Historical results retain their own tested revision and date.
+[Publication identities and source scope](docs/reports/publications.json) Â· [Documentation validation record](docs/reports/documentation-refresh-2026-11-09.md). Historical results retain their own tested revision and date.

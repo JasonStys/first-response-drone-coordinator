@@ -93,7 +93,10 @@ test("templates, schema rejection, resource outage and injection-safe rendering"
   await expect(
     page.getByRole("heading", { name: "Flood assessment exercise" }),
   ).toBeVisible();
-  const editor = page.getByLabel("Scenario JSON");
+  const editor = page.getByRole("textbox", {
+    name: "Scenario JSON",
+    exact: true,
+  });
   const scenario = JSON.parse(await editor.inputValue());
   await editor.fill(JSON.stringify({ ...scenario, horizon: 1000 }));
   await page.getByRole("button", { name: "Save scenario revision" }).click();
