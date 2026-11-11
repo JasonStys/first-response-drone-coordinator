@@ -1,6 +1,7 @@
 """Jason Stys: collect real runtime license notices, including DLL-embedded Tcl/Tk9 libraries. Lines: docs/SOURCE_MAP.md."""
 
 import hashlib
+import platform
 import re
 import sys
 from importlib.metadata import distribution
@@ -66,6 +67,25 @@ def gui_notice(interpreter, root: Path, kind: str, version: str, library: str, s
             raise ValueError("Exact upstream Tcl/Tk9.0.4 notice digest mismatch")
         return (
             f"verbatim upstream9.0.4 notice: https://github.com/tcltk/{kind.lower()}/blob/{commit}/license.terms",
+            raw,
+        )
+    if (
+        system == "darwin"
+        and kind == "Tk"
+        and version == "9.0.5"
+        and library == framework
+        and platform.python_version() == "3.14.10"
+    ):
+        # PSF's exact3.14.10 Mac recipe uses this prerelease Tk to fix the macOS dialog hang.
+        # Archive SHA51ea4221... was independently verified; do not label this a stable9.0.5 release.
+        with (root / "licenses/TK-9.0.5-pre-33904f039f48ed64.txt").open("rb") as stream:
+            raw = stream.read(65537)
+        if not 100 <= len(raw) <= 65536 or hashlib.sha256(raw).hexdigest() != UPSTREAM_904["Tk"][1]:
+            raise ValueError("Exact PSF Mac3.14.10 prerelease Tk notice digest mismatch")
+        return (
+            "verbatim Tk9.0.5-pre-33904f039f48ed64 source notice from PSF Mac3.14.10 recipe: "
+            "https://core.tcl-lang.org/tk/tarball/33904f039f48ed64/tk9.0.5.tar.gz "
+            "archive SHA25651ea4221578b994ec7768df9165c6682eef487a148a15003a74135c33cab35b5",
             raw,
         )
     raise ValueError(

@@ -113,3 +113,33 @@ def test_present_invalid_runtime_notice_never_falls_back_to_other_terms(tmp_path
     (tmp_path / "license.terms").write_bytes(b"invalid")
     with pytest.raises(ValueError, match="byte bound"):
         notices.gui_notice(interpreter, ROOT, "Tcl", "9.0.4", str(tmp_path), "darwin")
+
+
+@pytest.mark.parametrize("python_version,accepted", [("3.14.10", True), ("3.14.11", False)])
+def test_mac_pre905_terms_require_exact_psf_sdk_recipe(
+    tmp_path, monkeypatch, interpreter, python_version, accepted
+):
+    """An actual9.0.5 patch string alone cannot authorize these prerelease source terms on future Python SDKs."""
+    monkeypatch.setattr(notices.platform, "python_version", lambda: python_version)
+    library = "/Library/Frameworks/Python.framework/Versions/3.14/Frameworks/Tk.framework/Versions/9.0/Resources/Scripts"
+    name = "TK-9.0.5-pre-33904f039f48ed64.txt"
+    (tmp_path / "licenses").mkdir()
+    (tmp_path / "licenses" / name).write_bytes((ROOT / "licenses" / name).read_bytes())
+    if accepted:
+        source, raw = notices.gui_notice(interpreter, tmp_path, "Tk", "9.0.5", library, "darwin")
+        assert "Tk9.0.5-pre-33904f039f48ed64" in source and "SHA25651ea4221" in source
+        assert raw == (ROOT / "licenses" / name).read_bytes()
+    else:
+        with pytest.raises(ValueError, match="No reviewed notice"):
+            notices.gui_notice(interpreter, tmp_path, "Tk", "9.0.5", library, "darwin")
+
+
+def test_mac_pre905_changed_notice_is_rejected(tmp_path, monkeypatch, interpreter):
+    """The exact old Mac recipe cannot bless modified notice bytes even when its displayed patchlevel matches."""
+    monkeypatch.setattr(notices.platform, "python_version", lambda: "3.14.10")
+    (tmp_path / "licenses").mkdir()
+    path = tmp_path / "licenses/TK-9.0.5-pre-33904f039f48ed64.txt"
+    path.write_bytes((ROOT / "licenses" / path.name).read_bytes() + b"tamper")
+    library = "/Library/Frameworks/Python.framework/Versions/3.14/Frameworks/Tk.framework/Versions/9.0/Resources/Scripts"
+    with pytest.raises(ValueError, match="prerelease Tk notice digest"):
+        notices.gui_notice(interpreter, tmp_path, "Tk", "9.0.5", library, "darwin")

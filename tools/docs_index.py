@@ -26,6 +26,7 @@ EXCLUDE = {
     "playwright-report",
 }
 DESCRIPTIONS = {
+    "licenses/TK-9.0.5-pre-33904f039f48ed64.txt": "Verbatim archive-hash-verified prerelease Tk terms for the exact official Python3.14.10 Mac installer recipe.",
     "licenses/TCL-9.0.4.txt": "Verbatim exact official Tcl9.0.4 source notice with immutable provenance and digest-bound Mac SDK use.",
     "licenses/TK-9.0.4.txt": "Verbatim exact official Tk9.0.4 source notice with immutable provenance and digest-bound Mac SDK use.",
     "licenses/PYTHON.txt": "Official Python3.14.10 runtime license terms retained with the portable application.",
