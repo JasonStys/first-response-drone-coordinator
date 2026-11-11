@@ -68,7 +68,9 @@ def gui_notice(interpreter, root: Path, kind: str, version: str, library: str, s
             f"verbatim upstream9.0.4 notice: https://github.com/tcltk/{kind.lower()}/blob/{commit}/license.terms",
             raw,
         )
-    raise ValueError("No reviewed notice source for the actual loaded GUI runtime")
+    raise ValueError(
+        f"No reviewed notice source for the actual loaded GUI runtime: {kind} {version} {library}"
+    )
 
 
 def collect(root: Path) -> tuple[dict, bytes]:

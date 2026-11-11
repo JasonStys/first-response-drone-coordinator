@@ -40,6 +40,20 @@ async function login(role) {
   ).toBeEnabled();
 }
 
+/** Complete real server revocation before navigating roles; a button click alone is not completion. */
+async function signOut() {
+  const response = page.waitForResponse(
+    (response) =>
+      new URL(response.url()).pathname === "/api/logout" &&
+      response.request().method() === "POST",
+  );
+  await page.getByRole("button", { name: "Sign out", exact: true }).click();
+  assert.equal((await response).status(), 200);
+  await expect(
+    page.getByRole("button", { name: "Sign in", exact: true }),
+  ).toBeEnabled();
+}
+
 /** Inspect actual browser-downloaded JSON rather than a fabricated endpoint response. */
 async function download(name) {
   const event = page.waitForEvent("download");
@@ -148,7 +162,7 @@ try {
     path: path.join(output, "01-imported-resource-plan.png"),
     fullPage: true,
   });
-  await page.getByRole("button", { name: "Sign out" }).click();
+  await signOut();
   await login("reviewer");
   await expect(
     page.getByLabel("Open scenario JSON", { exact: true }),
@@ -176,7 +190,7 @@ try {
     .screenshot({
       path: path.join(output, "02-independent-planning-review.png"),
     });
-  await page.getByRole("button", { name: "Sign out" }).click();
+  await signOut();
   await login("observer");
   await expect(
     page.getByRole("button", { name: "Generate alternatives" }),
