@@ -26,6 +26,9 @@ EXCLUDE = {
     "playwright-report",
 }
 DESCRIPTIONS = {
+    "docs/reports/windows-application-guide-0.2.1.docx": "Peer-reviewed current installed application Word guide with real screenshots and immutable source.",
+    "docs/reports/windows-application-guide-0.2.1.json": "Exact current document, image, source and reviewed-page identities.",
+    "docs/reports/installed-windows-0.2.1-2026-11-11.md": "Observed installed and same-profile upgrade results with operating limits.",
     "docs/reports/NATIVE_CODEQL_20261111.md": "Dated actual CodeQL quality corrections, local tests and exact-source release limits.",
     "licenses/TK-9.0.5-pre-33904f039f48ed64.txt": "Verbatim archive-hash-verified prerelease Tk terms for the exact official Python3.14.10 Mac installer recipe.",
     "licenses/TCL-9.0.4.txt": "Verbatim exact official Tcl9.0.4 source notice with immutable provenance and digest-bound Mac SDK use.",
@@ -63,26 +66,43 @@ DESCRIPTIONS = {
 
 def public_text(path: Path) -> str:
     """Inspect all XML/relationships in the one authored Word path; unknown binary files still fail closed."""
-    if path.relative_to(ROOT).as_posix() != "docs/reports/project-guide.docx":
+    if path.relative_to(ROOT).as_posix() not in {
+        "docs/reports/project-guide.docx",
+        "docs/reports/windows-application-guide-0.2.1.docx",
+    }:
         return path.read_text(encoding="utf-8")
-    with ZipFile(path) as package:
-        members = package.infolist()
-        names = [member.filename for member in members]
-        if (
-            len(members) > 256
-            or len(set(names)) != len(names)
-            or sum(member.file_size for member in members) > 8 * 1024 * 1024
-            or "word/document.xml" not in names
-            or "[Content_Types].xml" not in names
-            or any("vbaProject" in item or item.startswith("word/embeddings/") for item in names)
-        ):
-            raise ValueError("Invalid or unsupported reviewed Word package")
-        inspected = [member for member in members if member.filename.endswith((".xml", ".rels"))]
-        if sum(member.file_size for member in inspected) > 2 * 1024 * 1024:
-            raise ValueError("Reviewed Word XML exceeds inspection budget")
-        if package.testzip() is not None:
-            raise ValueError("Reviewed Word package integrity failed")
-        return "\n".join(package.read(member).decode("utf-8") for member in inspected)
+    with path.open("rb") as source:
+        if os.fstat(source.fileno()).st_size > 20 * 1024 * 1024:
+            raise ValueError("Reviewed Word package exceeds physical byte budget")
+        with ZipFile(source) as package:
+            members = package.infolist()
+            names = [member.filename for member in members]
+            if (
+                len(members) > 256
+                or len(set(names)) != len(names)
+                or sum(member.file_size for member in members) > 8 * 1024 * 1024
+                or "word/document.xml" not in names
+                or "[Content_Types].xml" not in names
+                or any(
+                    "vbaProject" in item or item.startswith("word/embeddings/") for item in names
+                )
+            ):
+                raise ValueError("Invalid or unsupported reviewed Word package")
+            inspected = [
+                member for member in members if member.filename.endswith((".xml", ".rels"))
+            ]
+            if sum(member.file_size for member in inspected) > 2 * 1024 * 1024:
+                raise ValueError("Reviewed Word XML exceeds inspection budget")
+            if package.testzip() is not None:
+                raise ValueError("Reviewed Word package integrity failed")
+            result = []
+            for member in inspected:
+                with package.open(member) as stream:
+                    payload = stream.read(2 * 1024 * 1024 + 1)
+                if len(payload) > 2 * 1024 * 1024 or len(payload) != member.file_size:
+                    raise ValueError("Reviewed Word XML exceeds actual byte budget")
+                result.append(payload.decode("utf-8", errors="strict"))
+            return "\n".join(result)
 
 
 def files():

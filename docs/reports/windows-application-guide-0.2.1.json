@@ -1,0 +1,81 @@
+{
+  "schema": 1,
+  "repository": "first-response-drone-coordinator",
+  "runtimeVersion": "0.2.1",
+  "runtimeSource": "1f520a511b6f539f2fd85df8c95042a42b1ced48",
+  "createdAt": "2026-11-11T15:23:52.547Z",
+  "author": "Jason Stys",
+  "document": "windows-application-guide-0.2.1.docx",
+  "sha256": "51acac588e6a6dba1c52d1121b2ed7b6f9d16e0dc51926e139dfe43908c2b113",
+  "screenshots": [
+    {
+      "file": "01-imported-resource-plan-focused.png",
+      "sha256": "3a1a08fb42010c2692ad2bd7726cbb665362b620e9b8d7dd368a85bff217a0d3",
+      "width": 1294,
+      "height": 357,
+      "caption": "The installed coordinator's retained task-allocation table for the imported fictional scenario."
+    },
+    {
+      "file": "02-independent-planning-review.png",
+      "sha256": "67296a6ef399b7240e62a78b1bc6e33b89e706343fdbb62cbb6c72e76a3137e0",
+      "width": 1340,
+      "height": 171,
+      "caption": "A separate reviewer inspects retained planning evidence in the same local staff application."
+    }
+  ],
+  "snippets": [
+    {
+      "file": "coordinator/contingency.py",
+      "first": 11,
+      "last": 31,
+      "sha256": "e2353299319007e665a6d85376fd3dd0086746962d338afc211aba0042169876",
+      "url": "https://github.com/JasonStys/first-response-drone-coordinator/blob/1f520a511b6f539f2fd85df8c95042a42b1ced48/coordinator/contingency.py#L11"
+    }
+  ],
+  "observedTests": [
+    {
+      "name": "Real native workflows",
+      "observed": "The complete original installed consumer passed domain inputs, real results, refusal, role boundaries and exact exports. Both launches exited normally.",
+      "result": "Passed"
+    },
+    {
+      "name": "Actual same-profile upgrade",
+      "observed": "Installed 0.2.0 created and edited the fixture; 0.2.1 reopened the same profile/password across all 3 roles, with retained records and normal exits.",
+      "result": "Passed"
+    },
+    {
+      "name": "Distribution identity",
+      "observed": "Both downloaded assets matched provider hashes; all 120 installed files stayed unchanged. Exact-main workflows and processed raw CodeQL passed.",
+      "result": "Verified"
+    },
+    {
+      "name": "PC scope",
+      "observed": "New per-user version folder and individual links verified. Synthetic profiles only; existing data and Docker were not used or changed.",
+      "result": "Verified"
+    }
+  ],
+  "visualReview": {
+    "approved": true,
+    "reviewer": "audit_space_drone",
+    "ooxmlSchema": "passed",
+    "pages": [
+      {
+        "page": 1,
+        "sha256": "0a278e279878a38cf4eff381cb7a98658e5de8379b02d8c84ae5b81f41d5150b"
+      },
+      {
+        "page": 2,
+        "sha256": "9437b39db1739338953c4c8516c2d5187e76fb715dc0541e9095b4d57efbbc2e"
+      },
+      {
+        "page": 3,
+        "sha256": "19ba11aff47520948acc97a84470b1b817eb0c9853a0a477c541bf21ee367122"
+      },
+      {
+        "page": 4,
+        "sha256": "14c1c6c3d8bd683505b0609bd8e70eabcea01638b9236764d6793595ca0a1d43"
+      }
+    ],
+    "scope": "All four final pages individually viewed; actual installed synthetic screenshots and immutable-source snippets; earlier editions retained."
+  }
+}
